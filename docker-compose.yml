@@ -1,0 +1,19 @@
+services:
+  hexamapper:
+    image: nginx:alpine
+    container_name: hexamapper
+    volumes:
+      - .:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.hexamapper.rule=Host(`hexamapper.localhost`)"
+      - "traefik.http.routers.hexamapper.entrypoints=web-secure"
+      - "traefik.http.routers.hexamapper.tls=true"
+      - "traefik.networks=web"
+    networks:
+      - web
+
+networks:
+  web:
+    external: true

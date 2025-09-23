@@ -1,0 +1,135 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#layout {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+}
+#zoom-controls button {
+  min-width: 32px;
+  height: 32px;
+  font-size: 1.2em;
+  padding: 0 8px;
+  margin: 0;
+}
+
+#sidebar {
+  width: 260px;
+  background: #e3e3e3;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#sidebar h2 {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+#sidebar label, #sidebar button {
+  margin-bottom: 10px;
+  display: block;
+}
+
+#zoom-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  width: 100%;
+  justify-content: flex-start;
+}
+#zoom-controls button {
+  min-width: 32px;
+  height: 32px;
+  font-size: 1.2em;
+  padding: 0 8px;
+  margin: 0;
+}
+#zoom-level {
+  min-width: 32px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 16px;
+  
+  button {
+    font-size: 1em;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    background: #f7f7f7;
+    cursor: pointer;
+    transition: background 0.2s;
+    aspect-ratio: 1 / 1;
+    width: 32px;
+  }
+  button:hover {
+    background: #e0e0e0;
+  }
+}
+
+#main-area {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  height: 100vh;
+  min-width: 0;
+}
+
+canvas {
+  background: #fff;
+  border: 1px solid #ccc;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+#icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.icon-btn {
+  width: 56px;
+  height: 56px;
+  border: 2px solid #bbb;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border 0.2s;
+}
+.icon-btn.selected {
+  border: 2px solid #1976d2;
+}
+.icon-btn img {
+  max-width: 40px;
+  max-height: 40px;
+}

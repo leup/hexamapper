@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hexamapper - Éditeur de cartes hexagonales</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="layout">
+    <aside id="sidebar">
+      <h2>Options de la grille</h2>
+      <div id="zoom-controls">
+        <button id="zoom-out" title="Dézoomer">🔍-</button>
+        <span id="zoom-level">32</span>
+        <button id="zoom-in" title="Zoomer">🔍+</button>
+        <button id="zoom-reset" title="Remise à zéro">⟳</button>
+      </div>
+      <div id="toolbar">
+        <button id="generate-grid" title="Générer la grille">𖣯</button>
+        <button id="reset-grid" title="Réinitialiser la grille">🧹</button>
+        <button id="save-map" title="Sauvegarder la carte">💾</button>
+        <button id="import-map" title="Importer une carte">📂</button>
+        <button id="export-image" title="Exporter en image">🖼️</button>
+        <input type="file" id="import-file" style="display:none">
+      </div>
+      <label>Largeur : <input type="number" id="grid-width" min="1" value="10"></label>
+      <label>Hauteur : <input type="number" id="grid-height" min="1" value="10"></label>
+      <label>Point de référence :
+        <select id="resize-anchor">
+          <option value="center">Centre</option>
+          <option value="top-left">Haut gauche</option>
+          <option value="top">Haut centre</option>
+          <option value="top-right">Haut droite</option>
+          <option value="left">Centre gauche</option>
+          <option value="right">Centre droite</option>
+          <option value="bottom-left">Bas gauche</option>
+          <option value="bottom">Bas centre</option>
+          <option value="bottom-right">Bas droite</option>
+        </select>
+      </label>
+      <input type="file" id="import-file" style="display:none">
+  <label>Image de fond : <input type="file" id="bg-file" accept="image/*"></label>
+      <h2>Type de terrain</h2>
+      <div id="icon-grid"></div>
+    </aside>
+    <main id="main-area">
+      <canvas id="hex-canvas"></canvas>
+    </main>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
