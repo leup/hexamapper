@@ -150,6 +150,9 @@ importFileInput.addEventListener("change", (e) => {
           grid: json,
         };
         console.log("Ancien format détecté, conversion en objet map :", map);
+      } else {
+        // todo: add a version tag in the future
+        map = json;
       }
 
       // Met à jour les inputs de taille
