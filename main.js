@@ -4,113 +4,23 @@
 const LOCAL_STORAGE_KEY = "hexamapper_autosave";
 let saveFileName = "hexamap.json";
 let HEX_SIZE = 32;
-let grid = [];
-let isMouseDown = false;
+let defaultGridSize = 10;
 let selectedIcon = null;
 let backgroundImage = null;
-let defaultBackgroundImage = null;
 
-function hexToPixel(q, r) {
-  const x = HEX_SIZE * 1.5 * q + HEX_SIZE;
-  const y = HEX_SIZE * Math.sqrt(3) * (r + 0.5 * (q % 2)) + HEX_SIZE;
-  return { x, y };
-}
+let map = {
+  name: "My HexaMap",
+  width: 0,
+  height: 0,
+  start: 0,
+  grid: [],
+};
 
-function pixelToHex(x, y) {
-  const q = Math.round((x - HEX_SIZE) / (HEX_SIZE * 1.5));
-  const y_offset = HEX_SIZE * Math.sqrt(3) * 0.5 * (q % 2);
-  const r = Math.round((y - HEX_SIZE - y_offset) / (HEX_SIZE * Math.sqrt(3)));
-  if (q < 0 || r < 0 || r >= grid.length || q >= grid[0].length) return null;
-  return { q, r };
-}
+let grid = Grid({
+  hexSize: HEX_SIZE,
+});
 
-function updateZoomDisplay() {
-  zoomLevelSpan.textContent = HEX_SIZE;
-}
-
-// ===============================
-// 2. Dessin de la grille et des hexagones
-// ===============================
 const canvas = document.getElementById("hex-canvas");
-const ctx = canvas.getContext("2d");
-
-function drawHex(x, y, iconName) {
-  //console.log(`Dessin de l’hexagone en (${x}, ${y}) avec l’icône ${iconName}`);
-  // Dessine le contour hexagonal
-  const angle = Math.PI / 3;
-  ctx.save();
-  ctx.beginPath();
-  for (let i = 0; i < 6; i++) {
-    const dx = x + HEX_SIZE * Math.cos(angle * i);
-    const dy = y + HEX_SIZE * Math.sin(angle * i);
-    if (i === 0) ctx.moveTo(dx, dy);
-    else ctx.lineTo(dx, dy);
-  }
-  ctx.closePath();
-  ctx.clip();
-  // Dessine l’image centrée et adaptée à la forme hexagonale
-  //console.log("Icon name:", iconName);
-  //console.log("Icon image object:", iconImages[iconName]);
-  const img = iconName ? iconImages[iconName] : null;
-  if (img && img.complete) {
-    // Ratio cible pour que l’hexagone coloré soit bien centré
-    // Image source : 304x260px, hexagone ~265x235px
-    // Décalage pour centrer l’hexagone coloré
-    const srcW = 304;
-    const srcH = 260;
-    // Décalage pour centrer la zone colorée (supposée centrée dans l’image)
-    // On prend tout l’image, mais on l’adapte à la taille de l’hexagone
-    ctx.drawImage(
-      img,
-      20,
-      10,
-      265,
-      235,
-      x - HEX_SIZE,
-      y - HEX_SIZE,
-      HEX_SIZE * 2,
-      HEX_SIZE * 2
-    );
-  } else {
-    //    ctx.fillStyle = "#eee";
-    //    ctx.fill();
-  }
-  ctx.restore();
-  // Dessine le contour
-  ctx.beginPath();
-  for (let i = 0; i < 6; i++) {
-    const dx = x + HEX_SIZE * Math.cos(angle * i);
-    const dy = y + HEX_SIZE * Math.sin(angle * i);
-    if (i === 0) ctx.moveTo(dx, dy);
-    else ctx.lineTo(dx, dy);
-  }
-  ctx.closePath();
-  ctx.strokeStyle = "#333";
-  ctx.lineWidth = 2;
-  ctx.stroke();
-}
-
-function drawGrid() {
-  console.log("Dessin de la grille...", grid);
-  const bg = backgroundImage || defaultBackgroundImage;
-
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  if (bg) {
-    ctx.save();
-    ctx.globalAlpha = 0.8;
-    ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
-    ctx.restore();
-  }
-
-  for (let r = 0; r < grid.length; r++) {
-    for (let q = 0; q < grid[r].length; q++) {
-      const { icon } = grid[r][q];
-      const { x, y } = hexToPixel(q, r);
-      drawHex(x, y, icon);
-    }
-  }
-}
 
 function resizeCanvas() {
   const parent = document.getElementById("main-area");
@@ -118,8 +28,7 @@ function resizeCanvas() {
   const h = parent.clientHeight;
   canvas.width = w;
   canvas.height = h;
-  //ctx = canvas.getContext("2d");
-  drawGrid();
+  grid.draw();
 }
 
 // ===============================
@@ -167,6 +76,7 @@ function renderIconGrid() {
     }
     btn.addEventListener("click", () => {
       selectedIcon = name;
+      grid.setSelectedIcon(name);
       renderIconGrid();
     });
     iconGrid.appendChild(btn);
@@ -176,37 +86,8 @@ function renderIconGrid() {
 // ===============================
 // 4. Interactions utilisateur (canvas, sélection, zoom)
 // ===============================
-canvas.addEventListener("mousedown", (e) => {
-  if (e.button !== 0) return;
-  isMouseDown = true;
-  paintHex(e);
-});
-canvas.addEventListener("mouseup", () => {
-  isMouseDown = false;
-});
-canvas.addEventListener("mouseleave", () => {
-  isMouseDown = false;
-});
-canvas.addEventListener("mousemove", (e) => {
-  if (isMouseDown && e.buttons === 1) paintHex(e);
-});
-
-function paintHex(e) {
-  const rect = canvas.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  const hex = pixelToHex(x, y);
-  if (!hex) return;
-  const { q, r } = hex;
-  if (grid[r] && grid[r][q]) {
-    if (selectedIcon === "empty") {
-      grid[r][q].icon = null;
-    } else {
-      grid[r][q].icon = selectedIcon;
-    }
-    drawGrid();
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(grid));
-  }
+function updateZoomDisplay() {
+  zoomLevelSpan.textContent = HEX_SIZE;
 }
 
 const zoomInBtn = document.getElementById("zoom-in");
@@ -216,19 +97,19 @@ const zoomResetBtn = document.getElementById("zoom-reset");
 
 zoomInBtn.addEventListener("click", () => {
   HEX_SIZE = Math.min(HEX_SIZE + 4, 128);
+  grid.setHexSize(HEX_SIZE);
   updateZoomDisplay();
-  drawGrid();
 });
 zoomOutBtn.addEventListener("click", () => {
   HEX_SIZE = Math.max(HEX_SIZE - 4, 8);
+  grid.setHexSize(HEX_SIZE);
   updateZoomDisplay();
-  drawGrid();
 });
 if (zoomResetBtn) {
   zoomResetBtn.addEventListener("click", () => {
     HEX_SIZE = 32;
+    grid.setHexSize(HEX_SIZE);
     updateZoomDisplay();
-    drawGrid();
   });
 }
 updateZoomDisplay();
@@ -242,14 +123,8 @@ const exportImageBtn = document.getElementById("export-image");
 const importFileInput = document.getElementById("import-file");
 
 saveMapBtn.addEventListener("click", () => {
-  const data = JSON.stringify(grid);
-  const blob = new Blob([data], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = saveFileName || "hexamap.json";
-  a.click();
-  URL.revokeObjectURL(url);
+  map.grid = grid.getGrid();
+  saveMaptoJSON(map);
 });
 
 importMapBtn.addEventListener("click", () => {
@@ -263,8 +138,24 @@ importFileInput.addEventListener("change", (e) => {
   const reader = new FileReader();
   reader.onload = function (evt) {
     try {
-      grid = JSON.parse(evt.target.result);
-      drawGrid();
+      let json = JSON.parse(evt.target.result);
+      console.log("Map importée :", json);
+
+      if (Array.isArray(json)) {
+        map = {
+          name: "My HexaMap",
+          width: json[0]?.length || 0,
+          height: json.length || 0,
+          start: 0,
+          grid: json,
+        };
+        console.log("Ancien format détecté, conversion en objet map :", map);
+      }
+
+      // Met à jour les inputs de taille
+      gridHeightInput.value = map.height;
+      gridWidthInput.value = map.width;
+      grid.setGrid(map.grid);
     } catch (err) {
       alert("Erreur lors de l’import.");
     }
@@ -272,13 +163,7 @@ importFileInput.addEventListener("change", (e) => {
   reader.readAsText(file);
 });
 
-exportImageBtn.addEventListener("click", () => {
-  const url = canvas.toDataURL("image/png");
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "hexamap.png";
-  a.click();
-});
+exportImageBtn.addEventListener("click", () => grid.exportToPNG());
 
 // ===============================
 // 6. Initialisation et restauration
@@ -291,88 +176,121 @@ const resetGridBtn = document.getElementById("reset-grid");
 // Bouton pour réinitialiser totalement la grille
 if (resetGridBtn) {
   resetGridBtn.addEventListener("click", () => {
-    gridWidthInput.value = 10;
-    gridHeightInput.value = 10;
-    generateGrid();
-    localStorage.removeItem(LOCAL_STORAGE_KEY);
+    gridWidthInput.value = defaultGridSize;
+    gridHeightInput.value = defaultGridSize;
+    generateMap();
   });
 }
 
-function generateGrid() {
-  console.log("Génération de la grille...");
+function generateMap() {
+  console.log("Génération de la map...");
   const width = parseInt(gridWidthInput.value);
   const height = parseInt(gridHeightInput.value);
-  grid = [];
-  for (let r = 0; r < height; r++) {
+  map.width = width;
+  map.height = height;
+  map.grid = [];
+  map.start = 0;
+  for (let y = 0; y < height; y++) {
     const row = [];
-    for (let q = 0; q < width; q++) {
+    for (let x = 0; x < width; x++) {
       row.push({ icon: null });
     }
-    grid.push(row);
+    map.grid.push(row);
   }
-  drawGrid();
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(grid));
+  grid.setDeltaHeight(0);
+  grid.setGrid(map.grid);
+  storeMap();
+}
+
+function storeMap() {
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(map));
 }
 
 generateGridBtn.addEventListener("click", () => {
+  map.grid = grid.getGrid();
+  if (!map.grid.length) {
+    // generate a new empty grid if none exists
+    return generateMap();
+  }
+
   const newWidth = parseInt(gridWidthInput.value);
   const newHeight = parseInt(gridHeightInput.value);
-  const anchor = resizeAnchorSelect.value;
-  if (!grid.length) {
-    grid = [];
-    for (let r = 0; r < newHeight; r++) {
-      const row = [];
-      for (let q = 0; q < newWidth; q++) {
-        row.push({ icon: null });
-      }
-      grid.push(row);
-    }
-    drawGrid();
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(grid));
+
+  if (isNaN(newWidth) || isNaN(newHeight) || newWidth < 1 || newHeight < 1) {
+    alert("Largeur et hauteur doivent être des nombres entiers positifs.");
     return;
   }
-  const oldHeight = grid.length;
-  const oldWidth = grid[0].length;
-  let dq = 0,
-    dr = 0;
+
+  if (map.width === newWidth && map.height === newHeight) {
+    // No change in size
+    return;
+  }
+
+  const anchor = resizeAnchorSelect.value;
+
+  // Resize the existing grid
+  const oldHeight = map.height;
+  const oldWidth = map.width;
+
+  let dy = 0;
+  let dx = 0;
+
+  let deltaHeight = 0;
+
   switch (anchor) {
     case "center":
-      dq = Math.floor((newWidth - oldWidth) / 2);
-      dr = Math.floor((newHeight - oldHeight) / 2);
+      deltaHeight =
+        newWidth - oldWidth > 1
+          ? Math.floor(((newWidth - oldWidth) / 2) % 2)
+          : map.start;
+      dy = Math.floor((newWidth - oldWidth) / 2);
+      dx = Math.ceil((newHeight - oldHeight) / 2);
       break;
     case "top-left":
-      dq = 0;
-      dr = 0;
+      dy = 0;
+      dx = 0;
       break;
     case "top":
-      dq = Math.floor((newWidth - oldWidth) / 2);
-      dr = 0;
+      deltaHeight =
+        newWidth - oldWidth > 1
+          ? Math.floor(((newWidth - oldWidth) / 2) % 2)
+          : map.start;
+      dy = Math.floor((newWidth - oldWidth) / 2);
+      dx = 0;
       break;
     case "top-right":
-      dq = newWidth - oldWidth;
-      dr = 0;
+      deltaHeight = (newWidth - oldWidth) % 2 ? !map.start : map.start;
+      dy = newWidth - oldWidth;
+      dx = 0;
       break;
     case "left":
-      dq = 0;
-      dr = Math.floor((newHeight - oldHeight) / 2);
+      dy = 0;
+      dx = Math.round((newHeight - oldHeight) / 2);
       break;
     case "right":
-      dq = newWidth - oldWidth;
-      dr = Math.floor((newHeight - oldHeight) / 2);
+      deltaHeight = (newWidth - oldWidth) % 2 ? !map.start : map.start;
+      dy = newWidth - oldWidth;
+      dx = Math.round((newHeight - oldHeight) / 2);
       break;
     case "bottom-left":
-      dq = 0;
-      dr = newHeight - oldHeight;
+      dy = 0;
+      dx = newHeight - oldHeight;
       break;
     case "bottom":
-      dq = Math.floor((newWidth - oldWidth) / 2);
-      dr = newHeight - oldHeight;
+      deltaHeight =
+        newWidth - oldWidth > 1
+          ? Math.floor(((newWidth - oldWidth) / 2) % 2)
+          : map.start;
+      dy = Math.floor((newWidth - oldWidth) / 2);
+      dx = newHeight - oldHeight;
       break;
     case "bottom-right":
-      dq = newWidth - oldWidth;
-      dr = newHeight - oldHeight;
+      deltaHeight = (newWidth - oldWidth) % 2 ? !map.start : map.start;
+      dy = newWidth - oldWidth;
+      dx = newHeight - oldHeight;
       break;
   }
+
   const newGrid = [];
   for (let r = 0; r < newHeight; r++) {
     const row = [];
@@ -383,16 +301,20 @@ generateGridBtn.addEventListener("click", () => {
   }
   for (let r = 0; r < oldHeight; r++) {
     for (let q = 0; q < oldWidth; q++) {
-      const nr = r + dr;
-      const nq = q + dq;
-      if (nr >= 0 && nr < newHeight && nq >= 0 && nq < newWidth) {
-        newGrid[nr][nq] = grid[r][q];
+      const nx = r + dx;
+      const ny = q + dy;
+      if (nx >= 0 && nx < newHeight && ny >= 0 && ny < newWidth) {
+        newGrid[nx][ny] = map.grid[r][q];
       }
     }
   }
-  grid = newGrid;
-  drawGrid();
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(grid));
+  map.width = newWidth;
+  map.height = newHeight;
+  map.start = deltaHeight;
+  map.grid = newGrid;
+  grid.setDeltaHeight(deltaHeight);
+  grid.setGrid(newGrid);
+  storeMap();
 });
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -401,10 +323,17 @@ window.addEventListener("DOMContentLoaded", () => {
     img.src = `assets/hexas/${name}`;
     iconImages[name] = img;
   });
-  defaultBackgroundImage = new Image();
+
+  grid = Grid({
+    hexSize: HEX_SIZE,
+    icons: iconImages,
+  });
+
+  let defaultBackgroundImage = new Image();
   defaultBackgroundImage.src = "assets/hexas/background.jpg";
   defaultBackgroundImage.onload = function () {
     if (!backgroundImage) backgroundImage = defaultBackgroundImage;
+    grid.setBackgroundImage(backgroundImage);
   };
   renderIconGrid();
   resizeCanvas();
@@ -412,15 +341,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
 window.addEventListener("load", () => {
   const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+  console.log("Données sauvegardées trouvées :", saved);
   if (saved) {
     try {
-      grid = JSON.parse(saved);
-      gridHeightInput.value = grid.length;
-      gridWidthInput.value = grid[0] ? grid[0].length : 0;
-      drawGrid();
-    } catch (e) {}
+      map = JSON.parse(saved);
+      console.log("Map restaurée :", map);
+      gridHeightInput.value = map.height;
+      gridWidthInput.value = map.width;
+      grid.setDeltaHeight(map.start || 0);
+      grid.setGrid(map.grid);
+    } catch (e) {
+      console.error("Erreur lors de la restauration :", e);
+    }
   } else {
-    generateGrid();
+    generateMap();
   }
 });
 
