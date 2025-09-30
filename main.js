@@ -139,7 +139,10 @@ function renderIconGrid() {
     const btn = document.createElement("button");
     btn.className = "icon-btn" + (selectedIcon === color ? " selected" : "");
     btn.title = color.replace(".png", "");
-    btn.style.backgroundColor = color;
+    let hexa = document.createElement("div");
+    hexa.className = "hexagon";
+    hexa.style.backgroundColor = color;
+    btn.appendChild(hexa);
     btn.addEventListener("click", () => {
       selectedIcon = color;
       grid.setSelectedIcon(color);

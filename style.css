@@ -1,4 +1,3 @@
-
 body {
   font-family: Arial, sans-serif;
   background: #f8f8f8;
@@ -14,7 +13,6 @@ h1 {
 #layout {
   display: flex;
   flex-direction: row;
-  height: 90vh;
 }
 #zoom-controls button {
   min-width: 32px;
@@ -27,7 +25,7 @@ h1 {
 #sidebar {
   width: 260px;
   background: #e3e3e3;
-  padding: 20px 10px;
+  padding: 10px 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -37,11 +35,6 @@ h1 {
 #sidebar h2 {
   font-size: 1.1em;
   margin-bottom: 10px;
-}
-
-#sidebar label, #sidebar button {
-  margin-bottom: 10px;
-  display: block;
 }
 
 #zoom-controls {
@@ -71,8 +64,8 @@ h1 {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 5px;
-  margin-bottom: 16px;
-  
+  margin-bottom: 10px;
+
   button {
     font-size: 1em;
     padding: 5px;
@@ -115,8 +108,8 @@ canvas {
 }
 
 .icon-btn {
-  width: 56px;
-  height: 56px;
+  width: 54px;
+  height: 54px;
   border: 2px solid #bbb;
   border-radius: 8px;
   background: #fff;
@@ -132,4 +125,62 @@ canvas {
 .icon-btn img {
   max-width: 40px;
   max-height: 40px;
+}
+
+#dimensions {
+  label {
+    margin: 0;
+  }
+
+  input {
+    width: 60px;
+    padding: 4px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+  }
+}
+
+.hexagon {
+  width: 40px;
+  height: 34px;
+  background: #4caf50;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  /* Optionnel : pour un effet lisse */
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+
+  &.flex-row {
+    flex-direction: row;
+  }
+
+  &.flex-column {
+    flex-direction: column;
+  }
+
+  &.space-between {
+    justify-content: space-between;
+  }
+
+  &.center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.vcenter {
+    align-items: center;
+  }
+
+  &.hcenter {
+    justify-content: center;
+  }
+
+  &.gap-5 {
+    gap: 5px;
+  }
+  &.gap-10 {
+    gap: 10px;
+  }
 }

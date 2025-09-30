@@ -24,23 +24,33 @@
         <button id="export-image" title="Exporter en image">🖼️</button>
         <input type="file" id="import-file" style="display:none">
       </div>
-      <label>Largeur : <input type="number" id="grid-width" min="1" value="10"></label>
-      <label>Hauteur : <input type="number" id="grid-height" min="1" value="10"></label>
-      <label>Point de référence :
-        <select id="resize-anchor">
-          <option value="center">Centre</option>
-          <option value="top-left">Haut gauche</option>
-          <option value="top">Haut centre</option>
-          <option value="top-right">Haut droite</option>
-          <option value="left">Centre gauche</option>
-          <option value="right">Centre droite</option>
-          <option value="bottom-left">Bas gauche</option>
-          <option value="bottom">Bas centre</option>
-          <option value="bottom-right">Bas droite</option>
-        </select>
-      </label>
+      <div class="flex flex-row gap-10">
+        <div id="dimensions" class="flex flex-column">
+          <label class="flex flex-row gap-5 space-between">
+            <span>L</span>
+            <input type="number" id="grid-width" min="1" value="10" width="4">
+          </label>
+          <label class="flex flex-row gap-5 space-between">
+            <span>H</span>
+            <input type="number" id="grid-height" min="1" value="10" width="4">
+          </label>
+        </div>
+        <label>Point de référence :
+          <select id="resize-anchor">
+            <option value="center">Centre</option>
+            <option value="top-left">Haut gauche</option>
+            <option value="top">Haut centre</option>
+            <option value="top-right">Haut droite</option>
+            <option value="left">Centre gauche</option>
+            <option value="right">Centre droite</option>
+            <option value="bottom-left">Bas gauche</option>
+            <option value="bottom">Bas centre</option>
+            <option value="bottom-right">Bas droite</option>
+          </select>
+        </label>
+      </div>
       <input type="file" id="import-file" style="display:none">
-  <label>Image de fond : <input type="file" id="bg-file" accept="image/*"></label>
+  <!--<label>Image de fond : <input type="file" id="bg-file" accept="image/*"></label>-->
       <h2>Terrains</h2>
       <div id="icon-grid-terrains" class="icon-grid"></div>
       <h2>Sous-terrains</h2>
