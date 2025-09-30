@@ -68,9 +68,9 @@ export const Grid = (options) => {
         HEX_SIZE * 2,
         HEX_SIZE * 2
       );
-    } else {
-      //      ctx.fillStyle = "#eee";
-      //      ctx.fill();
+    } else if (iconName && iconName[0] === "#") {
+      ctx.fillStyle = iconName;
+      ctx.fill();
     }
     ctx.restore();
 

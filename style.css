@@ -108,7 +108,7 @@ canvas {
   min-height: 0;
 }
 
-#icon-grid {
+.icon-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 5px;

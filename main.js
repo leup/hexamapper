@@ -43,33 +43,59 @@ function resizeCanvas() {
 // 3. Gestion des icônes et du fond
 // ===============================
 const iconImages = {};
-const iconList = [
-  "empty", // type spécial pour effacer
-  "Colline.webp",
-  "Cote.webp",
-  "Desert.webp",
-  "Dryland.webp",
-  "Foret.webp",
-  "Galerie.webp",
-  "Glace.webp",
-  "Granite.webp",
-  "Grotte.webp",
-  "Marecage.webp",
-  "Mer.webp",
-  "Montagne.webp",
-  "Neige.webp",
-  "Plaine.webp",
-  "Riviere.webp",
-  "Roche.webp",
-  "Terre.webp",
-  "Wasteland.webp",
-];
+const iconList = {
+  terrains: [
+    "empty", // type spécial pour effacer
+    "Colline.webp",
+    "Cote.webp",
+    "Desert.webp",
+    "Dryland.webp",
+    "Foret.webp",
+    "Glace.webp",
+    "Marecage.webp",
+    "Mer.webp",
+    "Montagne.webp",
+    "Neige.webp",
+    "Plaine.webp",
+    "Riviere.webp",
+    "Wasteland.webp",
+  ],
+  sousterrains: [
+    "Galerie.webp",
+    "Granite.webp",
+    "Grotte.webp",
+    "Roche.webp",
+    "Terre.webp",
+  ],
+  colors: [
+    "#ffffff",
+    "#c0c0c0",
+    "#808080",
+    "#000000",
+    "#ff0000",
+    "#800000",
+    "#ffff00",
+    "#808000",
+    "#00ff00",
+    "#008000",
+    "#00ffff",
+    "#008080",
+    "#0000ff",
+    "#000080",
+    "#ff00ff",
+    "#800080",
+  ],
+};
 
-const iconGrid = document.getElementById("icon-grid");
+const iconGridTerrains = document.getElementById("icon-grid-terrains");
+const iconGridSousterrains = document.getElementById("icon-grid-sousterrains");
+const iconGridColors = document.getElementById("icon-grid-colors");
 
 function renderIconGrid() {
-  iconGrid.innerHTML = "";
-  iconList.forEach((name) => {
+  iconGridTerrains.innerHTML = "";
+  iconGridSousterrains.innerHTML = "";
+  iconGridColors.innerHTML = "";
+  iconList.terrains.forEach((name) => {
     const btn = document.createElement("button");
     btn.className = "icon-btn" + (selectedIcon === name ? " selected" : "");
     if (name === "empty") {
@@ -87,7 +113,39 @@ function renderIconGrid() {
       grid.setSelectedIcon(name);
       renderIconGrid();
     });
-    iconGrid.appendChild(btn);
+    iconGridTerrains.appendChild(btn);
+  });
+  iconList.sousterrains.forEach((name) => {
+    const btn = document.createElement("button");
+    btn.className = "icon-btn" + (selectedIcon === name ? " selected" : "");
+    if (name === "empty") {
+      btn.title = "Gomme (effacer)";
+      btn.textContent = "";
+    } else {
+      btn.title = name.replace(".png", "");
+      const img = document.createElement("img");
+      img.src = `assets/hexas/${name}`;
+      img.alt = name;
+      btn.appendChild(img);
+    }
+    btn.addEventListener("click", () => {
+      selectedIcon = name;
+      grid.setSelectedIcon(name);
+      renderIconGrid();
+    });
+    iconGridSousterrains.appendChild(btn);
+  });
+  iconList.colors.forEach((color) => {
+    const btn = document.createElement("button");
+    btn.className = "icon-btn" + (selectedIcon === color ? " selected" : "");
+    btn.title = color.replace(".png", "");
+    btn.style.backgroundColor = color;
+    btn.addEventListener("click", () => {
+      selectedIcon = color;
+      grid.setSelectedIcon(color);
+      renderIconGrid();
+    });
+    iconGridColors.appendChild(btn);
   });
 }
 
@@ -317,7 +375,12 @@ generateGridBtn.addEventListener("click", () => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-  iconList.forEach((name) => {
+  iconList.terrains.forEach((name) => {
+    const img = new Image();
+    img.src = `assets/hexas/${name}`;
+    iconImages[name] = img;
+  });
+  iconList.sousterrains.forEach((name) => {
     const img = new Image();
     img.src = `assets/hexas/${name}`;
     iconImages[name] = img;

@@ -41,14 +41,18 @@
       </label>
       <input type="file" id="import-file" style="display:none">
   <label>Image de fond : <input type="file" id="bg-file" accept="image/*"></label>
-      <h2>Type de terrain</h2>
-      <div id="icon-grid"></div>
+      <h2>Terrains</h2>
+      <div id="icon-grid-terrains" class="icon-grid"></div>
+      <h2>Sous-terrains</h2>
+      <div id="icon-grid-sousterrains" class="icon-grid"></div>
+      <h2>Couleurs</h2>
+      <div id="icon-grid-colors" class="icon-grid"></div>
     </aside>
     <main id="main-area">
       <canvas id="hex-canvas"></canvas>
     </main>
   </div>
-  <script src="./utils.js" type="module"></script>
+  <script src="utils.js" type="module"></script>
   <script src="grid.js" type="module"></script>
   <script src="main.js" type="module"></script>
 </body>
