@@ -18,11 +18,19 @@ export const Grid = (options) => {
   let grid = options.grid;
   let selectedIcon = null;
 
+  // Ajout offset pour drag-n-drop
+  let offset = { x: 0, y: 0 };
+  let dragStart = null;
+  let isDragging = false;
+
   function drawHex(hex) {
     const { icon: iconName } = hex;
     //console.log(`Dessin de l’hexagone en (${hex.x}, ${hex.y}) avec l’icône ${iconName}`);
 
+    // Appliquer l'offset lors du dessin
     const { x, y } = hexToPixel(hex.x, hex.y);
+    const ox = x + offset.x;
+    const oy = y + offset.y;
 
     // Dessine le contour hexagonal du masque
     // Utilise un clip pour dessiner l’image à l’intérieur
@@ -30,8 +38,8 @@ export const Grid = (options) => {
     ctx.save();
     ctx.beginPath();
     for (let i = 0; i < 6; i++) {
-      const dx = x + HEX_SIZE * Math.cos(angle * i);
-      const dy = y + HEX_SIZE * Math.sin(angle * i);
+      const dx = ox + HEX_SIZE * Math.cos(angle * i);
+      const dy = oy + HEX_SIZE * Math.sin(angle * i);
       if (i === 0) ctx.moveTo(dx, dy);
       else ctx.lineTo(dx, dy);
     }
@@ -55,8 +63,8 @@ export const Grid = (options) => {
         10,
         265,
         235,
-        x - HEX_SIZE,
-        y - HEX_SIZE,
+        ox - HEX_SIZE,
+        oy - HEX_SIZE,
         HEX_SIZE * 2,
         HEX_SIZE * 2
       );
@@ -69,8 +77,8 @@ export const Grid = (options) => {
     // Dessine le contour
     ctx.beginPath();
     for (let i = 0; i < 6; i++) {
-      const dx = x + HEX_SIZE * Math.cos(angle * i);
-      const dy = y + HEX_SIZE * Math.sin(angle * i);
+      const dx = ox + HEX_SIZE * Math.cos(angle * i);
+      const dy = oy + HEX_SIZE * Math.sin(angle * i);
       if (i === 0) ctx.moveTo(dx, dy);
       else ctx.lineTo(dx, dy);
     }
@@ -80,12 +88,34 @@ export const Grid = (options) => {
     ctx.stroke();
   }
 
+  // Calcul des boundaries pour le drag
+  function clampOffset(newOffset) {
+    // Taille de la grille en pixels
+    const gridWidth = HEX_SIZE * 1.5 * (grid[0]?.length || 0) + HEX_SIZE;
+    const gridHeight =
+      HEX_SIZE * Math.sqrt(3) * ((grid.length || 0) + 0.5) + HEX_SIZE;
+
+    // Limites pour que la grille reste visible dans le canvas
+    // La grille ne doit pas sortir à gauche/haut (offset <= 0)
+    // et pas à droite/bas (offset >= canvas.width - gridWidth / canvas.height - gridHeight)
+    const minX = Math.min(0, canvas.width - gridWidth);
+    const maxX = 0;
+    const minY = Math.min(0, canvas.height - gridHeight);
+    const maxY = 0;
+
+    return {
+      x: Math.max(minX, Math.min(newOffset.x, maxX)),
+      y: Math.max(minY, Math.min(newOffset.y, maxY)),
+    };
+  }
+
   function drawGrid() {
     //console.log("Dessin de la grille...", grid);
     const bg = backgroundImage || defaultBackgroundImage;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // Background toujours fixe
     if (bg) {
       ctx.save();
       ctx.globalAlpha = 0.8;
@@ -102,9 +132,10 @@ export const Grid = (options) => {
   }
 
   function paintHex(e) {
+    // Appliquer l'offset inverse pour le calcul
     const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const x = e.clientX - rect.left - offset.x;
+    const y = e.clientY - rect.top - offset.y;
     const hex = pixelToHex(x, y);
     if (!hex) return;
     const { q, r } = hex;
@@ -145,18 +176,46 @@ export const Grid = (options) => {
 
   let isMouseDown = false;
   canvas.addEventListener("mousedown", (e) => {
+    if (e.button === 2) {
+      // clic droit
+      dragStart = { x: e.clientX, y: e.clientY, ox: offset.x, oy: offset.y };
+      isDragging = true;
+      e.preventDefault();
+      return;
+    }
     if (e.button !== 0) return;
     isMouseDown = true;
     paintHex(e);
   });
-  canvas.addEventListener("mouseup", () => {
+  canvas.addEventListener("mouseup", (e) => {
+    if (e.button === 2) {
+      isDragging = false;
+      dragStart = null;
+      return;
+    }
     isMouseDown = false;
   });
   canvas.addEventListener("mouseleave", () => {
     isMouseDown = false;
+    isDragging = false;
+    dragStart = null;
   });
   canvas.addEventListener("mousemove", (e) => {
+    if (isDragging && dragStart) {
+      const rawOffset = {
+        x: dragStart.ox + (e.clientX - dragStart.x),
+        y: dragStart.oy + (e.clientY - dragStart.y),
+      };
+      offset = clampOffset(rawOffset);
+      drawGrid();
+      return;
+    }
     if (isMouseDown && e.buttons === 1) paintHex(e);
+  });
+
+  // Désactiver le menu contextuel sur le canvas
+  canvas.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
   });
 
   return {
@@ -184,5 +243,10 @@ export const Grid = (options) => {
       options.deltaHeight = delta;
     },
     getDeltaHeight: () => options.deltaHeight,
+    setOffset: (ox, oy) => {
+      offset = clampOffset({ x: ox, y: oy });
+      drawGrid();
+    },
+    getOffset: () => ({ ...offset }),
   };
 };
