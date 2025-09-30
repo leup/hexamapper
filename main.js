@@ -1,5 +1,13 @@
 // ===============================
 // 1. Utilitaires
+
+import {
+  convertGridToMapFormat,
+  generateGrid,
+  saveMaptoJSON,
+} from "./utils.js";
+import { Grid } from "./grid.js";
+
 // ===============================
 const LOCAL_STORAGE_KEY = "hexamapper_autosave";
 let saveFileName = "hexamap.json";
@@ -124,7 +132,7 @@ const importFileInput = document.getElementById("import-file");
 
 saveMapBtn.addEventListener("click", () => {
   map.grid = grid.getGrid();
-  saveMaptoJSON(map);
+  saveMaptoJSON(map, saveFileName);
 });
 
 importMapBtn.addEventListener("click", () => {
@@ -142,14 +150,7 @@ importFileInput.addEventListener("change", (e) => {
       console.log("Map importée :", json);
 
       if (Array.isArray(json)) {
-        map = {
-          name: "My HexaMap",
-          width: json[0]?.length || 0,
-          height: json.length || 0,
-          start: 0,
-          grid: json,
-        };
-        console.log("Ancien format détecté, conversion en objet map :", map);
+        map = convertGridToMapFormat(json);
       } else {
         // todo: add a version tag in the future
         map = json;
@@ -161,6 +162,7 @@ importFileInput.addEventListener("change", (e) => {
       grid.setGrid(map.grid);
     } catch (err) {
       alert("Erreur lors de l’import.");
+      console.error("Erreur lors de l’import :", err);
     }
   };
   reader.readAsText(file);
@@ -193,13 +195,7 @@ function generateMap() {
   map.height = height;
   map.grid = [];
   map.start = 0;
-  for (let y = 0; y < height; y++) {
-    const row = [];
-    for (let x = 0; x < width; x++) {
-      row.push({ icon: null });
-    }
-    map.grid.push(row);
-  }
+  map.grid = generateGrid(width, height);
   grid.setDeltaHeight(0);
   grid.setGrid(map.grid);
   storeMap();
@@ -347,7 +343,13 @@ window.addEventListener("load", () => {
   console.log("Données sauvegardées trouvées :", saved);
   if (saved) {
     try {
-      map = JSON.parse(saved);
+      let json = JSON.parse(saved);
+      if (Array.isArray(json)) {
+        map = convertGridToMapFormat(json);
+      } else {
+        // todo: add a version tag in the future
+        map = json;
+      }
       console.log("Map restaurée :", map);
       gridHeightInput.value = map.height;
       gridWidthInput.value = map.width;

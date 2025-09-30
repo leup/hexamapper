@@ -1,4 +1,4 @@
-const Grid = (options) => {
+export const Grid = (options) => {
   const canvas = document.getElementById("hex-canvas");
   const ctx = canvas.getContext("2d");
 
@@ -40,7 +40,7 @@ const Grid = (options) => {
     // Dessine l’image centrée et adaptée à la forme hexagonale
     //console.log("Icon name:", iconName);
     //console.log("Icon image object:", iconImages[iconName]);
-    const img = iconName ? iconImages[iconName] : null;
+    const img = iconName ? options.icons[iconName] : null;
     if (img && img.complete) {
       // Ratio cible pour que l’hexagone coloré soit bien centré
       // Image source : 304x260px, hexagone ~265x235px

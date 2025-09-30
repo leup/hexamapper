@@ -1,7 +1,7 @@
 // ===============================
 // 5. Import/export et sauvegarde
 // ===============================
-const saveMaptoJSON = (map) => {
+export const saveMaptoJSON = (map, saveFileName) => {
   const data = JSON.stringify(map);
   const blob = new Blob([data], { type: "application/json" });
   const url = URL.createObjectURL(blob);
@@ -12,11 +12,24 @@ const saveMaptoJSON = (map) => {
   URL.revokeObjectURL(url);
 };
 
+export const convertGridToMapFormat = (grid) => {
+  const map = {
+    name: "My HexaMap",
+    width: grid[0]?.length || 0,
+    height: grid.length || 0,
+    start: 0,
+    grid: grid,
+  };
+  console.log("Ancien format détecté, conversion en objet map :", map);
+
+  return map;
+};
+
 // ===============================
 // 6. Initialisation et restauration
 // ===============================
 
-const generateGrid = (width, height) => {
+export const generateGrid = (width, height) => {
   console.log("Génération de la grille...");
   grid = [];
   for (let y = 0; y < height; y++) {
