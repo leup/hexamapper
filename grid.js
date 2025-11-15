@@ -166,11 +166,111 @@ export const Grid = (options) => {
     return { q, r };
   }
 
+  // Remplace l'export actuel (viewport) par un export de la carte entière
   const exportToPNG = (filename) => {
-    const url = canvas.toDataURL("image/png");
+    if (!grid || !grid.length) return;
+    // calculer bounding box de tous les hex
+    let minX = Infinity,
+      minY = Infinity,
+      maxX = -Infinity,
+      maxY = -Infinity;
+    for (let r = 0; r < grid.length; r++) {
+      for (let q = 0; q < (grid[r]?.length || 0); q++) {
+        const p = hexToPixel(q, r);
+        minX = Math.min(minX, p.x - HEX_SIZE);
+        minY = Math.min(minY, p.y - HEX_SIZE);
+        maxX = Math.max(maxX, p.x + HEX_SIZE);
+        maxY = Math.max(maxY, p.y + HEX_SIZE);
+      }
+    }
+    if (!isFinite(minX)) return;
+
+    const width = Math.ceil(maxX - minX);
+    const height = Math.ceil(maxY - minY);
+
+    // canvas hors-écran
+    const off = document.createElement("canvas");
+    off.width = Math.max(1, width);
+    off.height = Math.max(1, height);
+    const octx = off.getContext("2d");
+
+    // background (fixe) sur toute la surface exportée
+    const bg = backgroundImage || defaultBackgroundImage;
+    if (bg && bg.complete) {
+      octx.save();
+      octx.globalAlpha = 0.8;
+      octx.drawImage(bg, 0, 0, off.width, off.height);
+      octx.restore();
+    } else {
+      // fond neutre si pas d'image
+      octx.fillStyle = "#fff";
+      octx.fillRect(0, 0, off.width, off.height);
+    }
+
+    // fonction locale pour dessiner un hex sur octx sans offset
+    function drawHexOnCtx(ctx2, hex) {
+      const { icon: iconName } = hex;
+      const { x, y } = hexToPixel(hex.x, hex.y);
+      const cx = Math.round(x - minX);
+      const cy = Math.round(y - minY);
+
+      const angle = Math.PI / 3;
+      ctx2.save();
+      ctx2.beginPath();
+      for (let i = 0; i < 6; i++) {
+        const dx = cx + HEX_SIZE * Math.cos(angle * i);
+        const dy = cy + HEX_SIZE * Math.sin(angle * i);
+        if (i === 0) ctx2.moveTo(dx, dy);
+        else ctx2.lineTo(dx, dy);
+      }
+      ctx2.closePath();
+      ctx2.clip();
+
+      const img = iconName ? options.icons[iconName] : null;
+      if (img && img.complete) {
+        ctx2.drawImage(
+          img,
+          20,
+          10,
+          265,
+          235,
+          cx - HEX_SIZE,
+          cy - HEX_SIZE,
+          HEX_SIZE * 2,
+          HEX_SIZE * 2
+        );
+      } else if (iconName && iconName[0] === "#") {
+        ctx2.fillStyle = iconName;
+        ctx2.fill();
+      }
+      ctx2.restore();
+
+      // contour
+      ctx2.beginPath();
+      for (let i = 0; i < 6; i++) {
+        const dx = cx + HEX_SIZE * Math.cos(angle * i);
+        const dy = cy + HEX_SIZE * Math.sin(angle * i);
+        if (i === 0) ctx2.moveTo(dx, dy);
+        else ctx2.lineTo(dx, dy);
+      }
+      ctx2.closePath();
+      ctx2.strokeStyle = "#333";
+      ctx2.lineWidth = 2;
+      ctx2.stroke();
+    }
+
+    // dessiner tous les hex sur le canvas hors-écran
+    for (let r = 0; r < grid.length; r++) {
+      for (let q = 0; q < (grid[r]?.length || 0); q++) {
+        drawHexOnCtx(octx, { x: q, y: r, icon: grid[r][q].icon });
+      }
+    }
+
+    // export
+    const url = off.toDataURL("image/png");
     const a = document.createElement("a");
     a.href = url;
-    a.download = filename || "hexamap.png";
+    a.download = filename || "hexamap_full.png";
     a.click();
   };
 
