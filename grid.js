@@ -295,6 +295,7 @@ export const Grid = (options) => {
       return;
     }
     isMouseDown = false;
+    canvas.dispatchEvent(new CustomEvent("gridMouseUp", { detail: e }));
   });
   canvas.addEventListener("mouseleave", () => {
     isMouseDown = false;
@@ -321,7 +322,6 @@ export const Grid = (options) => {
 
   return {
     draw: drawGrid,
-    paintHex: paintHex,
     setSelectedIcon: (icon) => {
       selectedIcon = icon;
     },
@@ -335,6 +335,7 @@ export const Grid = (options) => {
       grid = newGrid;
       drawGrid();
     },
+    getCanvas: () => canvas,
     getHexSize: () => HEX_SIZE,
     setHexSize: (size) => {
       HEX_SIZE = size;

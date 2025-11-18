@@ -12,6 +12,8 @@ import { Grid } from "./grid.js";
 const LOCAL_STORAGE_KEY = "hexamapper_autosave";
 let saveFileName = "hexamap.json";
 let HEX_SIZE = 32;
+let debounceTimer = null;
+const DEBOUNCE_DELAY = 2000; // milliseconds
 let defaultGridSize = 10;
 let selectedIcon = null;
 let backgroundImage = null;
@@ -22,15 +24,17 @@ let map = {
   height: 0,
   start: 0,
   grid: [],
+  canvas: null,
 };
+
+let canvas = null;
 
 let grid = Grid({
   hexSize: HEX_SIZE,
 });
 
-const canvas = document.getElementById("hex-canvas");
-
 function resizeCanvas() {
+  if (!canvas) return;
   const parent = document.getElementById("main-area");
   const w = parent.clientWidth;
   const h = parent.clientHeight;
@@ -259,10 +263,27 @@ function generateMap() {
   map.grid = generateGrid(width, height);
   grid.setDeltaHeight(0);
   grid.setGrid(map.grid);
-  storeMap();
+  saveCurrentMapState();
 }
 
-function storeMap() {
+function saveCurrentMapState() {
+  // Annuler le timer précédent s'il existe
+  if (debounceTimer) {
+    clearTimeout(debounceTimer);
+  }
+  
+  // Démarrer un nouveau timer
+  debounceTimer = setTimeout(() => {
+    console.log("Saving map state...");
+    storeMapToLocalStorage();
+    // Réinitialiser le timer après l'exécution
+    debounceTimer = null;
+  }, DEBOUNCE_DELAY);
+}
+
+function storeMapToLocalStorage() {
+  // Mettre à jour la grille avant de sauvegarder
+  map.grid = grid.getGrid();
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(map));
 }
 
@@ -387,6 +408,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const img = new Image();
     img.src = `assets/hexas/${name}`;
     iconImages[name] = img;
+  });
+
+  canvas = document.getElementById("hex-canvas");
+
+  canvas.addEventListener("gridMouseUp", (e) => {
+    saveCurrentMapState();
   });
 
   grid = Grid({
