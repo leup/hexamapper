@@ -132,6 +132,7 @@ export const Grid = (options) => {
   }
 
   function paintHex(e) {
+    if (!grid || !grid.length) return;
     // Appliquer l'offset inverse pour le calcul
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left - offset.x;
@@ -142,7 +143,7 @@ export const Grid = (options) => {
     if (grid[r] && grid[r][q]) {
       if (selectedIcon === "empty") {
         grid[r][q].icon = null;
-      } else {
+      } else if (selectedIcon) {
         grid[r][q].icon = selectedIcon;
       }
       drawGrid();

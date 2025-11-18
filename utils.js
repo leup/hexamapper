@@ -31,11 +31,11 @@ export const convertGridToMapFormat = (grid) => {
 
 export const generateGrid = (width, height) => {
   console.log("Génération de la grille...");
-  grid = [];
+  let grid = [];
   for (let y = 0; y < height; y++) {
     const row = [];
     for (let x = 0; x < width; x++) {
-      row.push({ icon: "Foret.webp", x: x, y: y });
+      row.push({ icon: null, x: x, y: y });
     }
     grid.push(row);
   }
