@@ -113,20 +113,35 @@ export const Grid = (options) => {
     //console.log("Dessin de la grille...", grid);
     const bg = backgroundImage || defaultBackgroundImage;
 
+    // Effacer tout le canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Background toujours fixe
+    // Dessiner le fond sur toute la surface du canvas
     if (bg) {
       ctx.save();
       ctx.globalAlpha = 0.8;
-      ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
+      // Étendre le fond sur tout le canvas
+      for (let x = 0; x < canvas.width; x += bg.width) {
+        for (let y = 0; y < canvas.height; y += bg.height) {
+          ctx.drawImage(bg, x, y, bg.width, bg.height);
+        }
+      }
       ctx.restore();
     }
 
-    for (let r = 0; r < grid.length; r++) {
-      for (let q = 0; q < grid[r].length; q++) {
+    // Calculer les limites visibles pour optimiser le rendu
+    const visibleLeft = -offset.x / (HEX_SIZE * 1.5) - 1;
+    const visibleRight = (-offset.x + canvas.width) / (HEX_SIZE * 1.5) + 1;
+    const visibleTop = -offset.y / (HEX_SIZE * Math.sqrt(3)) - 1;
+    const visibleBottom = (-offset.y + canvas.height) / (HEX_SIZE * Math.sqrt(3)) + 1;
+
+    // Dessiner uniquement les hexagones visibles
+    for (let r = Math.max(0, Math.floor(visibleTop)); r < Math.min(grid.length, Math.ceil(visibleBottom)); r++) {
+      for (let q = Math.max(0, Math.floor(visibleLeft)); q < Math.min(grid[r].length, Math.ceil(visibleRight)); q++) {
         const hex = grid[r][q];
-        drawHex({ x: q, y: r, icon: hex.icon });
+        if (hex) {
+          drawHex({ x: q, y: r, icon: hex.icon });
+        }
       }
     }
   }
@@ -151,11 +166,10 @@ export const Grid = (options) => {
   }
 
   function hexToPixel(q, r) {
-    const x = HEX_SIZE * 1.5 * q + HEX_SIZE;
+    const x = HEX_SIZE * 1.5 * q + HEX_SIZE + offset.x;
     const y =
       HEX_SIZE * Math.sqrt(3) * (r + 0.5 * ((q + options.deltaHeight) % 2)) +
-      HEX_SIZE;
-    //console.log(`Conversion hex->pixel pour (${q}, ${r}) => (${x}, ${y})`);
+      HEX_SIZE + offset.y;
     return { x, y };
   }
 
@@ -339,6 +353,11 @@ export const Grid = (options) => {
     getHexSize: () => HEX_SIZE,
     setHexSize: (size) => {
       HEX_SIZE = size;
+      console.log("setHexSize", size);
+      // On ne peut pas appeler resizeCanvas directement car c'est dans main.js
+      // On va donc déclencher un événement personnalisé
+      const event = new CustomEvent('hexSizeChanged', { detail: { size } });
+      document.dispatchEvent(event);
       drawGrid();
     },
     setDeltaHeight: (delta) => {

@@ -35,11 +35,38 @@ let grid = Grid({
 
 function resizeCanvas() {
   if (!canvas) return;
-  const parent = document.getElementById("main-area");
-  const w = parent.clientWidth;
-  const h = parent.clientHeight;
-  canvas.width = w;
-  canvas.height = h;
+  
+  const gridData = grid.getGrid();
+  if (!gridData || !gridData.length) {
+    // Si pas de grille, on utilise la taille du conteneur parent
+    const parent = document.getElementById("main-area");
+    canvas.width = parent.clientWidth;
+    canvas.height = parent.clientHeight;
+  } else {
+    // Calculer la taille totale nécessaire pour afficher toute la grille
+    const hexSize = grid.getHexSize();
+    const rows = gridData.length;
+    const cols = gridData[0].length;
+    
+    // Dimensions en pixels de la grille
+    const gridWidth = Math.ceil(cols * hexSize * 1.5 + hexSize);
+    const gridHeight = Math.ceil(rows * hexSize * Math.sqrt(3) + hexSize * 2);
+    
+    // Prendre le maximum entre la taille de la grille et la taille du viewport
+    const parent = document.getElementById("main-area");
+    const viewportWidth = parent.clientWidth;
+    const viewportHeight = parent.clientHeight;
+    
+    // La taille du canvas sera la plus grande dimension entre la grille et le viewport
+    canvas.width = Math.max(gridWidth, viewportWidth);
+    canvas.height = Math.max(gridHeight, viewportHeight);
+    
+    // Centrer la grille dans le canvas
+    const offsetX = Math.max(0, (viewportWidth - gridWidth) / 2);
+    const offsetY = Math.max(0, (viewportHeight - gridHeight) / 2);
+    grid.setOffset(offsetX, offsetY);
+  }
+  
   grid.draw();
 }
 
@@ -410,6 +437,16 @@ window.addEventListener("DOMContentLoaded", () => {
     iconImages[name] = img;
   });
 
+  // Écouter les changements de taille de la fenêtre
+  window.addEventListener("resize", () => {
+    resizeCanvas();
+  });
+
+  // Écouter les changements de taille des hexagones
+  document.addEventListener('hexSizeChanged', () => {
+    resizeCanvas();
+  });
+
   canvas = document.getElementById("hex-canvas");
 
   canvas.addEventListener("gridMouseUp", (e) => {
@@ -448,6 +485,7 @@ window.addEventListener("load", () => {
       gridWidthInput.value = map.width;
       grid.setDeltaHeight(map.start || 0);
       grid.setGrid(map.grid);
+      resizeCanvas();
     } catch (e) {
       console.error("Erreur lors de la restauration :", e);
     }
