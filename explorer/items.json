@@ -30,6 +30,7 @@
     },
     {
       "caracs": { "poids": 2, "usure": 10, "usureMax": 10, "bonus": 5 },
+      "requiredCaracs": { "force": 14 },
       "_id": "64e04a86fa9aee7e17fcc7f5",
       "type": "armure",
       "name": "Gilet pare-balle militaire",
@@ -125,11 +126,11 @@
     },
     {
       "caracs": {
-        "bonus": 0,
         "poids": 0.1,
         "munType": 2,
         "usure": 5,
-        "usureMax": 5
+        "usureMax": 5,
+        "bonus": 0
       },
       "craft": {
         "bricolage": 16,
@@ -157,7 +158,6 @@
             }
           ]
         ],
-        "extension": "Atelier",
         "extensions": ["Atelier", "Presse à munitions"],
         "PA": 2
       },
@@ -215,7 +215,7 @@
       "miniAvatar": "/items/armes/mini/poing.webp"
     },
     {
-      "caracs": { "poids": 80, "usure": 12, "usureMax": 12, "bonus": 5 },
+      "caracs": { "poids": 80, "usure": 10, "usureMax": 10, "bonus": 5 },
       "_id": "64e2f306edf6b937216848c9",
       "type": "dead",
       "name": "Corps",
@@ -454,11 +454,11 @@
     },
     {
       "caracs": {
-        "bonus": 0,
         "poids": 0.1,
         "munType": 1,
         "usure": 10,
-        "usureMax": 10
+        "usureMax": 10,
+        "bonus": 0
       },
       "craft": {
         "bricolage": 14,
@@ -486,7 +486,6 @@
             }
           ]
         ],
-        "extension": "Atelier",
         "extensions": ["Atelier", "Presse à munitions"],
         "PA": 2
       },
@@ -503,11 +502,11 @@
     },
     {
       "caracs": {
-        "bonus": 0,
         "poids": 0.1,
         "munType": 3,
         "usure": 10,
-        "usureMax": 10
+        "usureMax": 10,
+        "bonus": 0
       },
       "craft": {
         "bricolage": 15,
@@ -535,7 +534,6 @@
             }
           ]
         ],
-        "extension": "Atelier",
         "extensions": ["Atelier", "Presse à munitions"],
         "PA": 2
       },
@@ -589,7 +587,7 @@
       "miniAvatar": "/items/armes/mini/Canon_scie.webp"
     },
     {
-      "caracs": { "poids": 0.1, "usure": 10, "bonus": 0, "usureMax": 10 },
+      "caracs": { "bonus": 0, "poids": 0.1, "usure": 10, "usureMax": 10 },
       "_id": "65c8d56e39c4207d3d7984e4",
       "type": "rp",
       "name": "Pass Fitness de Wakku",
@@ -1834,7 +1832,7 @@
       "description": "Est ce que tu vas te mettre à briller dans la nuit ? A faire pipi fluo ? En tout cas, ça fera pas de toi une lumière...",
       "quantite": 1,
       "craftable": false,
-      "__v": 4,
+      "__v": 5,
       "lootable": 0,
       "tileType": [
         "Plaine",
@@ -1849,10 +1847,10 @@
       "miniAvatar": "/items/nrt/mini/Osabrille.webp",
       "effects": [
         {
-          "name": "Rad (+2)",
+          "name": "Rad (+1)",
           "carac": "radiation",
-          "bonus": 2,
-          "description": "C'est rigolo, tu brilles dans la nuit toi aussi. (+2 Rad)",
+          "bonus": 1,
+          "description": "C'est rigolo, tu brilles dans la nuit toi aussi. (+1 Rad)",
           "forceEffect": true,
           "_id": "68b06588e93e045190e021cb"
         }
@@ -2281,16 +2279,16 @@
     },
     {
       "caracs": {
+        "bonus": 0,
         "poids": 4,
         "genre": "distance",
         "munType": 1,
         "degats": [4, 3],
-        "capacite": 71,
+        "capacite": 35,
         "usure": 10,
+        "usureMax": 10,
         "mode": ["single", "auto"],
-        "mun": 0,
-        "bonus": 0,
-        "usureMax": 10
+        "mun": 0
       },
       "_id": "65da53a46765df438953396d",
       "type": "arme",
@@ -2302,17 +2300,15 @@
       "__v": 0,
       "lootable": 3,
       "repairItem": {
-        "caracs": { "poids": 0.5, "usure": 5, "bonus": 0, "usureMax": 5 },
-        "craft": { "Extension": false, "PA": 2 },
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "craft": { "PA": 2 },
         "_id": "675ef2969c7bbe3161075f9b",
         "type": "ressource",
         "name": "Ferraille",
         "avatar": "\\items\\ressources\\Ferraille.webp",
         "description": "Quelques bouts, entre autres, de métal.",
         "quantite": 1,
-        "__v": 0,
         "lootable": 1,
-        "craftable": false,
         "miniAvatar": "\\items\\ressources\\mini\\Ferraille.webp"
       },
       "miniAvatar": "/items/armes/mini/PPSH.webp"
@@ -3138,7 +3134,7 @@
       "miniAvatar": "/items/nrt/mini/Grenadeproteinee.webp"
     },
     {
-      "caracs": { "poids": 0.2, "usure": 5, "bonus": 0, "usureMax": 5 },
+      "caracs": { "bonus": 0, "poids": 0.2, "usure": 5, "usureMax": 5 },
       "_id": "6623ff1fe6fe7daf0b9aea2d",
       "type": "nrt",
       "name": "Peinture chromée",
@@ -3166,7 +3162,8 @@
         }
       ],
       "__v": 0,
-      "miniAvatar": "/items/nrt/mini/Peinturechromee.webp"
+      "miniAvatar": "/items/nrt/mini/Peinturechromee.webp",
+      "foodType": "chim"
     },
     {
       "caracs": { "poids": 0.1, "usure": 5, "usureMax": 5, "bonus": 0 },
@@ -3217,7 +3214,7 @@
       "miniAvatar": "/items/nrt/mini/Seldetablearrange.webp"
     },
     {
-      "caracs": { "poids": 0.1, "usure": 2, "bonus": 0, "usureMax": 2 },
+      "caracs": { "bonus": 0, "poids": 0.1, "usure": 2, "usureMax": 2 },
       "_id": "6624e3f302eda905243850fc",
       "type": "nrt",
       "name": "Cigarettes de Cowboy",
@@ -3245,10 +3242,11 @@
         }
       ],
       "__v": 0,
-      "miniAvatar": "/items/nrt/mini/CigarettesdeCowboy.webp"
+      "miniAvatar": "/items/nrt/mini/CigarettesdeCowboy.webp",
+      "foodType": "chim"
     },
     {
-      "caracs": { "poids": 0.1, "usure": 2, "bonus": 0, "usureMax": 2 },
+      "caracs": { "bonus": 0, "poids": 0.1, "usure": 2, "usureMax": 2 },
       "_id": "6624e87c78d8d6b40e0bf9c0",
       "type": "nrt",
       "name": "Cigarettes de Cowboy noir",
@@ -3276,10 +3274,11 @@
         }
       ],
       "__v": 0,
-      "miniAvatar": "/items/nrt/mini/CigarettesdeCowboynoir.webp"
+      "miniAvatar": "/items/nrt/mini/CigarettesdeCowboynoir.webp",
+      "foodType": "chim"
     },
     {
-      "caracs": { "poids": 0.1, "usure": 2, "bonus": 0, "usureMax": 2 },
+      "caracs": { "bonus": 0, "poids": 0.1, "usure": 2, "usureMax": 2 },
       "_id": "6624eac363e6b27386a56b47",
       "type": "nrt",
       "name": "Cigarettes de guerrier astèque",
@@ -3290,10 +3289,10 @@
       "craftable": false,
       "effects": [
         {
-          "name": "Perte de pv (-5)",
+          "name": "Perte de pv (-4)",
           "carac": "caracs.pv",
-          "bonus": -5,
-          "description": "Si t'as encore des poumons après ça... (- 5 PVs)",
+          "bonus": -4,
+          "description": "Si t'as encore des poumons après ça... (-4 PV)",
           "forceEffect": true,
           "_id": "6624eac363e6b27386a56b48"
         },
@@ -3306,8 +3305,9 @@
           "_id": "6624eac363e6b27386a56b49"
         }
       ],
-      "__v": 0,
-      "miniAvatar": "/items/nrt/mini/Cigarettesdeguerrierasteque.webp"
+      "__v": 1,
+      "miniAvatar": "/items/nrt/mini/Cigarettesdeguerrierasteque.webp",
+      "foodType": "chim"
     },
     {
       "caracs": { "poids": 0.2, "usure": 5, "bonus": 5, "usureMax": 5 },
@@ -3950,7 +3950,7 @@
           "name": "PV (-15)",
           "carac": "caracs.pv",
           "bonus": -15,
-          "description": "Je suis pas sur que tu passeras la nuit, par contre (-10 pvs)",
+          "description": "Je suis pas sur que tu passeras la nuit, par contre (-15 pvs)",
           "forceEffect": true,
           "_id": "662c063ffa922d7aecb1cc1c"
         },
@@ -3963,7 +3963,7 @@
           "_id": "683c0b5e0c47096ea17df6c8"
         }
       ],
-      "__v": 2,
+      "__v": 3,
       "foodType": "alcool",
       "miniAvatar": "/items/boisson/mini/Gnoleartisanaleperigourdine.webp"
     },
@@ -4314,14 +4314,6 @@
           "_id": "66339aadae6bc7fa5f53b035"
         },
         {
-          "name": "Survival (-3)",
-          "carac": "caracs.survivalisme",
-          "bonus": -3,
-          "description": "En survie, l'erreur est une leçon qui fait mal.. (-3 Survivalisme)",
-          "forceEffect": true,
-          "_id": "66339aadae6bc7fa5f53b036"
-        },
-        {
           "name": "PV (+6)",
           "carac": "caracs.pv",
           "bonus": 6,
@@ -4338,7 +4330,7 @@
           "_id": "66339aadae6bc7fa5f53b038"
         }
       ],
-      "__v": 4,
+      "__v": 5,
       "tileType": ["Plaine"],
       "saisons": ["Ete"],
       "foodType": "cond",
@@ -4579,7 +4571,7 @@
       "miniAvatar": "/items/nrt/mini/Champignonshallucinogenes.webp"
     },
     {
-      "caracs": { "poids": 0.2, "usure": 10, "bonus": 0, "usureMax": 10 },
+      "caracs": { "bonus": 0, "poids": 0.2, "usure": 10, "usureMax": 10 },
       "_id": "6633a603508ae820f46c7736",
       "type": "boisson",
       "name": "Café soluble",
@@ -4599,7 +4591,7 @@
         }
       ],
       "__v": 1,
-      "foodType": "cond",
+      "foodType": "special",
       "miniAvatar": "/items/boisson/mini/Cafesoluble.webp"
     },
     {
@@ -4622,10 +4614,10 @@
           "_id": "6633aa9cc05fca2cd757d408"
         },
         {
-          "name": "AC (-3)",
+          "name": "AC (-2)",
           "carac": "caracs.ac",
-          "bonus": -3,
-          "description": "Par contre, pas facile de se défendre quand on a la chiasse. (-3 AC)",
+          "bonus": -2,
+          "description": "Par contre, pas facile de se défendre quand on a la chiasse. (-2 AC)",
           "forceEffect": true,
           "_id": "6633aa9cc05fca2cd757d409"
         },
@@ -4641,11 +4633,11 @@
       "__v": 3,
       "tileType": ["Marecage"],
       "saisons": ["Hiver", "Automne"],
-      "foodType": "special",
+      "foodType": "cond",
       "miniAvatar": "/items/nrt/mini/LabelleAngelique.webp"
     },
     {
-      "caracs": { "poids": 0.3, "usure": 5, "bonus": 0, "usureMax": 5 },
+      "caracs": { "bonus": 0, "poids": 0.3, "usure": 5, "usureMax": 5 },
       "_id": "6633ad5a8d4d2fe3c05ef128",
       "type": "nrt",
       "name": "Marie-Jeanne",
@@ -4675,7 +4667,7 @@
           "name": "Constit (+10)",
           "carac": "caracs.constitution",
           "bonus": 10,
-          "description": "En tout cas tu portes plus facilement ton sac. (+15 constit)",
+          "description": "En tout cas tu portes plus facilement ton sac. (+10 constit)",
           "forceEffect": false,
           "_id": "6633ad5a8d4d2fe3c05ef12b"
         },
@@ -4688,7 +4680,7 @@
           "_id": "6633ad5a8d4d2fe3c05ef12c"
         }
       ],
-      "__v": 3,
+      "__v": 4,
       "tileType": ["Colline"],
       "saisons": ["Printemps"],
       "foodType": "cond",
@@ -4706,6 +4698,8 @@
       "craftable": false,
       "__v": 0,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d73dbf69449f3f3c1fd37b",
         "type": "bonus",
         "level": 0,
@@ -5041,7 +5035,7 @@
         "toolType": "roseaux"
       },
       "craft": {
-        "bricolage": 11,
+        "bricolage": 12,
         "craftList": [
           [
             {
@@ -5066,7 +5060,7 @@
             }
           ]
         ],
-        "PA": 5
+        "PA": 2
       },
       "_id": "664f88710999ff5fc37fccbc",
       "type": "arme",
@@ -5240,27 +5234,7 @@
     },
     {
       "caracs": { "poids": 5, "usure": 15, "usureMax": 15, "bonus": 5 },
-      "requiredCaracs": {
-        "force": 16,
-        "charisme": -14,
-        "perk": {
-          "_id": "670ed320b138bea0ab064491",
-          "level": 12,
-          "name": "Assassin",
-          "avatar": "/perks/assassin.webp",
-          "description": "Tu sais comment faire souffrir, c'est grave ? (+ 2 dégats)",
-          "characterBonus": [
-            {
-              "carac": "exp.perksBonus.degats",
-              "bonus": 2,
-              "_id": "65d6f7e4d266549949a22790"
-            }
-          ],
-          "__v": 0,
-          "type": "bonus",
-          "miniAvatar": "/perks/mini/assassin.webp"
-        }
-      },
+      "requiredCaracs": { "force": 16 },
       "_id": "6650ea35a4d316dc405daca0",
       "type": "armure",
       "name": "Armure de CRS",
@@ -5300,6 +5274,7 @@
     },
     {
       "caracs": { "poids": 7, "usure": 12, "usureMax": 12, "bonus": 3 },
+      "requiredCaracs": { "force": 14 },
       "_id": "6650ff03a4d316dc405e92fb",
       "type": "armure",
       "name": "Cuirasse",
@@ -5457,7 +5432,6 @@
             }
           ]
         ],
-        "extension": "Atelier",
         "extensions": ["Atelier"],
         "PA": 6
       },
@@ -5788,7 +5762,7 @@
       "miniAvatar": "/items/nrt/mini/Amphetamines.webp"
     },
     {
-      "caracs": { "poids": 0.4, "usure": 10, "usureMax": 10, "bonus": 10 },
+      "caracs": { "poids": 0.4, "usure": 15, "usureMax": 15, "bonus": 10 },
       "craft": {
         "genericCraft": { "chim": 4 },
         "bricolage": 20,
@@ -5928,7 +5902,7 @@
       "miniAvatar": "/items/boisson/mini/SangdeDragon.webp"
     },
     {
-      "caracs": { "poids": 0.5, "usure": 10, "usureMax": 10, "bonus": 10 },
+      "caracs": { "poids": 0.5, "usure": 15, "usureMax": 15, "bonus": 10 },
       "craft": {
         "genericCraft": { "chim": 4 },
         "bricolage": 20,
@@ -5994,7 +5968,7 @@
       "miniAvatar": "/items/boisson/mini/BaiserdeVenus.webp"
     },
     {
-      "caracs": { "bonus": 0, "poids": 0.2, "usure": 5, "usureMax": 5 },
+      "caracs": { "bonus": 0, "poids": 0.2, "usure": 15, "usureMax": 15 },
       "craft": {
         "genericCraft": { "chim": 4 },
         "bricolage": 20,
@@ -6116,10 +6090,10 @@
       "miniAvatar": "/items/boisson/mini/Droledesiroppourlatoux.webp"
     },
     {
-      "caracs": { "poids": 0.1, "usure": 20, "bonus": 15, "usureMax": 20 },
+      "caracs": { "poids": 0.1, "usure": 20, "usureMax": 20, "bonus": 15 },
       "_id": "665b317671f4eb021e36006f",
       "type": "boisson",
-      "name": "Poison",
+      "name": "Poison mortel",
       "avatar": "/items/boisson/Poison.webp",
       "description": "Pour amener un peu de peps à ta salade césar.",
       "quantite": 1,
@@ -6287,7 +6261,7 @@
       "miniAvatar": "/items/nrt/mini/Potaufeudusurvivant.webp"
     },
     {
-      "caracs": { "poids": 2, "usure": 9, "bonus": 1, "usureMax": 9 },
+      "caracs": { "poids": 2, "usure": 9, "usureMax": 9, "bonus": 1 },
       "craft": {
         "bricolage": 8,
         "craftList": [
@@ -6315,27 +6289,37 @@
       "craftable": true,
       "__v": 1,
       "repairItem": {
-        "caracs": {
-          "poids": 0.5,
-          "usure": 5,
-          "degats": [],
-          "mode": [],
-          "saison": [],
-          "bonus": 0,
-          "usureMax": 5
-        },
-        "craft": { "Extension": false, "PA": 2 },
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "craft": { "PA": 2 },
         "_id": "675ef2989c7bbe3161075ff1",
         "type": "ressource",
         "name": "Peau",
         "avatar": "\\items\\ressources\\skin.webp",
         "description": "Peau d'un animal mort, classe ...",
         "quantite": 1,
-        "__v": 0,
         "lootable": 1,
         "miniAvatar": "\\items\\ressources\\mini\\skin.webp"
       },
-      "miniAvatar": "/items/armures/mini/Manteaudepeaux.webp"
+      "miniAvatar": "/items/armures/mini/Manteaudepeaux.webp",
+      "perk": {
+        "_id": "6922ea394eb8684d33599c1c",
+        "type": "bonus",
+        "level": 2,
+        "name": "Couvert",
+        "avatar": "/perks/Couvert.webp",
+        "miniAvatar": "/perks/mini/Couvert.webp",
+        "description": "Tu sais que les intempéries, c'est pas bon pour ta santé (+1 résistance aux maladies)",
+        "characterBonus": [
+          {
+            "carac": "exp.perksBonus.diseaseResistance",
+            "bonus": 1,
+            "_id": "6922ea394eb8684d33599c1d"
+          }
+        ],
+        "healItems": [],
+        "permanent": false,
+        "__v": 0
+      }
     },
     {
       "caracs": {
@@ -6386,7 +6370,6 @@
             }
           ]
         ],
-        "extension": "Atelier",
         "PA": 4,
         "extensions": ["Atelier"]
       },
@@ -6424,12 +6407,12 @@
     },
     {
       "caracs": {
-        "bonus": 0,
         "poids": 3,
         "genre": "cac",
         "degats": [1, 7],
         "usure": 10,
-        "usureMax": 10
+        "usureMax": 10,
+        "bonus": 0
       },
       "craft": {
         "bricolage": 16,
@@ -6465,7 +6448,6 @@
             }
           ]
         ],
-        "extension": "Atelier",
         "PA": 5
       },
       "_id": "6661ddb8df3a375ca7178bae",
@@ -6571,10 +6553,10 @@
       "miniAvatar": "/items/armes/mini/Arbaleteapoulies.webp"
     },
     {
-      "caracs": { "poids": 0.3, "usure": 5, "bonus": 7, "usureMax": 5 },
+      "caracs": { "poids": 0.3, "usure": 5, "usureMax": 5, "bonus": 5 },
       "_id": "666353b6aae01135c34128d8",
       "type": "nrt",
-      "tileType": ["Cote"],
+      "tileType": ["Cote", "Mer"],
       "saisons": ["Ete", "Automne", "Hiver"],
       "name": "Laitue de mer",
       "avatar": "/items/nrt/Laituedemer.webp",
@@ -6731,7 +6713,7 @@
       "miniAvatar": "/items/nrt/mini/Figues.webp"
     },
     {
-      "caracs": { "poids": 0.2, "usure": 5, "bonus": 10, "usureMax": 5 },
+      "caracs": { "poids": 0.2, "usure": 5, "usureMax": 5, "bonus": 10 },
       "_id": "666363d35bb7a63d2a379b0a",
       "type": "nrt",
       "name": "Glace à la forme suggestive",
@@ -6759,7 +6741,8 @@
         }
       ],
       "__v": 0,
-      "miniAvatar": "/items/nrt/mini/Glacealaformesuggestive.webp"
+      "miniAvatar": "/items/nrt/mini/Glacealaformesuggestive.webp",
+      "foodType": "special"
     },
     {
       "caracs": { "poids": 1, "usure": 10, "bonus": 0, "usureMax": 10 },
@@ -6772,6 +6755,8 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d73d706bef1d956fe59e2d",
         "type": "bonus",
         "level": 0,
@@ -6813,7 +6798,6 @@
             }
           ]
         ],
-        "extension": "Atelier",
         "PA": 5,
         "extensions": ["Atelier"]
       },
@@ -6872,7 +6856,7 @@
       "type": "nrt",
       "tileType": ["Wasteland"],
       "saisons": ["Ete", "Automne"],
-      "name": "Fleurs du Mâle",
+      "name": "Fleur du Mâle",
       "avatar": "/items/nrt/FleursduMal.webp",
       "description": "Ca fait toujours bizarre la première fois. ",
       "quantite": 1,
@@ -7703,7 +7687,7 @@
       "miniAvatar": "/items/nrt/mini/Fruitdudesert.webp"
     },
     {
-      "caracs": { "poids": 0.1, "usure": 15, "usureMax": 15, "bonus": 0 },
+      "caracs": { "bonus": 0, "poids": 0.1, "usure": 15, "usureMax": 15 },
       "craft": {
         "genericCraft": { "leg": 2, "fruit": 2, "water": 1 },
         "bricolage": 15,
@@ -7737,66 +7721,6 @@
               "description": "Le premier truc qui traverse l'esprit, c'est pas forcément de la manger ...",
               "quantite": 2,
               "miniAvatar": "\\items\\nrt\\mini\\Fleurdamour.webp"
-            },
-            {
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\nrt\\water.webp",
-              "description": "De l'eau, y'en qui en boivent",
-              "quantite": 1,
-              "miniAvatar": "\\items\\nrt\\mini\\water.webp"
-            }
-          ],
-          [
-            {
-              "_id": "664c9ca31d6524d63abf62c4",
-              "type": "nrt",
-              "name": "Orties",
-              "avatar": "\\items\\nrt\\Orties.webp",
-              "description": "Les démangeaisons, c'est accessoire quand on crève la dalle.",
-              "quantite": 2,
-              "miniAvatar": "\\items\\nrt\\mini\\Orties.webp"
-            },
-            {
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\nrt\\water.webp",
-              "description": "De l'eau, y'en qui en boivent",
-              "quantite": 1,
-              "miniAvatar": "\\items\\nrt\\mini\\water.webp"
-            }
-          ],
-          [
-            {
-              "_id": "664c9cf71d6524d63abf7cf0",
-              "type": "nrt",
-              "name": "Pissenlits",
-              "avatar": "\\items\\nrt\\Pissenlits.webp",
-              "description": "Pour une fois qu'on les mange pas par la racine...",
-              "quantite": 2,
-              "miniAvatar": "\\items\\nrt\\mini\\Pissenlits.webp"
-            },
-            {
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\nrt\\water.webp",
-              "description": "De l'eau, y'en qui en boivent",
-              "quantite": 1,
-              "miniAvatar": "\\items\\nrt\\mini\\water.webp"
-            }
-          ],
-          [
-            {
-              "_id": "6676e368b9294e758bba6cb1",
-              "type": "nrt",
-              "name": "Oseille",
-              "avatar": "\\items\\nrt\\Oseille.webp",
-              "description": "A défaut de flouze.",
-              "quantite": 2,
-              "miniAvatar": "\\items\\nrt\\mini\\Oseille.webp"
             },
             {
               "_id": "6559e3b051d55ab63d43b12a",
@@ -7862,10 +7786,11 @@
           "_id": "6559e3b051d55ab63d43b12a",
           "type": "boisson",
           "name": "Eau",
-          "avatar": "/items/nrt/water.png",
+          "avatar": "/items/boisson/Eau.webp",
           "description": "De l'eau, y'en a qui en boivent",
           "quantite": 1,
-          "foodType": "water"
+          "foodType": "water",
+          "miniAvatar": "/items/boisson/mini/Eau.webp"
         },
         "PA": 1
       },
@@ -7910,6 +7835,8 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d7398e8a0399bc4921a8b0",
         "type": "bonus",
         "level": 0,
@@ -7945,6 +7872,8 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d73cc74620239bac768149",
         "type": "bonus",
         "level": 0,
@@ -7980,6 +7909,8 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d73dbf69449f3f3c1fd37b",
         "type": "bonus",
         "level": 0,
@@ -8015,6 +7946,8 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d73d4205532d9ff6393fbc",
         "type": "bonus",
         "level": 0,
@@ -8050,12 +7983,14 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d741e5e74cb61869756fdf",
         "type": "bonus",
         "level": 0,
         "name": "Charisme",
         "avatar": "charisme",
-        "description": "T'es le roi du Blabla mais moi tu me la fais pas. (+1 Charisme)",
+        "description": "T'es le roi du blabla mais moi tu me la fais pas. (+1 Charisme)",
         "characterBonus": [
           {
             "carac": "caracs.charisme",
@@ -8311,12 +8246,14 @@
       "craftable": false,
       "__v": 0,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d741e5e74cb61869756fdf",
         "type": "bonus",
         "level": 0,
         "name": "Charisme",
         "avatar": "charisme",
-        "description": "T'es le roi du Blabla mais moi tu me la fais pas. (+1 Charisme)",
+        "description": "T'es le roi du blabla mais moi tu me la fais pas. (+1 Charisme)",
         "characterBonus": [
           {
             "carac": "caracs.charisme",
@@ -8646,7 +8583,6 @@
             }
           ]
         ],
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -8814,6 +8750,8 @@
       "quantite": 1,
       "lootable": 3,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "66ab1c6e824709017cb37a9f",
         "type": "bonus",
         "level": 6,
@@ -9054,7 +8992,6 @@
             }
           ]
         ],
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -9106,12 +9043,12 @@
           "_id": "66ade742c40a262ddcd1f709",
           "type": "nrt",
           "name": "Ecorce de saule",
-          "avatar": "/items/nrt/Ecorcedesaule.png",
+          "avatar": "/items/nrt/Ecorcedesaule.webp",
           "description": "SI tu bouffes ça, tu vas chier des copeaux de bois. Efficace contre la tourista.",
           "quantite": 1,
-          "foodType": "cond"
+          "foodType": "cond",
+          "miniAvatar": "/items/nrt/mini/Ecorcedesaule.webp"
         },
-        "extension": "Officine",
         "PA": 1,
         "extensions": ["Officine"]
       },
@@ -9146,338 +9083,21 @@
       "miniAvatar": "/items/boisson/mini/Pseudoaspirine.webp"
     },
     {
-      "caracs": { "poids": 0.3, "usure": 15, "usureMax": 15, "bonus": 0 },
+      "caracs": { "bonus": 0, "poids": 0.3, "usure": 15, "usureMax": 15 },
       "craft": {
+        "genericCraft": { "leg": 1, "alcool": 1 },
         "bricolage": 15,
-        "craftList": [
-          [
-            {
-              "caracs": { "poids": 0.3, "usure": 5, "bonus": 7 },
-              "_id": "664c9ca31d6524d63abf62c4",
-              "type": "nrt",
-              "name": "Orties",
-              "avatar": "\\items\\nrt\\Orties.webp",
-              "description": "Les démangeaisons, c'est accessoire quand on crève la dalle.",
-              "quantite": 1,
-              "miniAvatar": "\\items\\nrt\\mini\\Orties.webp"
-            },
-            {
-              "caracs": { "poids": 0.5, "usure": 5, "bonus": 25 },
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\nrt\\water.webp",
-              "description": "De l'eau, y'en a qui en boivent",
-              "quantite": 1,
-              "foodType": "water",
-              "miniAvatar": "\\items\\nrt\\mini\\water.webp"
-            }
-          ],
-          [
-            {
-              "caracs": { "poids": 0.2, "usure": 4, "bonus": 11 },
-              "_id": "65d5f9dbb7035c41fcb7a75a",
-              "type": "nrt",
-              "name": "Piment à col roulé",
-              "avatar": "\\items\\nrt\\Pimentacolroule.webp",
-              "description": "Ca sent franchement mauvais… la charogne, la putréfaction, les égouts, le vomi, la mouffette : tout ça à la fois. Ton haleine ressemblera à celle que tu aurais si tu avais embrassé intensément ta grand-mère morte depuis des lustres… et le goût et l'odeur restent en bouche des jours durant...",
-              "quantite": 1,
-              "foodType": "cond",
-              "miniAvatar": "\\items\\nrt\\mini\\Pimentacolroule.webp"
-            },
-            {
-              "caracs": { "poids": 0.5, "usure": 5, "bonus": 25 },
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\nrt\\water.webp",
-              "description": "De l'eau, y'en a qui en boivent",
-              "quantite": 1,
-              "foodType": "water",
-              "miniAvatar": "\\items\\nrt\\mini\\water.webp"
-            }
-          ],
-          [
-            {
-              "caracs": { "poids": 0.1, "usure": 15, "bonus": 3 },
-              "_id": "66a4de9c096ae5c41bf8346b",
-              "type": "nrt",
-              "name": "Curry traditionnel",
-              "avatar": "\\items\\nrt\\Currytraditionnel.webp",
-              "description": "Mets le feu à ton trou du cul tout en rendant n'importe quel aliment digérable. ",
-              "quantite": 1,
-              "foodType": "cond",
-              "miniAvatar": "\\items\\nrt\\mini\\Currytraditionnel.webp"
-            },
-            {
-              "caracs": { "poids": 0.5, "usure": 5, "bonus": 25 },
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\nrt\\water.webp",
-              "description": "De l'eau, y'en a qui en boivent",
-              "quantite": 1,
-              "foodType": "water",
-              "miniAvatar": "\\items\\nrt\\mini\\water.webp"
-            }
-          ],
-          [
-            {
-              "caracs": {
-                "poids": 1.5,
-                "usure": 10,
-                "usureMax": 10,
-                "bonus": 5
-              },
-              "_id": "66281b534a8c6164b5290418",
-              "type": "boisson",
-              "name": "Gin d'aristo",
-              "avatar": "\\items\\boisson\\Gindaristo.webp",
-              "description": "Boisson de salon pour grand garçon. ",
-              "quantite": 1,
-              "foodType": "alcool",
-              "miniAvatar": "\\items\\boisson\\mini\\Gindaristo.webp"
-            },
-            {
-              "caracs": {
-                "poids": 0.5,
-                "usure": 5,
-                "usureMax": 5,
-                "bonus": 20
-              },
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\boisson\\Eau.webp",
-              "description": "De l'eau, y'en a qui en boivent",
-              "quantite": 1,
-              "foodType": "water",
-              "miniAvatar": "\\items\\boisson\\mini\\Eau.webp"
-            }
-          ],
-          [
-            {
-              "caracs": {
-                "poids": 0.7,
-                "usure": 6,
-                "usureMax": 6,
-                "bonus": 15
-              },
-              "_id": "66c87b4330c4124631c3d7da",
-              "type": "boisson",
-              "name": "Liqueur d'Aspérule",
-              "avatar": "\\items\\boisson\\LiqueurdAsperule.webp",
-              "description": "Qui a dit que les alsaciens étaient des traitres ? ",
-              "quantite": 1,
-              "craftable": true,
-              "foodType": "alcool",
-              "miniAvatar": "\\items\\boisson\\mini\\LiqueurdAsperule.webp"
-            }
-          ],
-          [
-            {
-              "caracs": { "poids": 1.5, "usure": 10, "usureMax": 10 },
-              "_id": "66281809ccc251662668823a",
-              "type": "boisson",
-              "name": "Whisky Américain",
-              "avatar": "\\items\\boisson\\WhiskyAmericain.webp",
-              "description": "De quoi te scalper le crâne, haha.",
-              "quantite": 1,
-              "foodType": "alcool",
-              "miniAvatar": "\\items\\boisson\\mini\\WhiskyAmericain.webp"
-            },
-            {
-              "caracs": {
-                "poids": 0.5,
-                "usure": 5,
-                "usureMax": 5,
-                "bonus": 20
-              },
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\boisson\\Eau.webp",
-              "description": "De l'eau, y'en a qui en boivent",
-              "quantite": 1,
-              "foodType": "water",
-              "miniAvatar": "\\items\\boisson\\mini\\Eau.webp"
-            }
-          ],
-          [
-            {
-              "caracs": { "poids": 1.5, "usure": 10, "usureMax": 10 },
-              "_id": "66281915ccc251662668824f",
-              "type": "boisson",
-              "name": "Rhum de pirate",
-              "avatar": "\\items\\boisson\\Rhumdepirate.webp",
-              "description": "Hissez le grand foc, matelot ! Qu'il prenne bien le vent par derrière ! Hum...",
-              "quantite": 1,
-              "foodType": "alcool",
-              "miniAvatar": "\\items\\boisson\\mini\\Rhumdepirate.webp"
-            },
-            {
-              "caracs": {
-                "poids": 0.5,
-                "usure": 5,
-                "usureMax": 5,
-                "bonus": 20
-              },
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\boisson\\Eau.webp",
-              "description": "De l'eau, y'en a qui en boivent",
-              "quantite": 1,
-              "foodType": "water",
-              "miniAvatar": "\\items\\boisson\\mini\\Eau.webp"
-            }
-          ],
-          [
-            {
-              "caracs": {
-                "poids": 0.5,
-                "usure": 5,
-                "usureMax": 5,
-                "bonus": 20
-              },
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\boisson\\Eau.webp",
-              "description": "De l'eau, y'en a qui en boivent",
-              "quantite": 1,
-              "foodType": "water",
-              "miniAvatar": "\\items\\boisson\\mini\\Eau.webp"
-            },
-            {
-              "caracs": { "poids": 1.5, "usure": 10, "usureMax": 10 },
-              "_id": "662bff082c365d696cb2e9c2",
-              "type": "boisson",
-              "name": "Sodabi togolais",
-              "avatar": "\\items\\boisson\\Sodabitogolais.webp",
-              "description": "Quand on pratique le vaudou, on offre du Sodabi à certains esprits... De là à le boire... ",
-              "quantite": 1,
-              "foodType": "alcool",
-              "miniAvatar": "\\items\\boisson\\mini\\Sodabitogolais.webp"
-            }
-          ],
-          [
-            {
-              "caracs": { "poids": 0.7, "usure": 10, "usureMax": 10 },
-              "_id": "662bfce62c365d696cb2e67a",
-              "type": "boisson",
-              "name": "Tequila del diablo",
-              "avatar": "\\items\\boisson\\Tequiladeldiablo.webp",
-              "description": "L'agave bleu ne fleurit qu'une fois avant de crever. Un peu comme toi, on dirait. ",
-              "quantite": 1,
-              "foodType": "alcool",
-              "miniAvatar": "\\items\\boisson\\mini\\Tequiladeldiablo.webp"
-            },
-            {
-              "caracs": {
-                "poids": 0.5,
-                "usure": 5,
-                "usureMax": 5,
-                "bonus": 20
-              },
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\boisson\\Eau.webp",
-              "description": "De l'eau, y'en a qui en boivent",
-              "quantite": 1,
-              "foodType": "water",
-              "miniAvatar": "\\items\\boisson\\mini\\Eau.webp"
-            }
-          ],
-          [
-            {
-              "caracs": { "poids": 1.5, "usure": 10, "usureMax": 10 },
-              "_id": "662c063ffa922d7aecb1cc14",
-              "type": "boisson",
-              "name": "Gnole artisanale périgourdine",
-              "avatar": "\\items\\boisson\\Gnoleartisanaleperigourdine.webp",
-              "description": "\"On a dû arrêter la fabrication, y a des clients qui devenaient aveugles\"",
-              "quantite": 1,
-              "foodType": "alcool",
-              "miniAvatar": "\\items\\boisson\\mini\\Gnoleartisanaleperigourdine.webp"
-            },
-            {
-              "caracs": {
-                "poids": 0.5,
-                "usure": 5,
-                "usureMax": 5,
-                "bonus": 20
-              },
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\boisson\\Eau.webp",
-              "description": "De l'eau, y'en a qui en boivent",
-              "quantite": 2,
-              "foodType": "water",
-              "miniAvatar": "\\items\\boisson\\mini\\Eau.webp"
-            }
-          ],
-          [
-            {
-              "caracs": { "poids": 1.5, "usure": 10, "usureMax": 10 },
-              "_id": "66281f90deb93eafd4cfb1b5",
-              "type": "boisson",
-              "name": "Vodka Estonienne",
-              "avatar": "\\items\\boisson\\VodkaEstonienne.webp",
-              "description": "A défaut de se tripoter le goulot...",
-              "quantite": 1,
-              "foodType": "alcool",
-              "miniAvatar": "\\items\\boisson\\mini\\VodkaEstonienne.webp"
-            },
-            {
-              "caracs": {
-                "poids": 0.5,
-                "usure": 5,
-                "usureMax": 5,
-                "bonus": 20
-              },
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\boisson\\Eau.webp",
-              "description": "De l'eau, y'en a qui en boivent",
-              "quantite": 1,
-              "foodType": "water",
-              "miniAvatar": "\\items\\boisson\\mini\\Eau.webp"
-            }
-          ],
-          [
-            {
-              "caracs": { "poids": 1.5, "usure": 10, "usureMax": 10 },
-              "_id": "662c01f9a57d1e33829b1363",
-              "type": "boisson",
-              "name": "Alcool thaïlandais",
-              "avatar": "\\items\\boisson\\Alcoolthailandais.webp",
-              "description": "A boire et à manger, que demande le peuple ? Ne pas mourir empoisonné ? Ah. ",
-              "quantite": 1,
-              "foodType": "alcool",
-              "miniAvatar": "\\items\\boisson\\mini\\Alcoolthailandais.webp"
-            },
-            {
-              "caracs": {
-                "poids": 0.5,
-                "usure": 5,
-                "usureMax": 5,
-                "bonus": 20
-              },
-              "_id": "6559e3b051d55ab63d43b12a",
-              "type": "boisson",
-              "name": "Eau",
-              "avatar": "\\items\\boisson\\Eau.webp",
-              "description": "De l'eau, y'en a qui en boivent",
-              "quantite": 1,
-              "foodType": "water",
-              "miniAvatar": "\\items\\boisson\\mini\\Eau.webp"
-            }
-          ]
-        ],
+        "requiredItem": {
+          "caracs": { "poids": 0.3, "usure": 5, "bonus": 7, "usureMax": 5 },
+          "_id": "664c9ca31d6524d63abf62c4",
+          "type": "nrt",
+          "name": "Orties",
+          "avatar": "/items/nrt/Orties.webp",
+          "description": "Les démangeaisons, c'est accessoire quand on crève la dalle.",
+          "quantite": 1,
+          "foodType": "leg",
+          "miniAvatar": "/items/nrt/mini/Orties.webp"
+        },
         "PA": 1
       },
       "_id": "66adf1c6c40a262ddcd58157",
@@ -9602,12 +9222,12 @@
           "_id": "666c34c5542f0fe089e42dd3",
           "type": "nrt",
           "name": "Nénuphar",
-          "avatar": "/items/nrt/Nenuphar.png",
+          "avatar": "/items/nrt/Nenuphar.webp",
           "description": "“Le souvenir est à peine un nénuphar montrant, parmi les eaux, son visage de noyé.” Bientôt ton tour. ",
           "quantite": 1,
-          "foodType": "leg"
+          "foodType": "leg",
+          "miniAvatar": "/items/nrt/mini/Nenuphar.webp"
         },
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -9795,27 +9415,52 @@
     {
       "caracs": { "poids": 0.7, "usure": 6, "usureMax": 6, "bonus": 15 },
       "craft": {
-        "genericCraft": { "cond": 1, "alcool": 1 },
+        "genericCraft": { "fruit": 1, "alcool": 1 },
         "bricolage": 16,
         "requiredItem": {
-          "caracs": { "poids": 0.1, "usure": 5, "bonus": 3 },
-          "_id": "6650e3f3a4d316dc405c81b9",
+          "caracs": { "poids": 0.2, "usure": 3, "bonus": 4, "usureMax": 3 },
+          "_id": "688f4efd592cc226643e163f",
           "type": "nrt",
-          "name": "Aspérule",
-          "avatar": "/items/nrt/Asperule.png",
-          "description": "Elle tient son nom du latin qui veut dire rugueux. Ca laisse songeur.",
+          "foodType": "fruit",
+          "name": "Framboises de Madagascar",
+          "avatar": "/items/nrt/FramboisesdeMadagascar.webp",
+          "miniAvatar": "/items/nrt/mini/FramboisesdeMadagascar.webp",
+          "description": "Ce petit gout d'exotisme qui va beaucoup nous manquer.",
           "quantite": 1,
-          "foodType": "cond"
+          "effects": [
+            {
+              "name": "PV (+1 cumulable)",
+              "carac": "caracs.pv",
+              "bonus": 1,
+              "description": "Tu peux sans doute te soigner avec ça (+1 pv cumulable)",
+              "forceEffect": true,
+              "_id": "688f4efd592cc226643e1640"
+            },
+            {
+              "name": "Constit (-1 cumulable)",
+              "carac": "caracs.constitution",
+              "bonus": -1,
+              "description": "Malheureusement, ça ne veut pas dire que tu es éternel (-1 constit cumulable)",
+              "forceEffect": true,
+              "_id": "688f4efd592cc226643e1641"
+            },
+            {
+              "name": "Bricolage (+1 non cumulable)",
+              "carac": "caracs.bricolage",
+              "bonus": 1,
+              "description": "Mais l'esprit de Terrence te donne des astuces pour bricoler un peu mieux. (+1 bricolage)",
+              "_id": "688f4efd592cc226643e1642"
+            }
+          ]
         },
-        "extension": "Cuisine",
-        "PA": 1,
-        "extensions": ["Cuisine"]
+        "extensions": ["Cuisine"],
+        "PA": 1
       },
       "_id": "66c87b4330c4124631c3d7da",
       "type": "boisson",
-      "name": "Liqueur d'Aspérule",
-      "avatar": "/items/boisson/LiqueurdAsperule.webp",
-      "description": "Qui a dit que les alsaciens étaient des traitres ? ",
+      "name": "Liqueur de framboise",
+      "avatar": "/items/boisson/Liqueurdeframboise.webp",
+      "description": "Pour boire un verre à la mémoire de notre ami Terrence.",
       "quantite": 1,
       "lootable": 0,
       "craftable": true,
@@ -9832,7 +9477,7 @@
           "name": "Bricolage (+2)",
           "carac": "caracs.bricolage",
           "bonus": 2,
-          "description": "Tu te sens un peu plus inventif. Sans doute les fleurs ? (+2 bricolage)",
+          "description": "Tu te sens un peu plus inventif. (+2 bricolage)",
           "forceEffect": false,
           "_id": "66c87b4330c4124631c3d7dd"
         },
@@ -9840,7 +9485,7 @@
           "name": "Faim (+15)",
           "carac": "faim",
           "bonus": 15,
-          "description": "Une petite liqueur pour clôturer le repas en beauté ? (+15 Nour)",
+          "description": "Une petite liqueur pour couper l'appétit ! (+15 Nour)",
           "forceEffect": true,
           "_id": "67011121d54df91d9cd2b381"
         },
@@ -9853,16 +9498,15 @@
           "_id": "678b7409c07dc23e41e67924"
         }
       ],
-      "__v": 5,
+      "__v": 6,
       "foodType": "alcool",
-      "miniAvatar": "/items/boisson/mini/LiqueurdAsperule.webp"
+      "miniAvatar": "/items/boisson/mini/Liqueurdeframboise.webp"
     },
     {
       "caracs": { "poids": 1, "usure": 6, "usureMax": 6, "bonus": 50 },
       "craft": {
         "genericCraft": { "fruit": 2, "cond": 1, "water": 1, "alcool": 1 },
         "bricolage": 17,
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -9898,12 +9542,12 @@
           "_id": "6633a0e8c51655b4a7bc3a83",
           "type": "nrt",
           "name": "Thé",
-          "avatar": "/items/nrt/The.png",
+          "avatar": "/items/nrt/The.webp",
           "description": "Transforme l'eau au gout de merde en eau au gout de pisse.",
           "quantite": 1,
-          "foodType": "cond"
+          "foodType": "cond",
+          "miniAvatar": "/items/nrt/mini/The.webp"
         },
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -10022,6 +9666,8 @@
       "lootable": 0,
       "craftable": true,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d73cc74620239bac768149",
         "type": "bonus",
         "level": 0,
@@ -10105,6 +9751,8 @@
       "lootable": 0,
       "craftable": true,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d73dbf69449f3f3c1fd37b",
         "type": "bonus",
         "level": 0,
@@ -10188,6 +9836,8 @@
       "lootable": 0,
       "craftable": true,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d73d706bef1d956fe59e2d",
         "type": "bonus",
         "level": 0,
@@ -10271,12 +9921,14 @@
       "lootable": 0,
       "craftable": true,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d741e5e74cb61869756fdf",
         "type": "bonus",
         "level": 0,
         "name": "Charisme",
         "avatar": "charisme",
-        "description": "T'es le roi du Blabla mais moi tu me la fais pas. (+1 Charisme)",
+        "description": "T'es le roi du blabla mais moi tu me la fais pas. (+1 Charisme)",
         "characterBonus": [
           {
             "carac": "caracs.charisme",
@@ -10437,7 +10089,7 @@
       "miniAvatar": "/items/boisson/mini/Vomitifbricole.webp"
     },
     {
-      "caracs": { "bonus": 0, "poids": 0.3, "usure": 13, "usureMax": 13 },
+      "caracs": { "poids": 0.3, "usure": 13, "usureMax": 13, "bonus": 0 },
       "craft": {
         "bricolage": 13,
         "craftList": [
@@ -10505,7 +10157,6 @@
             }
           ]
         ],
-        "extension": "Officine",
         "extensions": ["Officine"],
         "PA": 1
       },
@@ -10589,6 +10240,22 @@
               "quantite": 1,
               "foodType": "water",
               "miniAvatar": "\\items\\nrt\\mini\\water.webp"
+            },
+            {
+              "caracs": {
+                "poids": 0.5,
+                "usure": 5,
+                "bonus": 10,
+                "usureMax": 5
+              },
+              "_id": "664c9f781d6524d63abffe7e",
+              "type": "nrt",
+              "name": "Châtaignes",
+              "avatar": "/items/nrt/Chataignes.webp",
+              "description": "C'est bon mais ça pique... Sans la bogue, connard.",
+              "quantite": 1,
+              "foodType": "fruit",
+              "miniAvatar": "/items/nrt/mini/Chataignes.webp"
             }
           ],
           [
@@ -10670,17 +10337,25 @@
               "caracs": { "poids": 0.2, "usure": 5, "usureMax": 5, "bonus": 2 },
               "_id": "66e09092d8b5d78955a60bf8",
               "type": "nrt",
-              "name": "lierre terrestre",
-              "avatar": "\\items\\nrt\\lierreterrestre.webp",
+              "name": "Lierre terrestre",
+              "avatar": "/items/nrt/lierreterrestre.webp",
               "description": "Il parait que la plante est liée à la magie blanche... En attendant, te gave pas trop. ",
               "quantite": 1,
+              "effects": [
+                {
+                  "name": "fov (-1) ",
+                  "carac": "fov",
+                  "bonus": -1,
+                  "description": "Je ne sais pas si c'est de la magie blanche, tu vois tout noir. (-1 FOV)",
+                  "forceEffect": true,
+                  "_id": "66e09092d8b5d78955a60bf9"
+                }
+              ],
               "foodType": "special",
-              "miniAvatar": "\\items\\nrt\\mini\\lierreterrestre.webp"
+              "miniAvatar": "/items/nrt/mini/lierreterrestre.webp"
             }
           ]
         ],
-        "extension": "Officine",
-        "extensions": ["Officine"],
         "PA": 1
       },
       "_id": "66cd8f6a35edf7e3dd088e6c",
@@ -10856,12 +10531,12 @@
           "_id": "666c32ee542f0fe089e31fb5",
           "type": "nrt",
           "name": "Griffes de lion",
-          "avatar": "/items/nrt/Griffesdelion.png",
+          "avatar": "/items/nrt/Griffesdelion.webp",
           "description": "C'est la sensation que ça te laisse au fond de la gorge. ",
           "quantite": 1,
-          "foodType": "cond"
+          "foodType": "cond",
+          "miniAvatar": "/items/nrt/mini/Griffesdelion.webp"
         },
-        "extension": "Officine",
         "PA": 1,
         "extensions": ["Officine"]
       },
@@ -10905,12 +10580,12 @@
           "_id": "66339aadae6bc7fa5f53b034",
           "type": "nrt",
           "name": "Datura",
-          "avatar": "/items/nrt/Datura.png",
+          "avatar": "/items/nrt/Datura.webp",
           "description": "les sorcières l'utilisaient pour soigner ou tuer, selon qu'elles aimaient ta gueule ou pas.",
           "quantite": 1,
-          "foodType": "cond"
+          "foodType": "cond",
+          "miniAvatar": "/items/nrt/mini/Datura.webp"
         },
-        "extension": "Officine",
         "PA": 1,
         "extensions": ["Officine"]
       },
@@ -10945,7 +10620,7 @@
       "miniAvatar": "/items/boisson/mini/Concoctionchinoise.webp"
     },
     {
-      "caracs": { "bonus": 0, "poids": 0.1, "usure": 18, "usureMax": 18 },
+      "caracs": { "poids": 0.1, "usure": 18, "usureMax": 18, "bonus": 0 },
       "craft": {
         "bricolage": 18,
         "craftList": [
@@ -11180,7 +10855,6 @@
             }
           ]
         ],
-        "extension": "Officine",
         "extensions": ["Officine"],
         "PA": 2
       },
@@ -11294,7 +10968,6 @@
       "craft": {
         "genericCraft": { "leg": 4 },
         "bricolage": 12,
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -11314,7 +10987,6 @@
       "craft": {
         "genericCraft": { "leg": 3, "cond": 1 },
         "bricolage": 13,
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -11341,7 +11013,7 @@
       "miniAvatar": "/items/nrt/mini/Gaspacho.webp"
     },
     {
-      "caracs": { "poids": 0.5, "usure": 2, "bonus": 35, "usureMax": 2 },
+      "caracs": { "poids": 0.5, "usure": 2, "usureMax": 2, "bonus": 35 },
       "craft": { "genericCraft": { "leg": 3 }, "bricolage": 9, "PA": 1 },
       "_id": "66d06ddb7c879812abbc306c",
       "type": "nrt",
@@ -11352,14 +11024,14 @@
       "lootable": 0,
       "craftable": true,
       "__v": 0,
-      "miniAvatar": "/items/nrt/mini/Saladecomposee.webp"
+      "miniAvatar": "/items/nrt/mini/Saladecomposee.webp",
+      "foodType": "leg"
     },
     {
       "caracs": { "poids": 0.5, "usure": 4, "usureMax": 4, "bonus": 60 },
       "craft": {
         "genericCraft": { "leg": 3, "cond": 1 },
         "bricolage": 14,
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -11385,10 +11057,11 @@
           "_id": "66a4de9c096ae5c41bf8346b",
           "type": "nrt",
           "name": "Curry traditionnel",
-          "avatar": "/items/nrt/Currytraditionnel.png",
+          "avatar": "/items/nrt/Currytraditionnel.webp",
           "description": "Mets le feu à ton trou du cul tout en rendant n'importe quel aliment digérable. ",
           "quantite": 1,
-          "foodType": "cond"
+          "foodType": "cond",
+          "miniAvatar": "/items/nrt/mini/Currytraditionnel.webp"
         },
         "PA": 1
       },
@@ -11549,12 +11222,10 @@
             }
           ]
         ],
-        "extension": "Officine",
-        "PA": 1,
-        "extensions": ["Officine"]
+        "PA": 1
       },
       "_id": "66d0af957c879812abfa626b",
-      "type": "boisson",
+      "type": "nrt",
       "name": "Dentifrice maison",
       "avatar": "/items/boisson/Dentifricemaison.webp",
       "description": "Soigne les rages de dents en enlevant la plaque, l'émail et des bouts de langues. ",
@@ -11617,10 +11288,11 @@
           "_id": "6670703b58b7e18a1efa071c",
           "type": "nrt",
           "name": "Citron",
-          "avatar": "/items/nrt/Citron.png",
+          "avatar": "/items/nrt/Citron.webp",
           "description": "De quoi faire des guilis à ton palais et le plein de vitamines !",
           "quantite": 1,
-          "foodType": "fruit"
+          "foodType": "fruit",
+          "miniAvatar": "/items/nrt/mini/Citron.webp"
         },
         "PA": 1
       },
@@ -12459,7 +12131,6 @@
             }
           ]
         ],
-        "extension": "Atelier",
         "extensions": ["Atelier"],
         "PA": 6
       },
@@ -12609,6 +12280,7 @@
     },
     {
       "caracs": { "poids": 10, "usure": 18, "usureMax": 18, "bonus": 4 },
+      "requiredCaracs": { "force": 15 },
       "craft": {
         "bricolage": 17,
         "craftList": [
@@ -12635,9 +12307,8 @@
             }
           ]
         ],
-        "extension": "Atelier",
-        "PA": 6,
-        "extensions": ["Atelier"]
+        "extensions": ["Atelier"],
+        "PA": 6
       },
       "_id": "66d241dddfba5c19594832c3",
       "type": "armure",
@@ -12917,6 +12588,8 @@
       "quantite": 1,
       "lootable": 3,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "66c9d455a9f3d31ae02562d0",
         "type": "bonus",
         "level": 10,
@@ -12925,7 +12598,7 @@
         "description": "Tu es fertile, très fertile, la terre renaît sous tes assauts répétés (Permet de changer certains types de terrains)",
         "characterBonus": [
           {
-            "_id": "68db7af5a4dcfe3fa7ca8470",
+            "_id": "696620bdd3006de2ff6a64bd",
             "carac": "exp.perksBonus.evolutionTile",
             "bonus": 1
           }
@@ -13055,7 +12728,7 @@
       "miniAvatar": "/items/rp/mini/Harmonica.webp"
     },
     {
-      "caracs": { "poids": 4, "usure": 15, "bonus": 0, "usureMax": 15 },
+      "caracs": { "bonus": 0, "poids": 4, "usure": 15, "usureMax": 15 },
       "_id": "66dcce2d2216c675bd3b74fd",
       "type": "rp",
       "name": "Accordéon",
@@ -13169,9 +12842,10 @@
           "type": "nrt",
           "foodType": "cond",
           "name": "Sel",
-          "avatar": "/items/nrt/Sel.png",
+          "avatar": "/items/nrt/Sel.webp",
           "description": "Parait que ça donne du goût mais tu brilles moins dans le noir.",
-          "quantite": 1
+          "quantite": 1,
+          "miniAvatar": "/items/nrt/mini/Sel.webp"
         },
         "PA": 1
       },
@@ -13296,21 +12970,21 @@
     {
       "caracs": { "poids": 0.5, "usure": 3, "usureMax": 3, "bonus": 65 },
       "craft": {
-        "genericCraft": { "prot": 1, "leg": 1, "cond": 1 },
+        "genericCraft": { "prot": 1, "leg": 1, "cond": 1, "alcool": 1 },
         "bricolage": 14,
         "requiredItem": {
           "caracs": { "poids": 1, "usure": 5, "usureMax": 5, "bonus": 20 },
           "_id": "65464d5ec84122308f2a3ab4",
           "type": "nrt",
           "name": "Viande",
-          "avatar": "/items/nrt/meat.png",
+          "avatar": "/items/nrt/meat.webp",
           "description": "De la viande.",
           "quantite": 1,
-          "foodType": "prot"
+          "foodType": "prot",
+          "miniAvatar": "/items/nrt/mini/meat.webp"
         },
-        "extension": "Cuisine",
-        "PA": 1,
-        "extensions": ["Cuisine"]
+        "extensions": ["Cuisine"],
+        "PA": 1
       },
       "_id": "67015ef1d54df91d9cdbef35",
       "type": "nrt",
@@ -13339,7 +13013,6 @@
       "craft": {
         "genericCraft": { "prot": 1, "leg": 1, "fruit": 1, "cond": 1 },
         "bricolage": 15,
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -13384,10 +13057,11 @@
           "_id": "65464d20a6294544bd6862cd",
           "type": "nrt",
           "name": "Tomate",
-          "avatar": "/items/nrt/tomato.png",
+          "avatar": "/items/nrt/tomato.webp",
           "description": "Vu la tronche, c'est une tomate.",
           "quantite": 1,
-          "foodType": "leg"
+          "foodType": "leg",
+          "miniAvatar": "/items/nrt/mini/tomato.webp"
         },
         "PA": 1
       },
@@ -13431,10 +13105,11 @@
           "_id": "665b41f571f4eb021e3aced1",
           "type": "nrt",
           "name": "Fémur",
-          "avatar": "/items/ressources/Femur.png",
+          "avatar": "/items/ressources/Femur.webp",
           "description": "Ho, il y a peut-être encore de la moelle !",
           "quantite": 1,
-          "foodType": "special"
+          "foodType": "special",
+          "miniAvatar": "/items/ressources/mini/Femur.webp"
         },
         "PA": 1
       },
@@ -13465,7 +13140,6 @@
       "craft": {
         "genericCraft": { "prot": 1, "leg": 2, "cond": 1 },
         "bricolage": 16,
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -13491,12 +13165,12 @@
           "_id": "6670723658b7e18a1efc2b5a",
           "type": "nrt",
           "name": "Caillou",
-          "avatar": "/items/nrt/Caillou.png",
+          "avatar": "/items/nrt/Caillou.webp",
           "description": "Si tu as pas les dents assez solides, tu peux toujours le sucer. Ca te nourrira pas, mais t'auras appris un nouveau truc. ",
           "quantite": 1,
-          "foodType": "special"
+          "foodType": "special",
+          "miniAvatar": "/items/nrt/mini/Caillou.webp"
         },
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -13596,10 +13270,11 @@
           "_id": "66d1c4641797288d600e8f65",
           "type": "nrt",
           "name": "Paquet de riz",
-          "avatar": "/items/nrt/Paquetderiz.png",
+          "avatar": "/items/nrt/Paquetderiz.webp",
           "description": "En Chine, on pleure quand on meurt et on rit quand on naît.",
           "quantite": 1,
-          "foodType": "leg"
+          "foodType": "leg",
+          "miniAvatar": "/items/nrt/mini/Paquetderiz.webp"
         },
         "PA": 1
       },
@@ -13625,10 +13300,11 @@
           "_id": "66d1c38e1797288d60080286",
           "type": "nrt",
           "name": "Paquet de pasta",
-          "avatar": "/items/boisson/Paquetdepasta.png",
+          "avatar": "/items/boisson/Paquetdepasta.webp",
           "description": "Plus italien tu meurs.",
           "quantite": 1,
-          "foodType": "leg"
+          "foodType": "leg",
+          "miniAvatar": "/items/boisson/mini/Paquetdepasta.webp"
         },
         "PA": 1
       },
@@ -13653,6 +13329,8 @@
       "quantite": 1,
       "lootable": 3,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670ed5e0b138bea0ab064493",
         "level": 8,
         "name": "Bagarreur",
@@ -13683,6 +13361,8 @@
       "quantite": 1,
       "lootable": 3,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670ed58bb138bea0ab064492",
         "level": 8,
         "name": "Sniper",
@@ -13713,6 +13393,8 @@
       "quantite": 1,
       "lootable": 3,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670ecff7b138bea0ab06448f",
         "level": 8,
         "name": "Clou de cercueil",
@@ -13748,8 +13430,10 @@
       "quantite": 1,
       "lootable": 3,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670ed84fb138bea0ab064494",
-        "level": 8,
+        "level": 10,
         "name": "Trappeur",
         "avatar": "/perks/trappeur.webp",
         "description": "Si j'en crois le goût de cette crotte, trois sangliers sont passés ici il y a quarante cinq minutes (Lorsque tu traques, tu lèves deux groupes d'animaux)",
@@ -13778,6 +13462,8 @@
       "quantite": 1,
       "lootable": 3,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d6f7e4d266549949a2288f",
         "level": 6,
         "name": "Sherpa",
@@ -13815,7 +13501,7 @@
       "miniAvatar": "/items/nrt/mini/Wakame.webp"
     },
     {
-      "caracs": { "poids": 0.3, "usure": 10, "bonus": 5, "usureMax": 10 },
+      "caracs": { "poids": 0.3, "usure": 10, "usureMax": 10, "bonus": 3 },
       "_id": "67129292a84bbffa693961cd",
       "type": "nrt",
       "foodType": "leg",
@@ -13937,6 +13623,8 @@
       "lootable": 0,
       "craftable": true,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d7398e8a0399bc4921a8b0",
         "type": "bonus",
         "level": 0,
@@ -14030,6 +13718,8 @@
       "lootable": 0,
       "craftable": true,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d73d4205532d9ff6393fbc",
         "type": "bonus",
         "level": 0,
@@ -14363,11 +14053,13 @@
       "craftable": true,
       "__v": 1,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670f75e00503a9b062f4c72e",
         "level": 10,
         "name": "Increvable",
         "avatar": "/perks/increvable.webp",
-        "description": "Pour te crever, va falloir y aller ... (régénération de 3pv supplémentaires au passage)",
+        "description": "Pour te crever, va falloir y aller ... (régénération de 3 PV supplémentaires au passage)",
         "characterBonus": [
           {
             "carac": "exp.perksBonus.increvable",
@@ -14410,7 +14102,6 @@
             }
           ]
         ],
-        "extension": "Atelier",
         "extensions": ["Atelier"],
         "PA": 8
       },
@@ -14436,7 +14127,7 @@
       "miniAvatar": "/items/armures/mini/Armuremeteorique.webp"
     },
     {
-      "caracs": { "poids": 0.1, "usure": 15, "bonus": 0, "usureMax": 15 },
+      "caracs": { "bonus": 0, "poids": 0.1, "usure": 15, "usureMax": 15 },
       "craft": {
         "bricolage": 15,
         "craftList": [
@@ -14451,11 +14142,34 @@
               "quantite": 1,
               "miniAvatar": "\\items\\ressources\\mini\\Meteorite.webp"
             }
+          ],
+          [
+            {
+              "caracs": { "poids": 0.2, "usure": 100, "usureMax": 100 },
+              "_id": "6914fb327abc9fbdb5f4caa9",
+              "type": "ressource",
+              "name": "Diamant",
+              "avatar": "/items/ressources/Diamant.webp",
+              "miniAvatar": "/items/ressources/mini/Diamant.webp",
+              "description": "Il sont éternels contrairement à toi.",
+              "quantite": 1
+            }
+          ],
+          [
+            {
+              "caracs": { "poids": 1, "usure": 100, "usureMax": 100 },
+              "_id": "6914fa4d7abc9fbdb5f2cebe",
+              "type": "ressource",
+              "name": "Or",
+              "avatar": "/items/ressources/Or.webp",
+              "miniAvatar": "/items/ressources/mini/Or.webp",
+              "description": "T'aimes quand ça brille ? Tu vas être servi.",
+              "quantite": 1
+            }
           ]
         ],
-        "extension": "Atelier",
-        "PA": 2,
-        "extensions": ["Atelier"]
+        "extensions": ["Atelier"],
+        "PA": 2
       },
       "_id": "673f8f28a3b88236017cc7bc",
       "type": "ressource",
@@ -14471,7 +14185,7 @@
     {
       "caracs": {
         "poids": 5,
-        "genre": "distance",
+        "genre": "cac",
         "munType": 5,
         "degats": [2, 6],
         "capacite": 5,
@@ -14486,7 +14200,7 @@
       "type": "arme",
       "name": "Tronçonneuse",
       "avatar": "/items/armes/Tronconneuse.webp",
-      "description": "Pour les deux choses que l'humanité fait le mieux : déforester et étriper son prochain. (Attention : utilise Dextérité)",
+      "description": "Pour les deux choses que l'humanité fait le mieux : déforester et étriper son prochain.",
       "quantite": 1,
       "lootable": 2,
       "__v": 0,
@@ -14528,12 +14242,14 @@
         "miniAvatar": "\\items\\ressources\\mini\\skin.webp"
       },
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d741e5e74cb61869756fdf",
         "type": "bonus",
         "level": 0,
         "name": "Charisme",
         "avatar": "charisme",
-        "description": "T'es le roi du Blabla mais moi tu me la fais pas. (+1 Charisme)",
+        "description": "T'es le roi du blabla mais moi tu me la fais pas. (+1 Charisme)",
         "characterBonus": [
           {
             "carac": "caracs.charisme",
@@ -14596,7 +14312,6 @@
             }
           ]
         ],
-        "extension": "Atelier",
         "PA": 6,
         "extensions": ["Atelier"]
       },
@@ -14664,7 +14379,8 @@
       "miniAvatar": "/items/rp/mini/Bouteilledegaz.webp"
     },
     {
-      "caracs": { "poids": 0.7, "usure": 2, "bonus": 0, "usureMax": 2 },
+      "caracs": { "bonus": 0, "poids": 0.7, "usure": 2, "usureMax": 2 },
+      "requiredCaracs": { "charisme": -12 },
       "_id": "67498aff1ec1cd48ebcb764d",
       "type": "armure",
       "name": "Casquette MAGA ",
@@ -14674,23 +14390,14 @@
       "lootable": 2,
       "__v": 0,
       "repairItem": {
-        "caracs": {
-          "poids": 0.5,
-          "usure": 5,
-          "degats": [],
-          "mode": [],
-          "saison": [],
-          "bonus": 0,
-          "usureMax": 5
-        },
-        "craft": { "Extension": false, "PA": 2 },
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "craft": { "PA": 2 },
         "_id": "675ef2989c7bbe3161076001",
         "type": "ressource",
         "name": "Peau",
         "avatar": "\\items\\ressources\\skin.webp",
         "description": "Peau d'un animal mort, classe ...",
         "quantite": 1,
-        "__v": 0,
         "lootable": 1,
         "miniAvatar": "\\items\\ressources\\mini\\skin.webp"
       },
@@ -14783,12 +14490,14 @@
         "miniAvatar": "\\items\\ressources\\mini\\Corde.webp"
       },
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d741e5e74cb61869756fdf",
         "type": "bonus",
         "level": 0,
         "name": "Charisme",
         "avatar": "charisme",
-        "description": "T'es le roi du Blabla mais moi tu me la fais pas. (+1 Charisme)",
+        "description": "T'es le roi du blabla mais moi tu me la fais pas. (+1 Charisme)",
         "characterBonus": [
           {
             "carac": "caracs.charisme",
@@ -14903,7 +14612,8 @@
       "miniAvatar": "/items/boisson/mini/Bouteilleduroutier.webp"
     },
     {
-      "caracs": { "poids": 0.4, "usure": 2, "bonus": 1, "usureMax": 2 },
+      "caracs": { "poids": 0.4, "usure": 2, "usureMax": 2, "bonus": 1 },
+      "requiredCaracs": { "charisme": -16 },
       "_id": "674acce31ec1cd48ebbfbb2c",
       "type": "armure",
       "name": "Casquette CGT",
@@ -14913,23 +14623,14 @@
       "lootable": 3,
       "__v": 0,
       "repairItem": {
-        "caracs": {
-          "poids": 0.5,
-          "usure": 5,
-          "degats": [],
-          "mode": [],
-          "saison": [],
-          "bonus": 0,
-          "usureMax": 5
-        },
-        "craft": { "Extension": false, "PA": 2 },
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "craft": { "PA": 2 },
         "_id": "675ef2989c7bbe3161076007",
         "type": "ressource",
         "name": "Peau",
         "avatar": "\\items\\ressources\\skin.webp",
         "description": "Peau d'un animal mort, classe ...",
         "quantite": 1,
-        "__v": 0,
         "lootable": 1,
         "miniAvatar": "\\items\\ressources\\mini\\skin.webp"
       },
@@ -15264,6 +14965,8 @@
       "quantite": 1,
       "lootable": 3,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65f956486e5207fd7e4d37b7",
         "type": "bonus",
         "level": 4,
@@ -15385,7 +15088,7 @@
       "miniAvatar": "/items/rp/mini/MonsieurMangetout.webp"
     },
     {
-      "caracs": { "poids": 1.5, "usure": 7, "bonus": 0 },
+      "caracs": { "bonus": 0, "poids": 1.5, "usure": 7, "usureMax": 7 },
       "_id": "677171e8e165496cb45f7562",
       "type": "armure",
       "name": "Blouse de Scientifique",
@@ -15394,12 +15097,14 @@
       "quantite": 1,
       "lootable": 3,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d741e5e74cb61869756fdf",
         "type": "bonus",
         "level": 0,
         "name": "Charisme",
         "avatar": "charisme",
-        "description": "T'es le roi du Blabla mais moi tu me la fais pas. (+1 Charisme)",
+        "description": "T'es le roi du blabla mais moi tu me la fais pas. (+1 Charisme)",
         "characterBonus": [
           {
             "carac": "caracs.charisme",
@@ -15431,12 +15136,14 @@
       "__v": 0,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "67946f66f948dfbecf2cef62",
         "type": "bonus",
         "level": 12,
         "name": "Résistance aux radiations",
         "avatar": "/perks/Resistanceauxradiations.webp",
-        "description": "La matière fissile tu l'aimes et tu l'enfiles (Tu prends 1 rad de moins que les autres)",
+        "description": "La matière fissile, tu l'aimes et tu l'enfiles (Tu prends 1 radiation de moins que les autres)",
         "characterBonus": [
           {
             "carac": "exp.perksBonus.radiationResistance",
@@ -15472,9 +15179,11 @@
       "quantite": 1,
       "lootable": 2,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "67946eb6f948dfbecf2ce164",
         "type": "bonus",
-        "level": 8,
+        "level": 6,
         "name": "Enfant de l'atome",
         "avatar": "/perks/Enfantdelatome.webp",
         "description": "Les rayons gamma, t'en reprends 2 fois au petit déj (Maximum de radiation tolérable monté à 150)",
@@ -15502,9 +15211,11 @@
       "quantite": 1,
       "lootable": 2,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "67946eb6f948dfbecf2ce164",
         "type": "bonus",
-        "level": 8,
+        "level": 6,
         "name": "Enfant de l'atome",
         "avatar": "/perks/Enfantdelatome.webp",
         "description": "Les rayons gamma, t'en reprends 2 fois au petit déj (Maximum de radiation tolérable monté à 150)",
@@ -15532,9 +15243,11 @@
       "quantite": 1,
       "lootable": 2,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "67946eb6f948dfbecf2ce164",
         "type": "bonus",
-        "level": 8,
+        "level": 6,
         "name": "Enfant de l'atome",
         "avatar": "/perks/Enfantdelatome.webp",
         "description": "Les rayons gamma, t'en reprends 2 fois au petit déj (Maximum de radiation tolérable monté à 150)",
@@ -15562,6 +15275,8 @@
       "quantite": 1,
       "lootable": 2,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d73d4205532d9ff6393fbc",
         "type": "bonus",
         "level": 0,
@@ -15597,8 +15312,10 @@
       "quantite": 1,
       "lootable": 3,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670f73a50503a9b062f4c72d",
-        "level": 8,
+        "level": 4,
         "name": "Esclavagiste",
         "avatar": "/perks/slaver.webp",
         "description": "Moi j'aime le cuir et toi ? (Tu as plus de chance de mettre ton adversaire vaincu dans le coma)",
@@ -15627,11 +15344,13 @@
       "quantite": 1,
       "lootable": 3,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670ed320b138bea0ab064491",
         "level": 12,
         "name": "Assassin",
         "avatar": "/perks/assassin.webp",
-        "description": "Tu sais comment faire souffrir, c'est grave ? (+ 2 dégats)",
+        "description": "Tu sais comment faire souffrir ton prochain, c'est grave ? (+ 2 dégats)",
         "characterBonus": [
           {
             "carac": "exp.perksBonus.degats",
@@ -15839,6 +15558,31 @@
       "caracs": { "poids": 3.7, "usure": 15, "usureMax": 15, "bonus": 1 },
       "craft": {
         "bricolage": 14,
+        "craftList": [
+          [
+            {
+              "caracs": { "poids": 0.5, "usure": 10, "usureMax": 10 },
+              "_id": "65ccb4cd2b791d10be0d9a85",
+              "type": "ressource",
+              "name": "Corde",
+              "avatar": "/items/ressources/Corde.webp",
+              "description": "Elle a l'air relativement solide",
+              "quantite": 1,
+              "craftable": true,
+              "miniAvatar": "/items/ressources/mini/Corde.webp"
+            },
+            {
+              "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+              "_id": "65d891e652c5407b4bd57720",
+              "type": "ressource",
+              "name": "Ferraille",
+              "avatar": "/items/ressources/Ferraille.webp",
+              "description": "Quelques bouts, entre autres, de métal.",
+              "quantite": 3,
+              "miniAvatar": "/items/ressources/mini/Ferraille.webp"
+            }
+          ]
+        ],
         "extensions": ["Atelier", "Atelier mobile"],
         "PA": 4
       },
@@ -15854,19 +15598,21 @@
         "_id": "65d891e652c5407b4bd57720",
         "type": "ressource",
         "name": "Ferraille",
-        "avatar": "\\items\\ressources\\Ferraille.webp",
+        "avatar": "/items/ressources/Ferraille.webp",
         "description": "Quelques bouts, entre autres, de métal.",
         "quantite": 3,
-        "miniAvatar": "\\items\\ressources\\mini\\Ferraille.webp"
+        "miniAvatar": "/items/ressources/mini/Ferraille.webp"
       },
       "__v": 0,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "67946f66f948dfbecf2cef62",
         "type": "bonus",
         "level": 12,
         "name": "Résistance aux radiations",
         "avatar": "/perks/Resistanceauxradiations.webp",
-        "description": "La matière fissile tu l'aimes et tu l'enfiles (Tu prends 1 rad de moins que les autres)",
+        "description": "La matière fissile, tu l'aimes et tu l'enfiles (Tu prends 1 radiation de moins que les autres)",
         "characterBonus": [
           {
             "carac": "exp.perksBonus.radiationResistance",
@@ -15885,7 +15631,6 @@
       "craft": {
         "genericCraft": { "leg": 1, "fruit": 1, "cond": 1 },
         "bricolage": 7,
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -15906,7 +15651,6 @@
       "craft": {
         "genericCraft": { "fruit": 2 },
         "bricolage": 8,
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -15927,7 +15671,6 @@
       "craft": {
         "genericCraft": { "leg": 2 },
         "bricolage": 9,
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -15948,7 +15691,6 @@
       "craft": {
         "genericCraft": { "prot": 1, "leg": 1, "water": 1 },
         "bricolage": 11,
-        "extension": "Cuisine",
         "PA": 1,
         "extensions": ["Cuisine"]
       },
@@ -16107,11 +15849,13 @@
       "lootable": 0,
       "craftable": true,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670ed0a4b138bea0ab064490",
         "level": 6,
         "name": "Marathonien",
         "avatar": "/perks/marathonien.webp",
-        "description": "Tu cours vite mais t'es pas une flèche (+1 geo)",
+        "description": "Tu cours vite mais t'es pas une flèche (+1 géo)",
         "characterBonus": [
           { "carac": "geo", "bonus": 1, "_id": "65d6f7e4d266549949a22880" },
           { "carac": "geoMax", "bonus": 1, "_id": "65d6f7e4d266549949a22881" }
@@ -16477,7 +16221,7 @@
         "args": { "radius": 3, "radiation": 10, "force": 40 },
         "title": "Tout faire péter !",
         "PA": 4,
-        "description": "Tout désingecter par l'atome"
+        "description": "Tout désinfecter par l'atome"
       },
       "__v": 0,
       "miniAvatar": "/items/rp/mini/ValisedeSakharov.webp"
@@ -16503,7 +16247,7 @@
       "miniAvatar": "/items/rp/mini/Grenade.webp"
     },
     {
-      "caracs": { "poids": 1, "usure": 10, "bonus": 0, "usureMax": 10 },
+      "caracs": { "bonus": 0, "poids": 1, "usure": 10, "usureMax": 10 },
       "_id": "67e00e682535a162d4028e3b",
       "type": "rp",
       "name": "Dynamite",
@@ -16511,10 +16255,10 @@
       "description": "T'as pas du feu ?",
       "quantite": 1,
       "lootable": 3,
-      "craftable": false,
+      "craftable": true,
       "specialAction": {
         "type": "explosion",
-        "args": { "radius": 2, "radiation": 0, "force": 15 },
+        "args": { "radius": 2, "force": 15 },
         "title": "Allumer la mèche",
         "PA": 3,
         "description": "Ca pique et pas que le nez"
@@ -16553,12 +16297,14 @@
       "lootable": 2,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "67946f66f948dfbecf2cef62",
         "type": "bonus",
         "level": 12,
         "name": "Résistance aux radiations",
         "avatar": "/perks/Resistanceauxradiations.webp",
-        "description": "La matière fissile tu l'aimes et tu l'enfiles (Tu prends 1 rad de moins que les autres)",
+        "description": "La matière fissile, tu l'aimes et tu l'enfiles (Tu prends 1 radiation de moins que les autres)",
         "characterBonus": [
           {
             "carac": "exp.perksBonus.radiationResistance",
@@ -16583,12 +16329,14 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "67946f66f948dfbecf2cef62",
         "type": "bonus",
         "level": 12,
         "name": "Résistance aux radiations",
         "avatar": "/perks/Resistanceauxradiations.webp",
-        "description": "La matière fissile tu l'aimes et tu l'enfiles (Tu prends 1 rad de moins que les autres)",
+        "description": "La matière fissile, tu l'aimes et tu l'enfiles (Tu prends 1 radiation de moins que les autres)",
         "characterBonus": [
           {
             "carac": "exp.perksBonus.radiationResistance",
@@ -16635,9 +16383,9 @@
       "miniAvatar": "/items/nrt/mini/Rationdecombat.webp"
     },
     {
-      "caracs": { "poids": 0.4, "usure": 5, "bonus": 0, "usureMax": 5 },
+      "caracs": { "bonus": 0, "poids": 0.4, "usure": 8, "usureMax": 8 },
       "craft": {
-        "bricolage": 8,
+        "bricolage": 10,
         "craftList": [
           [
             {
@@ -16647,7 +16395,7 @@
               "name": "Laine",
               "avatar": "\\items\\ressources\\whool.webp",
               "description": "Des poils de moutons, c'est cracra non ?",
-              "quantite": 3,
+              "quantite": 4,
               "miniAvatar": "\\items\\ressources\\mini\\whool.webp"
             }
           ]
@@ -16673,34 +16421,31 @@
         "miniAvatar": "\\items\\ressources\\mini\\whool.webp"
       },
       "perk": {
-        "_id": "65d73d4205532d9ff6393fbc",
+        "_id": "6922e9724eb8684d3358505b",
         "type": "bonus",
-        "level": 0,
-        "name": "Constitution",
-        "avatar": "constitution",
-        "description": "T'es plus résistant, mais t'as un truc entre les dents. (+1 Constitution)",
+        "level": 6,
+        "name": "Bien couvert",
+        "avatar": "/perks/Biencouvert.webp",
+        "miniAvatar": "/perks/mini/Biencouvert.webp",
+        "description": "Tu sais utiliser ta garde robe pour te protéger du temps (+2 de résistance aux maladies)",
         "characterBonus": [
           {
-            "carac": "caracs.constitution",
-            "bonus": 1,
-            "_id": "65d73d4205532d9ff6393fbd"
-          },
-          {
-            "carac": "caracs.constitutionMax",
-            "bonus": 1,
-            "_id": "65d73d4205532d9ff6393fbe"
+            "carac": "exp.perksBonus.diseaseResistance",
+            "bonus": 2,
+            "_id": "6922e9724eb8684d3358505c"
           }
         ],
-        "__v": 0,
-        "miniAvatar": "mini/constitution"
+        "healItems": [],
+        "permanent": false,
+        "__v": 0
       },
       "__v": 1,
       "miniAvatar": "/items/armures/mini/Bonnet.webp"
     },
     {
-      "caracs": { "poids": 3, "usure": 10, "usureMax": 10, "bonus": 1 },
+      "caracs": { "poids": 3, "usure": 12, "usureMax": 12, "bonus": 1 },
       "craft": {
-        "bricolage": 10,
+        "bricolage": 13,
         "craftList": [
           [
             {
@@ -16715,6 +16460,7 @@
             }
           ]
         ],
+        "extensions": ["Atelier", "Atelier mobile"],
         "PA": 3
       },
       "_id": "6807e031042d90264688c274",
@@ -16726,26 +16472,23 @@
       "lootable": 0,
       "craftable": true,
       "perk": {
-        "_id": "65d73d4205532d9ff6393fbc",
+        "_id": "6922e81d4eb8684d3353d3b3",
         "type": "bonus",
-        "level": 0,
-        "name": "Constitution",
-        "avatar": "constitution",
-        "description": "T'es plus résistant, mais t'as un truc entre les dents. (+1 Constitution)",
+        "level": 10,
+        "name": "Très bien couvert",
+        "avatar": "/perks/Tresbiencouvert.webp",
+        "miniAvatar": "/perks/mini/Tresbiencouvert.webp",
+        "description": "Avoir chaud et être au sec sont les deux mamelles d'une bonne santé (+3 de résistance aux maladies)",
         "characterBonus": [
           {
-            "carac": "caracs.constitution",
-            "bonus": 1,
-            "_id": "65d73d4205532d9ff6393fbd"
-          },
-          {
-            "carac": "caracs.constitutionMax",
-            "bonus": 1,
-            "_id": "65d73d4205532d9ff6393fbe"
+            "carac": "exp.perksBonus.diseaseResistance",
+            "bonus": 3,
+            "_id": "6922e81d4eb8684d3353d3b4"
           }
         ],
-        "__v": 0,
-        "miniAvatar": "mini/constitution"
+        "healItems": [],
+        "permanent": false,
+        "__v": 2
       },
       "__v": 1,
       "repairItem": {
@@ -16763,7 +16506,7 @@
     {
       "caracs": { "poids": 3, "usure": 15, "usureMax": 15, "bonus": 2 },
       "craft": {
-        "bricolage": 12,
+        "bricolage": 15,
         "craftList": [
           [
             {
@@ -16788,7 +16531,6 @@
             }
           ]
         ],
-        "extension": "Atelier",
         "extensions": ["Atelier"],
         "PA": 5
       },
@@ -16801,26 +16543,23 @@
       "lootable": 0,
       "craftable": true,
       "perk": {
-        "_id": "65d73d4205532d9ff6393fbc",
+        "_id": "6922eab34eb8684d335aa68e",
         "type": "bonus",
-        "level": 0,
-        "name": "Constitution",
-        "avatar": "constitution",
-        "description": "T'es plus résistant, mais t'as un truc entre les dents. (+1 Constitution)",
+        "level": 14,
+        "name": "Chasseur de tempête",
+        "avatar": "/perks/Chasseurdetempete4resistanceauxmaladies.webp",
+        "miniAvatar": "/perks/mini/Chasseurdetempete4resistanceauxmaladies.webp",
+        "description": "Equipé comme ça, t'as pas peur de sortir sous le déluge (+4 de résistance aux maladies)",
         "characterBonus": [
           {
-            "carac": "caracs.constitution",
-            "bonus": 1,
-            "_id": "65d73d4205532d9ff6393fbd"
-          },
-          {
-            "carac": "caracs.constitutionMax",
-            "bonus": 1,
-            "_id": "65d73d4205532d9ff6393fbe"
+            "carac": "exp.perksBonus.diseaseResistance",
+            "bonus": 4,
+            "_id": "6922eab34eb8684d335aa68f"
           }
         ],
-        "__v": 0,
-        "miniAvatar": "mini/constitution"
+        "healItems": [],
+        "permanent": false,
+        "__v": 0
       },
       "__v": 2,
       "repairItem": {
@@ -16873,7 +16612,6 @@
             }
           ]
         ],
-        "extension": "Atelier",
         "PA": 5,
         "extensions": ["Atelier"]
       },
@@ -16909,6 +16647,8 @@
       "lootable": 2,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d73d706bef1d956fe59e2d",
         "type": "bonus",
         "level": 0,
@@ -17226,6 +16966,8 @@
         "miniAvatar": "/items/ressources/mini/Ferraille.webp"
       },
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670ed5e0b138bea0ab064493",
         "level": 8,
         "name": "Bagarreur",
@@ -17277,15 +17019,15 @@
     {
       "caracs": {
         "poids": 8,
-        "genre": "distance",
+        "genre": "cac",
         "munType": 5,
         "degats": [2, 6],
         "capacite": 5,
         "usure": 12,
+        "usureMax": 12,
         "mode": ["single"],
         "bonus": 5,
         "toolType": "roseaux",
-        "usureMax": 12,
         "mun": 0
       },
       "_id": "6838b176e3f416d63cae92c7",
@@ -17293,7 +17035,7 @@
       "name": "Débroussailleuse",
       "avatar": "/items/armes/Debroussailleuse.webp",
       "miniAvatar": "/items/armes/mini/Debroussailleuse.webp",
-      "description": "Dégage de mon gazon! (Attention : utilise Dextérité)",
+      "description": "Dégage de mon gazon !",
       "quantite": 1,
       "lootable": 2,
       "craftable": false,
@@ -17541,7 +17283,8 @@
       "__v": 0
     },
     {
-      "caracs": { "poids": 20, "usure": 17, "bonus": 5, "usureMax": 17 },
+      "caracs": { "poids": 20, "usure": 17, "usureMax": 17, "bonus": 5 },
+      "requiredCaracs": { "force": 16 },
       "_id": "6839d69a72fada163c37bd46",
       "type": "armure",
       "name": "Armure de plates complête",
@@ -17794,73 +17537,9 @@
       "__v": 0
     },
     {
-      "caracs": { "poids": 5, "usure": 20, "bonus": 40, "usureMax": 20 },
-      "craft": {
-        "bricolage": 16,
-        "craftList": [
-          [
-            {
-              "caracs": { "poids": 1, "usure": 10, "usureMax": 10 },
-              "_id": "65464dee568b7b6c99343e4b",
-              "type": "ressource",
-              "name": "Bois",
-              "avatar": "/items/ressources/wood.webp",
-              "description": "Du bois, ça brûle, entre autre.",
-              "quantite": 2,
-              "miniAvatar": "/items/ressources/mini/wood.webp"
-            },
-            {
-              "caracs": { "poids": 0.5, "usure": 10, "usureMax": 10 },
-              "_id": "65ccb4cd2b791d10be0d9a85",
-              "type": "ressource",
-              "name": "Corde",
-              "avatar": "/items/ressources/Corde.webp",
-              "description": "Elle a l'air relativement solide",
-              "quantite": 5,
-              "craftable": true,
-              "miniAvatar": "/items/ressources/mini/Corde.webp"
-            },
-            {
-              "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
-              "_id": "65d891e652c5407b4bd57720",
-              "type": "ressource",
-              "name": "Ferraille",
-              "avatar": "/items/ressources/Ferraille.webp",
-              "description": "Quelques bouts, entre autres, de métal.",
-              "quantite": 2,
-              "miniAvatar": "/items/ressources/mini/Ferraille.webp"
-            }
-          ]
-        ],
-        "extensions": ["Atelier"],
-        "PA": 6
-      },
-      "_id": "6849cbbaa8ff4323d991bc7d",
-      "type": "sac",
-      "name": "Travois à roulette",
-      "avatar": "/items/sacs/Travoisaroulette.webp",
-      "miniAvatar": "/items/sacs/mini/Travoisaroulette.webp",
-      "description": "Si avec ça on t'appelle pas John \"Travoilta\". ",
-      "quantite": 1,
-      "lootable": 0,
-      "craftable": true,
-      "repairItem": {
-        "caracs": { "poids": 0.5, "usure": 10, "usureMax": 10 },
-        "_id": "65ccb4cd2b791d10be0d9a85",
-        "type": "ressource",
-        "name": "Corde",
-        "avatar": "/items/ressources/Corde.webp",
-        "description": "Elle a l'air relativement solide",
-        "quantite": 2,
-        "craftable": true,
-        "miniAvatar": "/items/ressources/mini/Corde.webp"
-      },
-      "__v": 0
-    },
-    {
       "caracs": { "poids": 0.3, "usure": 5, "usureMax": 5, "bonus": 5 },
       "craft": {
-        "genericCraft": { "water": 1 },
+        "genericCraft": { "water": 1, "special": 1 },
         "bricolage": 12,
         "requiredItem": {
           "caracs": { "poids": 0.2, "usure": 5, "usureMax": 5, "bonus": 2 },
@@ -17880,6 +17559,7 @@
               "_id": "66e09092d8b5d78955a60bf9"
             }
           ],
+          "foodType": "special",
           "miniAvatar": "/items/nrt/mini/lierreterrestre.webp"
         },
         "PA": 1
@@ -18079,7 +17759,7 @@
       "__v": 0
     },
     {
-      "caracs": { "poids": 0.3, "usure": 5, "bonus": 10, "usureMax": 5 },
+      "caracs": { "poids": 0.3, "usure": 5, "usureMax": 5, "bonus": 10 },
       "craft": {
         "bricolage": 15,
         "craftList": [
@@ -18154,7 +17834,7 @@
       "_id": "6849d2d9a8ff4323d9a6839b",
       "type": "boisson",
       "foodType": "chim",
-      "name": "Poison artisanal",
+      "name": "Poison",
       "avatar": "/items/boisson/Poisonartisanal.webp",
       "miniAvatar": "/items/boisson/mini/Poisonartisanal.webp",
       "description": "Celui là il pique un peu !",
@@ -18569,7 +18249,7 @@
       "__v": 0
     },
     {
-      "caracs": { "poids": 0.2, "usure": 8, "bonus": 0, "usureMax": 8 },
+      "caracs": { "bonus": 0, "poids": 0.2, "usure": 8, "usureMax": 8 },
       "_id": "6887bdf9af495c38d1d74f89",
       "type": "nrt",
       "foodType": "cond",
@@ -18588,7 +18268,7 @@
           "carac": "faim",
           "bonus": 10,
           "description": "Ca fait office de coupe-faim, on dirait. ( +10 Faim)",
-          "forceEffect": false,
+          "forceEffect": true,
           "_id": "6887bdf9af495c38d1d74f8a"
         },
         {
@@ -18606,9 +18286,17 @@
           "description": "Et tu peux marcher plus longtemps ! (+1 géo)",
           "forceEffect": false,
           "_id": "6887bdf9af495c38d1d74f8c"
+        },
+        {
+          "name": "Fov (-1)",
+          "carac": "fov",
+          "bonus": -1,
+          "description": "T'as un peu la tête dans les nuages, par contre (-1fov)",
+          "forceEffect": true,
+          "_id": "68e105120c793f8e71b9d68b"
         }
       ],
-      "__v": 0
+      "__v": 1
     },
     {
       "caracs": { "poids": 0.1, "usure": 10, "bonus": 0, "usureMax": 10 },
@@ -19855,7 +19543,7 @@
     {
       "caracs": {
         "poids": 12,
-        "genre": "distance",
+        "genre": "cac",
         "munType": 5,
         "degats": [2, 10],
         "capacite": 10,
@@ -19950,6 +19638,8 @@
       "craftable": false,
       "__v": 0,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d76169c46f49ece989c47e",
         "type": "bonus",
         "level": 2,
@@ -19979,6 +19669,8 @@
       "lootable": 2,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d759e86a2cd6443cef1209",
         "type": "bonus",
         "level": 2,
@@ -20009,6 +19701,8 @@
       "lootable": 2,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "6676b352a089d1d75a25fcfd",
         "type": "bonus",
         "level": 4,
@@ -20017,7 +19711,7 @@
         "description": "T'aimes les arbres mais en morceaux (+4 bois produits)",
         "characterBonus": [
           {
-            "_id": "68db7af5a4dcfe3fa7ca846c",
+            "_id": "696620bdd3006de2ff6a64b9",
             "carac": "exp.perksBonus.bois",
             "bonus": 4
           }
@@ -20039,6 +19733,8 @@
       "lootable": 2,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670ecf3bb138bea0ab06448e",
         "type": "bonus",
         "level": 4,
@@ -20047,7 +19743,7 @@
         "description": "T'excites pas c'est pour les roseaux (+4 roseaux)",
         "characterBonus": [
           {
-            "_id": "68db7af5a4dcfe3fa7ca8471",
+            "_id": "696620bdd3006de2ff6a64be",
             "carac": "exp.perksBonus.roseaux",
             "bonus": 4
           }
@@ -20069,6 +19765,8 @@
       "lootable": 2,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "6676b4eba089d1d75a25fcff",
         "type": "bonus",
         "level": 4,
@@ -20077,7 +19775,7 @@
         "description": "Si ça brille, tu prends, c'est grave ? (+4 ferrailles produites)",
         "characterBonus": [
           {
-            "_id": "68db7af5a4dcfe3fa7ca846e",
+            "_id": "696620bdd3006de2ff6a64bb",
             "carac": "exp.perksBonus.ferraille",
             "bonus": 4
           }
@@ -20099,6 +19797,8 @@
       "lootable": 2,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65f94ffc6e5207fd7e4d37b6",
         "type": "bonus",
         "level": 4,
@@ -20129,6 +19829,8 @@
       "lootable": 2,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "67949c6fbd68de902de4b866",
         "type": "bonus",
         "level": 4,
@@ -20159,6 +19861,8 @@
       "lootable": 2,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "6676b4aca089d1d75a25fcfe",
         "type": "bonus",
         "level": 4,
@@ -20167,7 +19871,7 @@
         "description": "Les cailloux, tu fais pas que les sucer (+4 pierres produites)",
         "characterBonus": [
           {
-            "_id": "68db7af5a4dcfe3fa7ca846d",
+            "_id": "696620bdd3006de2ff6a64ba",
             "carac": "exp.perksBonus.pierre",
             "bonus": 4
           }
@@ -20189,6 +19893,8 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d750bbf9896c3b4ed95a8d",
         "type": "bonus",
         "level": 6,
@@ -20219,6 +19925,8 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d753aa7a7ec0146530b047",
         "type": "bonus",
         "level": 6,
@@ -20249,6 +19957,8 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "67e43ef501d4d882cff75907",
         "type": "bonus",
         "level": 8,
@@ -20279,9 +19989,11 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "67946eb6f948dfbecf2ce164",
         "type": "bonus",
-        "level": 8,
+        "level": 6,
         "name": "Enfant de l'atome",
         "avatar": "/perks/Enfantdelatome.webp",
         "description": "Les rayons gamma, t'en reprends 2 fois au petit déj (Maximum de radiation tolérable monté à 150)",
@@ -20309,10 +20021,12 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d599a80a7e8f0958483639",
         "level": 10,
         "name": "Vue perçante",
-        "description": "Rien ne t'échappe ! Tu peux maintenant voir plus loin. (+1 fov)",
+        "description": "Rien ne t'échappe ! Tu peux maintenant voir plus loin. (+1 FOV)",
         "characterBonus": [
           { "carac": "fov", "bonus": 1, "_id": "65d599a80a7e8f095848363a" },
           { "carac": "fovMax", "bonus": 1, "_id": "65d59f0e32007401fbc201ba" }
@@ -20336,11 +20050,13 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670f75e00503a9b062f4c72e",
         "level": 10,
         "name": "Increvable",
         "avatar": "/perks/increvable.webp",
-        "description": "Pour te crever, va falloir y aller ... (régénération de 3pv supplémentaires au passage)",
+        "description": "Pour te crever, va falloir y aller ... (régénération de 3 PV supplémentaires au passage)",
         "characterBonus": [
           {
             "carac": "exp.perksBonus.increvable",
@@ -20366,11 +20082,13 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670ed320b138bea0ab064491",
         "level": 12,
         "name": "Assassin",
         "avatar": "/perks/assassin.webp",
-        "description": "Tu sais comment faire souffrir, c'est grave ? (+ 2 dégats)",
+        "description": "Tu sais comment faire souffrir ton prochain, c'est grave ? (+ 2 dégats)",
         "characterBonus": [
           {
             "carac": "exp.perksBonus.degats",
@@ -20396,12 +20114,14 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "67946f66f948dfbecf2cef62",
         "type": "bonus",
         "level": 12,
         "name": "Résistance aux radiations",
         "avatar": "/perks/Resistanceauxradiations.webp",
-        "description": "La matière fissile tu l'aimes et tu l'enfiles (Tu prends 1 rad de moins que les autres)",
+        "description": "La matière fissile, tu l'aimes et tu l'enfiles (Tu prends 1 radiation de moins que les autres)",
         "characterBonus": [
           {
             "carac": "exp.perksBonus.radiationResistance",
@@ -20426,8 +20146,10 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670f73a50503a9b062f4c72d",
-        "level": 8,
+        "level": 4,
         "name": "Esclavagiste",
         "avatar": "/perks/slaver.webp",
         "description": "Moi j'aime le cuir et toi ? (Tu as plus de chance de mettre ton adversaire vaincu dans le coma)",
@@ -20503,6 +20225,8 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d73dbf69449f3f3c1fd37b",
         "type": "bonus",
         "level": 0,
@@ -20701,12 +20425,14 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65d741e5e74cb61869756fdf",
         "type": "bonus",
         "level": 0,
         "name": "Charisme",
         "avatar": "charisme",
-        "description": "T'es le roi du Blabla mais moi tu me la fais pas. (+1 Charisme)",
+        "description": "T'es le roi du blabla mais moi tu me la fais pas. (+1 Charisme)",
         "characterBonus": [
           {
             "carac": "caracs.charisme",
@@ -20802,6 +20528,8 @@
       "lootable": 2,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "65f956486e5207fd7e4d37b7",
         "type": "bonus",
         "level": 4,
@@ -20832,11 +20560,13 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670f7901fe334977a78cb5a0",
         "level": 10,
         "name": "Action Man",
         "avatar": "/perks/actionman.webp",
-        "description": "T'es un rapide toi, madame s'en plaint mais tu t'en br...(+1PA)",
+        "description": "T'es un rapide toi, madame s'en plaint mais tu t'en br...(+1 PA)",
         "characterBonus": [
           { "carac": "PA", "bonus": 1, "_id": "65d6f7e4d266549949a22785" },
           { "carac": "PAMax", "bonus": 1, "_id": "65d6f7e4d266549949a22786" }
@@ -20859,6 +20589,8 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "677e4b0122776cc6698aa12f",
         "type": "bonus",
         "level": 8,
@@ -20889,6 +20621,8 @@
       "lootable": 3,
       "craftable": false,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "677e4aa922776cc6698948db",
         "type": "bonus",
         "level": 8,
@@ -20977,8 +20711,10 @@
       "lootable": 0,
       "craftable": true,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "670ed84fb138bea0ab064494",
-        "level": 8,
+        "level": 10,
         "name": "Trappeur",
         "avatar": "/perks/trappeur.webp",
         "description": "Si j'en crois le goût de cette crotte, trois sangliers sont passés ici il y a quarante cinq minutes (Lorsque tu traques, tu lèves deux groupes d'animaux)",
@@ -21065,6 +20801,8 @@
       "lootable": 0,
       "craftable": true,
       "perk": {
+        "healItems": [],
+        "permanent": false,
         "_id": "677e4b0122776cc6698aa12f",
         "type": "bonus",
         "level": 8,
@@ -21145,6 +20883,1740 @@
       "quantite": 1,
       "lootable": 3,
       "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": {
+        "poids": 14.2,
+        "genre": "cac",
+        "degats": [1, 7],
+        "usure": 21,
+        "bonus": 0,
+        "usureMax": 21
+      },
+      "requiredCaracs": { "force": 15, "constitution": 12 },
+      "_id": "68dc292e614caf6118c27f6e",
+      "type": "arme",
+      "name": "Rail d'autoroute",
+      "avatar": "/items/armes/Raildautoroute.webp",
+      "miniAvatar": "/items/armes/mini/Raildautoroute.webp",
+      "description": "Sécurité routière, tous responsables",
+      "quantite": 1,
+      "lootable": 2,
+      "craftable": false,
+      "repairItem": {
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "_id": "65d891e652c5407b4bd57720",
+        "type": "ressource",
+        "name": "Ferraille",
+        "avatar": "/items/ressources/Ferraille.webp",
+        "description": "Quelques bouts, entre autres, de métal.",
+        "quantite": 1,
+        "miniAvatar": "/items/ressources/mini/Ferraille.webp"
+      },
+      "__v": 0
+    },
+    {
+      "caracs": {
+        "poids": 1.2,
+        "genre": "cac",
+        "degats": [1, 3],
+        "usure": 2,
+        "bonus": 0,
+        "usureMax": 2
+      },
+      "requiredCaracs": { "dexterite": -14 },
+      "_id": "68dc2b80614caf6118c55952",
+      "type": "arme",
+      "name": "Mobile bébé hello kitty",
+      "avatar": "/items/armes/Mobilebebehellokitty.webp",
+      "miniAvatar": "/items/armes/mini/Mobilebebehellokitty.webp",
+      "description": "Joie de grandir, plaisir de recevoir dans la face",
+      "quantite": 1,
+      "lootable": 2,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 3.8, "usure": 5, "bonus": 0, "usureMax": 5 },
+      "_id": "68eb9cae3a1f16604fdc976b",
+      "type": "rp",
+      "name": "Lecteur casette Hitachi",
+      "avatar": "/items/rp/LecteurcasetteHitachi.webp",
+      "miniAvatar": "/items/rp/mini/LecteurcasetteHitachi.webp",
+      "description": "On peut même écouter France Inter ... enfin on pouvait ...",
+      "quantite": 1,
+      "lootable": 3,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 1.7, "usure": 4, "bonus": 0, "usureMax": 4 },
+      "_id": "68eb9dd53a1f16604fdd7de6",
+      "type": "rp",
+      "name": "Tableau ",
+      "avatar": "/items/rp/Tableau.webp",
+      "miniAvatar": "/items/rp/mini/Tableau.webp",
+      "description": "Un ciel bleu, un désert, un village en ruine ...",
+      "quantite": 1,
+      "lootable": 3,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.8, "usure": 8, "bonus": 0, "usureMax": 8 },
+      "_id": "68eb9e443a1f16604fdde2ac",
+      "type": "rp",
+      "name": "Thermostat de chauffage",
+      "avatar": "/items/rp/Thermostatdechauffage.webp",
+      "miniAvatar": "/items/rp/mini/Thermostatdechauffage.webp",
+      "description": "Permet de régler la température sur Reborn, enfin, en théorie",
+      "quantite": 1,
+      "lootable": 3,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": {
+        "poids": 16.8,
+        "genre": "cac",
+        "degats": [2, 5],
+        "usure": 27,
+        "bonus": 1,
+        "toolType": "pierre",
+        "usureMax": 27
+      },
+      "requiredCaracs": { "force": 15, "constitution": 11 },
+      "craft": {
+        "bricolage": 21,
+        "craftList": [
+          [
+            {
+              "caracs": { "poids": 5, "usure": 100, "usureMax": 100 },
+              "_id": "65464e70cfd5547a75007a65",
+              "type": "ressource",
+              "name": "Pierre",
+              "avatar": "/items/ressources/stone.webp",
+              "description": "Un gros caillou. C'est lourd.",
+              "quantite": 6,
+              "miniAvatar": "/items/ressources/mini/stone.webp"
+            },
+            {
+              "caracs": {
+                "poids": 3,
+                "genre": "cac",
+                "degats": [1, 5],
+                "capacite": 5,
+                "usure": 19,
+                "mode": ["single"],
+                "bonus": 2,
+                "toolType": "pierre",
+                "usureMax": 19
+              },
+              "_id": "65ecedb4ad87541c399653ed",
+              "type": "arme",
+              "name": "Pioche",
+              "avatar": "/items/armes/Pioche.webp",
+              "description": "C'est mieux que creuser à la main.",
+              "quantite": 1,
+              "miniAvatar": "/items/armes/mini/Pioche.webp"
+            }
+          ]
+        ],
+        "extensions": ["Atelier"],
+        "PA": 8
+      },
+      "_id": "68eba1543a1f16604fdfea25",
+      "type": "arme",
+      "name": "Massue de Giacometti",
+      "avatar": "/items/armes/MassuedeGiacometti.webp",
+      "miniAvatar": "/items/armes/mini/MassuedeGiacometti.webp",
+      "description": "Il parait que ça marche encore mieux sous la pluie",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": true,
+      "repairItem": {
+        "caracs": { "poids": 5, "usure": 100, "usureMax": 100 },
+        "_id": "65464e70cfd5547a75007a65",
+        "type": "ressource",
+        "name": "Pierre",
+        "avatar": "/items/ressources/stone.webp",
+        "description": "Un gros caillou. C'est lourd.",
+        "quantite": 2,
+        "miniAvatar": "/items/ressources/mini/stone.webp"
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 4.8, "usure": 999, "bonus": 1, "usureMax": 999 },
+      "_id": "68eba62c3a1f16604fe2495c",
+      "type": "rp",
+      "name": "Shao créant l'univers",
+      "avatar": "/items/rp/Shaocreantlunivers.webp",
+      "miniAvatar": "/items/rp/mini/Shaocreantlunivers.webp",
+      "description": "Toute ressemblance avec un personnage existant serait purement fortuite",
+      "quantite": 1,
+      "lootable": 3,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.1, "usure": 2, "bonus": 0, "usureMax": 2 },
+      "_id": "68eba8f23a1f16604fe31ae0",
+      "type": "rp",
+      "name": "Dessin d'enfant",
+      "avatar": "/items/rp/Dessindenfant.webp",
+      "miniAvatar": "/items/rp/mini/Dessindenfant.webp",
+      "description": "\"Le futur\" ",
+      "quantite": 1,
+      "lootable": 3,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": {
+        "bonus": 0,
+        "poids": 1,
+        "genre": "cac",
+        "degats": [1, 6],
+        "usure": 15,
+        "usureMax": 15
+      },
+      "_id": "68ebdc3a31e0dc21adb1e18c",
+      "type": "arme",
+      "name": "Batte de baseball",
+      "avatar": "/items/armes/Battedebaseball.webp",
+      "miniAvatar": "/items/armes/mini/Battedebaseball.webp",
+      "description": "Trop dommage on a pas la balle.",
+      "quantite": 1,
+      "lootable": 1,
+      "craftable": false,
+      "repairItem": {
+        "caracs": { "poids": 1, "usure": 10, "usureMax": 10 },
+        "_id": "65464dee568b7b6c99343e4b",
+        "type": "ressource",
+        "name": "Bois",
+        "avatar": "/items/ressources/wood.webp",
+        "description": "Du bois, ça brûle, entre autre.",
+        "quantite": 1,
+        "miniAvatar": "/items/ressources/mini/wood.webp"
+      },
+      "__v": 0
+    },
+    {
+      "caracs": {
+        "poids": 1,
+        "genre": "cac",
+        "degats": [1, 6],
+        "usure": 17,
+        "bonus": 0,
+        "usureMax": 17
+      },
+      "_id": "68ebdc9231e0dc21adb21b0f",
+      "type": "arme",
+      "name": "Batte en alu",
+      "avatar": "/items/armes/Batteenalu.webp",
+      "miniAvatar": "/items/armes/mini/Batteenalu.webp",
+      "description": "Si t'es plus PING que POK",
+      "quantite": 1,
+      "lootable": 1,
+      "craftable": false,
+      "repairItem": {
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "_id": "65d891e652c5407b4bd57720",
+        "type": "ressource",
+        "name": "Ferraille",
+        "avatar": "/items/ressources/Ferraille.webp",
+        "description": "Quelques bouts, entre autres, de métal.",
+        "quantite": 1,
+        "miniAvatar": "/items/ressources/mini/Ferraille.webp"
+      },
+      "__v": 0
+    },
+    {
+      "caracs": {
+        "bonus": 0,
+        "poids": 1.5,
+        "genre": "cac",
+        "degats": [1, 3],
+        "usure": 12,
+        "usureMax": 12
+      },
+      "_id": "68ec0a7f31e0dc21ade08047",
+      "type": "arme",
+      "name": "Rouleau à patisserie",
+      "avatar": "/items/armes/Rouleauapatisserie.webp",
+      "miniAvatar": "/items/armes/mini/Rouleauapatisserie.webp",
+      "description": "Pour bien étaler la pâte dans la gueule de son prochain",
+      "quantite": 1,
+      "lootable": 3,
+      "craftable": false,
+      "perk": {
+        "healItems": [],
+        "permanent": false,
+        "_id": "65d73dbf69449f3f3c1fd37b",
+        "type": "bonus",
+        "level": 0,
+        "name": "Survivalisme",
+        "avatar": "survivalisme",
+        "description": "Tu es plus AWARE, Jcvd te salue (+1 Survivalisme)",
+        "characterBonus": [
+          {
+            "carac": "caracs.survivalisme",
+            "bonus": 1,
+            "_id": "65d73dbf69449f3f3c1fd37c"
+          },
+          {
+            "carac": "caracs.survivalismeMax",
+            "bonus": 1,
+            "_id": "65d73dbf69449f3f3c1fd37d"
+          }
+        ],
+        "__v": 0,
+        "miniAvatar": "mini/survivalisme"
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.2, "usure": 3, "bonus": 0, "usureMax": 3 },
+      "_id": "68f3437db4cd01cbe3596129",
+      "type": "rp",
+      "name": "Badge Pompidou président",
+      "avatar": "/items/rp/BadgePompidoupresident.webp",
+      "miniAvatar": "/items/rp/mini/BadgePompidoupresident.webp",
+      "description": "Pom-pom-pi-dou wouh !",
+      "quantite": 1,
+      "lootable": 3,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": { "bonus": 0, "poids": 0.1, "usure": 10, "usureMax": 10 },
+      "_id": "68fbcbb00e062d2496254ccf",
+      "type": "rp",
+      "name": "Portrait de Bella signé W.",
+      "avatar": "/items/rp/PortraitdeBella.webp",
+      "miniAvatar": "/items/rp/mini/PortraitdeBella.webp",
+      "description": "Ce regard bovin lui donne un charme fou",
+      "quantite": 1,
+      "lootable": 2,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": {
+        "poids": 0.5,
+        "genre": "cac",
+        "degats": [1, 2],
+        "usure": 5,
+        "bonus": 0,
+        "usureMax": 5
+      },
+      "_id": "68fbe98f0e062d249672d159",
+      "type": "arme",
+      "name": "Jumelles",
+      "avatar": "/items/armes/Jumelles.webp",
+      "miniAvatar": "/items/armes/mini/Jumelles.webp",
+      "description": "Pour voir les choses en grand.",
+      "quantite": 1,
+      "lootable": 2,
+      "craftable": false,
+      "repairItem": {
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "_id": "65d891e652c5407b4bd57720",
+        "type": "ressource",
+        "name": "Ferraille",
+        "avatar": "/items/ressources/Ferraille.webp",
+        "description": "Quelques bouts, entre autres, de métal.",
+        "quantite": 1,
+        "miniAvatar": "/items/ressources/mini/Ferraille.webp"
+      },
+      "perk": {
+        "healItems": [],
+        "permanent": false,
+        "_id": "65d599a80a7e8f0958483639",
+        "level": 10,
+        "name": "Vue perçante",
+        "description": "Rien ne t'échappe ! Tu peux maintenant voir plus loin. (+1 FOV)",
+        "characterBonus": [
+          { "carac": "fov", "bonus": 1, "_id": "65d599a80a7e8f095848363a" },
+          { "carac": "fovMax", "bonus": 1, "_id": "65d59f0e32007401fbc201ba" }
+        ],
+        "__v": 1,
+        "avatar": "/perks/vuepercante.webp",
+        "type": "bonus",
+        "miniAvatar": "/perks/mini/vuepercante.webp"
+      },
+      "__v": 0
+    },
+    {
+      "caracs": {
+        "poids": 1,
+        "genre": "cac",
+        "degats": [1, 2],
+        "usure": 5,
+        "bonus": 0,
+        "usureMax": 5
+      },
+      "craft": {
+        "bricolage": 18,
+        "craftList": [
+          [
+            {
+              "caracs": { "poids": 1, "usure": 10, "usureMax": 10 },
+              "_id": "65464dee568b7b6c99343e4b",
+              "type": "ressource",
+              "name": "Bois",
+              "avatar": "/items/ressources/wood.webp",
+              "description": "Du bois, ça brûle, entre autre.",
+              "quantite": 1,
+              "miniAvatar": "/items/ressources/mini/wood.webp"
+            },
+            {
+              "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+              "_id": "65d891e652c5407b4bd57720",
+              "type": "ressource",
+              "name": "Ferraille",
+              "avatar": "/items/ressources/Ferraille.webp",
+              "description": "Quelques bouts, entre autres, de métal.",
+              "quantite": 1,
+              "miniAvatar": "/items/ressources/mini/Ferraille.webp"
+            }
+          ]
+        ],
+        "extensions": ["Atelier"],
+        "PA": 5
+      },
+      "_id": "68fbeaba0e062d249674ebb3",
+      "type": "arme",
+      "name": "Longue vue artisanale",
+      "avatar": "/items/armes/Longuevueartisanale.webp",
+      "miniAvatar": "/items/armes/mini/Longuevueartisanale.webp",
+      "description": "Choquez les drisses et les balancines!",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": true,
+      "repairItem": {
+        "caracs": { "poids": 1, "usure": 10, "usureMax": 10 },
+        "_id": "65464dee568b7b6c99343e4b",
+        "type": "ressource",
+        "name": "Bois",
+        "avatar": "/items/ressources/wood.webp",
+        "description": "Du bois, ça brûle, entre autre.",
+        "quantite": 1,
+        "miniAvatar": "/items/ressources/mini/wood.webp"
+      },
+      "perk": {
+        "healItems": [],
+        "permanent": false,
+        "_id": "65d599a80a7e8f0958483639",
+        "level": 10,
+        "name": "Vue perçante",
+        "description": "Rien ne t'échappe ! Tu peux maintenant voir plus loin. (+1 FOV)",
+        "characterBonus": [
+          { "carac": "fov", "bonus": 1, "_id": "65d599a80a7e8f095848363a" },
+          { "carac": "fovMax", "bonus": 1, "_id": "65d59f0e32007401fbc201ba" }
+        ],
+        "__v": 1,
+        "avatar": "/perks/vuepercante.webp",
+        "type": "bonus",
+        "miniAvatar": "/perks/mini/vuepercante.webp"
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 1, "usure": 20, "bonus": 0, "usureMax": 20 },
+      "_id": "68ffd4cf3a5b32c9f477cfa6",
+      "type": "rp",
+      "name": "Python d'ici",
+      "avatar": "/items/rp/Pythondici.webp",
+      "miniAvatar": "/items/rp/mini/Pythondici.webp",
+      "description": "Y'a vraiment des pythons dans la région ?",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": {
+        "poids": 0.5,
+        "genre": "cac",
+        "degats": [1, 2],
+        "usure": 10,
+        "bonus": 0,
+        "usureMax": 10
+      },
+      "requiredCaracs": { "survivalisme": 14 },
+      "_id": "68ffe72f3a5b32c9f4bce83c",
+      "type": "arme",
+      "name": "Machine magique",
+      "avatar": "/items/armes/Machinemagique.webp",
+      "miniAvatar": "/items/armes/mini/Machinemagique.webp",
+      "description": "Avec ça, le Chef Michel va pouvoir te régaler les papilles ou faire de la mayonnaise de ta cervelle.",
+      "quantite": 1,
+      "lootable": 2,
+      "craftable": false,
+      "repairItem": {
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "_id": "65d891e652c5407b4bd57720",
+        "type": "ressource",
+        "name": "Ferraille",
+        "avatar": "/items/ressources/Ferraille.webp",
+        "description": "Quelques bouts, entre autres, de métal.",
+        "quantite": 1,
+        "miniAvatar": "/items/ressources/mini/Ferraille.webp"
+      },
+      "perk": {
+        "healItems": [],
+        "permanent": false,
+        "_id": "65d73dbf69449f3f3c1fd37b",
+        "type": "bonus",
+        "level": 0,
+        "name": "Survivalisme",
+        "avatar": "survivalisme",
+        "description": "Tu es plus AWARE, Jcvd te salue (+1 Survivalisme)",
+        "characterBonus": [
+          {
+            "carac": "caracs.survivalisme",
+            "bonus": 1,
+            "_id": "65d73dbf69449f3f3c1fd37c"
+          },
+          {
+            "carac": "caracs.survivalismeMax",
+            "bonus": 1,
+            "_id": "65d73dbf69449f3f3c1fd37d"
+          }
+        ],
+        "__v": 0,
+        "miniAvatar": "mini/survivalisme"
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "bonus": 0, "poids": 2, "usure": 10, "usureMax": 10 },
+      "craft": {
+        "bricolage": 10,
+        "craftList": [
+          [
+            {
+              "caracs": { "poids": 1, "usure": 10, "usureMax": 10 },
+              "_id": "65464dee568b7b6c99343e4b",
+              "type": "ressource",
+              "name": "Bois",
+              "avatar": "/items/ressources/wood.webp",
+              "description": "Du bois, ça brûle, entre autre.",
+              "quantite": 1,
+              "miniAvatar": "/items/ressources/mini/wood.webp"
+            },
+            {
+              "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+              "_id": "658c2d2052e994b9bc4023dd",
+              "type": "ressource",
+              "name": "Peau",
+              "avatar": "/items/ressources/skin.webp",
+              "description": "Peau d'un animal mort, classe ...",
+              "quantite": 3,
+              "miniAvatar": "/items/ressources/mini/skin.webp"
+            }
+          ]
+        ],
+        "PA": 1
+      },
+      "_id": "690b4c58c6efc093f2c33de2",
+      "type": "rp",
+      "name": "Tente",
+      "avatar": "/items/rp/Tente.webp",
+      "miniAvatar": "/items/rp/mini/Tente.webp",
+      "description": "Avec ça t'auras pas d'excuse pour dormir loin de moi.",
+      "quantite": 1,
+      "lootable": 2,
+      "craftable": true,
+      "repairItem": {
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "_id": "658c2d2052e994b9bc4023dd",
+        "type": "ressource",
+        "name": "Peau",
+        "avatar": "/items/ressources/skin.webp",
+        "description": "Peau d'un animal mort, classe ...",
+        "quantite": 3,
+        "miniAvatar": "/items/ressources/mini/skin.webp"
+      },
+      "__v": 0,
+      "buildable": {
+        "whatIsThere": {
+          "perso": [],
+          "groupe": [],
+          "pnj": [],
+          "items": [],
+          "vehicles": []
+        },
+        "caracs": {
+          "usure": 10,
+          "usureMax": 10,
+          "open": true,
+          "angle": 0,
+          "fov": 1,
+          "PA": 1,
+          "cout": [
+            {
+              "caracs": {
+                "poids": 1,
+                "degats": [],
+                "usure": 10,
+                "mode": [],
+                "bonus": 0
+              },
+              "type": "ressource",
+              "tileType": [],
+              "name": "Bois",
+              "avatar": "\\items\\ressources\\wood.webp",
+              "miniAvatar": "\\items\\ressources\\mini\\wood.webp",
+              "description": "Du bois, ça brûle, entre autre.",
+              "quantite": 1,
+              "lootable": 0,
+              "craftable": false,
+              "_id": "658c3296f9d1e79a86f31493",
+              "__v": 0
+            },
+            {
+              "caracs": {
+                "poids": 0.5,
+                "degats": [],
+                "usure": 5,
+                "mode": [],
+                "bonus": 0
+              },
+              "type": "ressources",
+              "tileType": [],
+              "name": "Peau",
+              "avatar": "\\items\\ressources\\skin.webp",
+              "miniAvatar": "\\items\\ressources\\mini\\skin.webp",
+              "description": "Peau d'un animal mort, classe ...",
+              "quantite": 3,
+              "lootable": 0,
+              "craftable": false,
+              "_id": "658c3296f9d1e79a86f31496",
+              "__v": 0
+            }
+          ],
+          "unbuild": [
+            {
+              "caracs": {
+                "poids": 0.5,
+                "degats": [],
+                "usure": 5,
+                "usureMax": 5,
+                "mode": [],
+                "bonus": 0
+              },
+              "type": "ressource",
+              "name": "Peau",
+              "avatar": "/items/ressources/skin.webp",
+              "miniAvatar": "/items/ressources/mini/skin.webp",
+              "description": "Peau d'un animal mort, classe ...",
+              "quantite": 2,
+              "lootable": 0,
+              "craftable": false,
+              "_id": "658c2d2052e994b9bc4023dd"
+            }
+          ],
+          "capacite": 2,
+          "itemCapacite": 5,
+          "ac": 1,
+          "garde": false,
+          "authorized": [],
+          "waterProd": false,
+          "characterRegen": 0
+        },
+        "extensions": {
+          "extandable": 0,
+          "slots": [],
+          "type": "extensionCampement"
+        },
+        "_id": "6575b8b8d7a02323deb74aa2",
+        "type": "rp",
+        "name": "Tente",
+        "avatar": "/batiments/Tente.webp",
+        "description": "Une tente quelque peu déchirée, c'est toujours ça",
+        "buildable": true,
+        "__v": 2,
+        "lootType": [],
+        "repairItem": {
+          "caracs": {
+            "poids": 0.5,
+            "degats": [],
+            "usure": 5,
+            "usureMax": 5,
+            "mode": [],
+            "bonus": 0
+          },
+          "type": "ressource",
+          "name": "Peau",
+          "avatar": "\\items\\ressources\\skin.webp",
+          "miniAvatar": "\\items\\ressources\\mini\\skin.webp",
+          "description": "Peau d'un animal mort, classe ...",
+          "quantite": 3,
+          "lootable": 0,
+          "craftable": false,
+          "_id": "658c2d2052e994b9bc4023dd"
+        },
+        "tileType": [],
+        "miniAvatar": "/batiments/mini/Tente.webp",
+        "unbuildable": "690b4c58c6efc093f2c33de2"
+      }
+    },
+    {
+      "caracs": { "bonus": 0, "poids": 40, "usure": 20, "usureMax": 20 },
+      "craft": {
+        "bricolage": 14,
+        "craftList": [
+          [
+            {
+              "caracs": { "poids": 1, "usure": 10, "usureMax": 10 },
+              "_id": "65464dee568b7b6c99343e4b",
+              "type": "ressource",
+              "name": "Bois",
+              "avatar": "/items/ressources/wood.webp",
+              "description": "Du bois, ça brûle, entre autre.",
+              "quantite": 5,
+              "miniAvatar": "/items/ressources/mini/wood.webp"
+            },
+            {
+              "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+              "_id": "658c2d2052e994b9bc4023dd",
+              "type": "ressource",
+              "name": "Peau",
+              "avatar": "/items/ressources/skin.webp",
+              "description": "Peau d'un animal mort, classe ...",
+              "quantite": 10,
+              "miniAvatar": "/items/ressources/mini/skin.webp"
+            },
+            {
+              "caracs": { "poids": 0.5, "usure": 10, "usureMax": 10 },
+              "_id": "65ccb4cd2b791d10be0d9a85",
+              "type": "ressource",
+              "name": "Corde",
+              "avatar": "/items/ressources/Corde.webp",
+              "description": "Elle a l'air relativement solide",
+              "quantite": 1,
+              "craftable": true,
+              "miniAvatar": "/items/ressources/mini/Corde.webp"
+            }
+          ]
+        ],
+        "PA": 2
+      },
+      "_id": "690b60eb447435735bde3145",
+      "type": "rp",
+      "name": "Yourte",
+      "avatar": "/items/rp/Yourte.webp",
+      "miniAvatar": "/items/rp/mini/Yourte.webp",
+      "description": "Tes amis et toi vous aimez la proximité",
+      "quantite": 1,
+      "lootable": 2,
+      "craftable": true,
+      "repairItem": {
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "_id": "658c2d2052e994b9bc4023dd",
+        "type": "ressource",
+        "name": "Peau",
+        "avatar": "/items/ressources/skin.webp",
+        "description": "Peau d'un animal mort, classe ...",
+        "quantite": 4,
+        "miniAvatar": "/items/ressources/mini/skin.webp"
+      },
+      "__v": 0,
+      "buildable": {
+        "whatIsThere": {
+          "items": [],
+          "vehicles": [],
+          "perso": [],
+          "groupe": [],
+          "pnj": []
+        },
+        "caracs": {
+          "usure": 20,
+          "usureMax": 20,
+          "open": true,
+          "angle": 0,
+          "fov": 1,
+          "PA": 2,
+          "cout": [
+            {
+              "caracs": {
+                "poids": 1,
+                "degats": [],
+                "usure": 10,
+                "usureMax": 10,
+                "mode": [],
+                "bonus": 0
+              },
+              "type": "ressource",
+              "name": "Bois",
+              "avatar": "/items/ressources/wood.webp",
+              "miniAvatar": "/items/ressources/mini/wood.webp",
+              "description": "Du bois, ça brûle, entre autre.",
+              "quantite": 5,
+              "lootable": 0,
+              "craftable": false,
+              "_id": "65464dee568b7b6c99343e4b"
+            },
+            {
+              "caracs": {
+                "poids": 0.5,
+                "degats": [],
+                "usure": 5,
+                "usureMax": 5,
+                "mode": [],
+                "bonus": 0
+              },
+              "type": "ressource",
+              "name": "Peau",
+              "avatar": "/items/ressources/skin.webp",
+              "miniAvatar": "/items/ressources/mini/skin.webp",
+              "description": "Peau d'un animal mort, classe ...",
+              "quantite": 10,
+              "lootable": 0,
+              "craftable": false,
+              "_id": "658c2d2052e994b9bc4023dd"
+            },
+            {
+              "caracs": {
+                "poids": 0.5,
+                "degats": [],
+                "usure": 10,
+                "usureMax": 10,
+                "mode": [],
+                "bonus": 0
+              },
+              "type": "ressource",
+              "name": "Corde",
+              "avatar": "/items/ressources/Corde.webp",
+              "miniAvatar": "/items/ressources/mini/Corde.webp",
+              "description": "Elle a l'air relativement solide",
+              "quantite": 1,
+              "lootable": 0,
+              "craftable": true,
+              "_id": "65ccb4cd2b791d10be0d9a85"
+            }
+          ],
+          "unbuild": [
+            {
+              "caracs": {
+                "poids": 0.5,
+                "degats": [],
+                "usure": 5,
+                "usureMax": 5,
+                "mode": [],
+                "bonus": 0
+              },
+              "type": "ressource",
+              "name": "Peau",
+              "avatar": "/items/ressources/skin.webp",
+              "miniAvatar": "/items/ressources/mini/skin.webp",
+              "description": "Peau d'un animal mort, classe ...",
+              "quantite": 5,
+              "lootable": 0,
+              "craftable": false,
+              "_id": "658c2d2052e994b9bc4023dd"
+            },
+            {
+              "caracs": {
+                "poids": 1,
+                "degats": [],
+                "usure": 10,
+                "usureMax": 10,
+                "mode": [],
+                "bonus": 0
+              },
+              "type": "ressource",
+              "name": "Bois",
+              "avatar": "/items/ressources/wood.webp",
+              "miniAvatar": "/items/ressources/mini/wood.webp",
+              "description": "Du bois, ça brûle, entre autre.",
+              "quantite": 2,
+              "lootable": 0,
+              "craftable": false,
+              "_id": "65464dee568b7b6c99343e4b"
+            }
+          ],
+          "capacite": 5,
+          "itemCapacite": 10,
+          "ac": 1,
+          "garde": false,
+          "authorized": [],
+          "waterProd": false,
+          "characterRegen": null
+        },
+        "extensions": {
+          "extandable": 0,
+          "type": "extensionCampement",
+          "slots": []
+        },
+        "_id": "690b61d1023350d93c3a500a",
+        "type": "rp",
+        "tileType": [],
+        "name": "Yourte",
+        "avatar": "/batiments/Yourte.webp",
+        "description": "Un abri sommaire mais qui protège de la pluie",
+        "buildable": true,
+        "repairItem": {
+          "caracs": {
+            "poids": 0.5,
+            "degats": [],
+            "usure": 5,
+            "usureMax": 5,
+            "mode": [],
+            "bonus": 0
+          },
+          "type": "ressource",
+          "name": "Peau",
+          "avatar": "/items/ressources/skin.webp",
+          "miniAvatar": "/items/ressources/mini/skin.webp",
+          "description": "Peau d'un animal mort, classe ...",
+          "quantite": 5,
+          "lootable": 0,
+          "craftable": false,
+          "_id": "658c2d2052e994b9bc4023dd"
+        },
+        "lootType": [],
+        "miniAvatar": "/batiments/mini/Yourte.webp",
+        "__v": 1,
+        "unbuildable": "690b60eb447435735bde3145"
+      }
+    },
+    {
+      "caracs": { "bonus": 0, "poids": 1, "usure": 5, "usureMax": 5 },
+      "craft": {
+        "bricolage": 12,
+        "craftList": [
+          [
+            {
+              "caracs": { "poids": 1, "usure": 10, "usureMax": 10 },
+              "_id": "65464dee568b7b6c99343e4b",
+              "type": "ressource",
+              "name": "Bois",
+              "avatar": "/items/ressources/wood.webp",
+              "description": "Du bois, ça brûle, entre autre.",
+              "quantite": 1,
+              "miniAvatar": "/items/ressources/mini/wood.webp"
+            }
+          ]
+        ],
+        "PA": 2
+      },
+      "_id": "69125efff30245f921344c2b",
+      "type": "rp",
+      "name": "Piège rudimentaire",
+      "avatar": "/items/rp/Piegerudimentaire.webp",
+      "miniAvatar": "/items/rp/mini/Piegerudimentaire.webp",
+      "description": "Les rats tremblent déjà (rapporte jusqu'à 3 viandes)",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": true,
+      "__v": 0,
+      "specialAction": {
+        "type": "trap",
+        "args": { "quantity": 3 },
+        "title": "Braconner du petit gibier",
+        "PA": 1,
+        "description": "Essayer d'attraper à manger à la prochaine lune (rapporte jusqu'à 3 viandes)"
+      }
+    },
+    {
+      "caracs": { "poids": 2, "usure": 5, "bonus": 0, "usureMax": 5 },
+      "craft": {
+        "bricolage": 14,
+        "craftList": [
+          [
+            {
+              "caracs": { "poids": 1, "usure": 10, "usureMax": 10 },
+              "_id": "65464dee568b7b6c99343e4b",
+              "type": "ressource",
+              "name": "Bois",
+              "avatar": "/items/ressources/wood.webp",
+              "description": "Du bois, ça brûle, entre autre.",
+              "quantite": 1,
+              "miniAvatar": "/items/ressources/mini/wood.webp"
+            },
+            {
+              "caracs": { "poids": 0.5, "usure": 10, "usureMax": 10 },
+              "_id": "65ccb4cd2b791d10be0d9a85",
+              "type": "ressource",
+              "name": "Corde",
+              "avatar": "/items/ressources/Corde.webp",
+              "description": "Elle a l'air relativement solide",
+              "quantite": 1,
+              "craftable": true,
+              "miniAvatar": "/items/ressources/mini/Corde.webp"
+            }
+          ]
+        ],
+        "PA": 3
+      },
+      "_id": "69126e4cee74a40b05860c2c",
+      "type": "rp",
+      "name": "Piège élaboré",
+      "avatar": "/items/rp/Piegeelabore.webp",
+      "miniAvatar": "/items/rp/mini/Piegeelabore.webp",
+      "description": "Fais gaffe de pas chopper un truc plus gros que toi (rapporte jusqu'à 6 viandes)",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": true,
+      "__v": 0,
+      "specialAction": {
+        "type": "trap",
+        "args": { "quantity": 6 },
+        "title": "Braconner du gibier",
+        "PA": 1,
+        "description": "Essayer un gros truc à manger à la prochaine lune (rapporte jusqu'à 6 viandes)"
+      }
+    },
+    {
+      "caracs": { "poids": 1, "usure": 100, "bonus": 0, "usureMax": 100 },
+      "_id": "6914fa4d7abc9fbdb5f2cebe",
+      "type": "ressource",
+      "name": "Or",
+      "avatar": "/items/ressources/Or.webp",
+      "miniAvatar": "/items/ressources/mini/Or.webp",
+      "description": "T'aimes quand ça brille ? Tu vas être servi.",
+      "quantite": 1,
+      "lootable": 3,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.2, "usure": 100, "bonus": 0, "usureMax": 100 },
+      "_id": "6914fb327abc9fbdb5f4caa9",
+      "type": "ressource",
+      "name": "Diamant",
+      "avatar": "/items/ressources/Diamant.webp",
+      "miniAvatar": "/items/ressources/mini/Diamant.webp",
+      "description": "Il sont éternels contrairement à toi.",
+      "quantite": 1,
+      "lootable": 3,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.5, "usure": 2, "bonus": 80, "usureMax": 2 },
+      "craft": {
+        "genericCraft": { "prot": 2, "cond": 4 },
+        "bricolage": 14,
+        "requiredItem": {
+          "caracs": { "poids": 1, "usure": 5, "usureMax": 5, "bonus": 20 },
+          "_id": "65464d5ec84122308f2a3ab4",
+          "type": "nrt",
+          "name": "Viande",
+          "avatar": "/items/nrt/meat.webp",
+          "description": "De la viande.",
+          "quantite": 1,
+          "foodType": "prot",
+          "miniAvatar": "/items/nrt/mini/meat.webp"
+        },
+        "PA": 1
+      },
+      "_id": "692303554eb8684d33883e4c",
+      "type": "nrt",
+      "foodType": "prot",
+      "name": "Tartare du Chef",
+      "avatar": "/items/nrt/TartareduChef.webp",
+      "miniAvatar": "/items/nrt/mini/TartareduChef.webp",
+      "description": "Une manière élégante de dire que tu ne manges que de la viande crue.",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": true,
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.3, "usure": 3, "usureMax": 3, "bonus": 15 },
+      "craft": {
+        "genericCraft": { "fruit": 3, "special": 1 },
+        "bricolage": 15,
+        "requiredItem": {
+          "caracs": { "poids": 0.1, "usure": 2, "usureMax": 2, "bonus": 4 },
+          "_id": "65d5f5c9d442ff844e0a6c1a",
+          "type": "nrt",
+          "name": "Champignon de pied",
+          "avatar": "/items/nrt/Champignondepied.webp",
+          "description": "Quand ça a poussé sur ton pied, t'étais septique. Mais il parait que ça se mange ! Du coup, c'est une bonne nouvelle non ?",
+          "quantite": 1,
+          "foodType": "special",
+          "effects": [
+            {
+              "name": "Constit (+1)",
+              "carac": "caracs.constitution",
+              "bonus": 1,
+              "description": "Ca renforce tes défenses immunitaires et ça donne un peu d'air à tes doigts de pieds. (+1 Constit)",
+              "_id": "678d1eaac8ddfffa953662f7"
+            }
+          ],
+          "miniAvatar": "/items/nrt/mini/Champignondepied.webp"
+        },
+        "PA": 1
+      },
+      "_id": "692304e14eb8684d338ae75e",
+      "type": "boisson",
+      "foodType": "alcool",
+      "name": "Fruits fermentés",
+      "avatar": "/items/boisson/Fruitsfermentes.webp",
+      "miniAvatar": "/items/boisson/mini/Fruitsfermentes.webp",
+      "description": "Un moyen efficace de se réchauffer le coeur et les extrémités.",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": true,
+      "effects": [
+        {
+          "name": "faim (+20)",
+          "carac": "faim",
+          "bonus": 20,
+          "description": "Après avoir siroté, il te reste plus qu'à croquer (+20 faim)",
+          "forceEffect": true,
+          "_id": "692304e14eb8684d338ae75f"
+        },
+        {
+          "name": "Constit (+2)",
+          "carac": "caracs.constitution",
+          "bonus": 2,
+          "description": "C'est peut-être que dans la tête, mais tu te sens plus solide (Constit +2)",
+          "forceEffect": false,
+          "_id": "692304e14eb8684d338ae760"
+        }
+      ],
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.5, "usure": 6, "usureMax": 6, "bonus": 15 },
+      "craft": {
+        "genericCraft": { "fruit": 2, "special": 1 },
+        "bricolage": 13,
+        "requiredItem": {
+          "caracs": { "poids": 0.1, "usure": 2, "usureMax": 2, "bonus": 4 },
+          "_id": "65d5f5c9d442ff844e0a6c1a",
+          "type": "nrt",
+          "name": "Champignon de pied",
+          "avatar": "/items/nrt/Champignondepied.webp",
+          "description": "Quand ça a poussé sur ton pied, t'étais septique. Mais il parait que ça se mange ! Du coup, c'est une bonne nouvelle non ?",
+          "quantite": 1,
+          "foodType": "special",
+          "effects": [
+            {
+              "name": "Constit (+1)",
+              "carac": "caracs.constitution",
+              "bonus": 1,
+              "description": "Ca renforce tes défenses immunitaires et ça donne un peu d'air à tes doigts de pieds. (+1 Constit)",
+              "_id": "678d1eaac8ddfffa953662f7"
+            }
+          ],
+          "miniAvatar": "/items/nrt/mini/Champignondepied.webp"
+        },
+        "extensions": ["Cuisine"],
+        "PA": 1
+      },
+      "_id": "692306cb4eb8684d338ed082",
+      "type": "boisson",
+      "foodType": "alcool",
+      "name": "Alcool de fruits",
+      "avatar": "/items/boisson/Alcooldefruits.webp",
+      "miniAvatar": "/items/boisson/mini/Alcooldefruits.webp",
+      "description": "Quand t'as du matos, c'est plus facile de faire un boisson correcte. ",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": true,
+      "effects": [
+        {
+          "name": "Faim (+20)",
+          "carac": "faim",
+          "bonus": 20,
+          "description": "Les morceaux, c'est ce que tu préfères, gourmand. (+20 faim)",
+          "forceEffect": true,
+          "_id": "692306cb4eb8684d338ed083"
+        },
+        {
+          "name": "Force (+2)",
+          "carac": "caracs.force",
+          "bonus": 2,
+          "description": "Tu te sens ragaillardi ! (+2 force)",
+          "forceEffect": false,
+          "_id": "692306cb4eb8684d338ed084"
+        },
+        {
+          "name": "AC (-1)",
+          "carac": "caracs.ac",
+          "bonus": -1,
+          "description": "Par contre tu risques de prendre plus de coups (-1 AC)",
+          "forceEffect": true,
+          "_id": "692306cb4eb8684d338ed085"
+        }
+      ],
+      "__v": 1
+    },
+    {
+      "caracs": { "poids": 0.1, "usure": 50, "bonus": 0, "usureMax": 50 },
+      "craft": {
+        "bricolage": 14,
+        "craftList": [
+          [
+            {
+              "caracs": { "poids": 1, "usure": 100, "usureMax": 100 },
+              "_id": "6914fa4d7abc9fbdb5f2cebe",
+              "type": "ressource",
+              "name": "Or",
+              "avatar": "/items/ressources/Or.webp",
+              "miniAvatar": "/items/ressources/mini/Or.webp",
+              "description": "T'aimes quand ça brille ? Tu vas être servi.",
+              "quantite": 1
+            }
+          ]
+        ],
+        "extensions": ["Atelier", "Atelier mobile"],
+        "PA": 2
+      },
+      "_id": "69357553454e902de4243185",
+      "type": "rp",
+      "name": "Alliance",
+      "avatar": "/items/rp/Alliance.webp",
+      "miniAvatar": "/items/rp/mini/Alliance.webp",
+      "description": "Parce que l'amour est plus fort que l'apocalypse. ",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": true,
+      "repairItem": {
+        "caracs": { "poids": 1, "usure": 100, "usureMax": 100 },
+        "_id": "6914fa4d7abc9fbdb5f2cebe",
+        "type": "ressource",
+        "name": "Or",
+        "avatar": "/items/ressources/Or.webp",
+        "miniAvatar": "/items/ressources/mini/Or.webp",
+        "description": "T'aimes quand ça brille ? Tu vas être servi.",
+        "quantite": 1
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.1, "usure": 50, "bonus": 0, "usureMax": 50 },
+      "craft": {
+        "bricolage": 14,
+        "craftList": [
+          [
+            {
+              "caracs": { "poids": 1, "usure": 100, "usureMax": 100 },
+              "_id": "6914fa4d7abc9fbdb5f2cebe",
+              "type": "ressource",
+              "name": "Or",
+              "avatar": "/items/ressources/Or.webp",
+              "miniAvatar": "/items/ressources/mini/Or.webp",
+              "description": "T'aimes quand ça brille ? Tu vas être servi.",
+              "quantite": 1
+            },
+            {
+              "caracs": { "poids": 0.2, "usure": 100, "usureMax": 100 },
+              "_id": "6914fb327abc9fbdb5f4caa9",
+              "type": "ressource",
+              "name": "Diamant",
+              "avatar": "/items/ressources/Diamant.webp",
+              "miniAvatar": "/items/ressources/mini/Diamant.webp",
+              "description": "Il sont éternels contrairement à toi.",
+              "quantite": 1
+            }
+          ]
+        ],
+        "extensions": ["Atelier", "Atelier mobile"],
+        "PA": 2
+      },
+      "_id": "693575c5454e902de425a205",
+      "type": "rp",
+      "name": "Alliance avec diamant",
+      "avatar": "/items/rp/Allianceavecdiamant.webp",
+      "miniAvatar": "/items/rp/mini/Allianceavecdiamant.webp",
+      "description": "Pour régler le dilemme de savoir qui aime plus l'autre. ",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": true,
+      "repairItem": {
+        "caracs": { "poids": 1, "usure": 100, "usureMax": 100 },
+        "_id": "6914fa4d7abc9fbdb5f2cebe",
+        "type": "ressource",
+        "name": "Or",
+        "avatar": "/items/ressources/Or.webp",
+        "miniAvatar": "/items/ressources/mini/Or.webp",
+        "description": "T'aimes quand ça brille ? Tu vas être servi.",
+        "quantite": 1
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 1.3, "usure": 30, "bonus": 0, "usureMax": 30 },
+      "craft": {
+        "bricolage": 16,
+        "craftList": [
+          [
+            {
+              "caracs": { "poids": 1, "usure": 100, "usureMax": 100 },
+              "_id": "6914fa4d7abc9fbdb5f2cebe",
+              "type": "ressource",
+              "name": "Or",
+              "avatar": "/items/ressources/Or.webp",
+              "miniAvatar": "/items/ressources/mini/Or.webp",
+              "description": "T'aimes quand ça brille ? Tu vas être servi.",
+              "quantite": 2
+            },
+            {
+              "caracs": { "poids": 0.2, "usure": 100, "usureMax": 100 },
+              "_id": "6914fb327abc9fbdb5f4caa9",
+              "type": "ressource",
+              "name": "Diamant",
+              "avatar": "/items/ressources/Diamant.webp",
+              "miniAvatar": "/items/ressources/mini/Diamant.webp",
+              "description": "Il sont éternels contrairement à toi.",
+              "quantite": 1
+            }
+          ]
+        ],
+        "extensions": ["Atelier", "Atelier mobile"],
+        "PA": 4
+      },
+      "_id": "693576c0454e902de4299c56",
+      "type": "armure",
+      "name": "Couronne royale",
+      "avatar": "/items/armures/Couronneroyale.webp",
+      "miniAvatar": "/items/armures/mini/Couronneroyale.webp",
+      "description": "Le roi lion avait pas besoin d'autant de bijoux pour en imposer, tu sais ? ",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": true,
+      "repairItem": {
+        "caracs": { "poids": 1, "usure": 100, "usureMax": 100 },
+        "_id": "6914fa4d7abc9fbdb5f2cebe",
+        "type": "ressource",
+        "name": "Or",
+        "avatar": "/items/ressources/Or.webp",
+        "miniAvatar": "/items/ressources/mini/Or.webp",
+        "description": "T'aimes quand ça brille ? Tu vas être servi.",
+        "quantite": 1
+      },
+      "perk": {
+        "healItems": [],
+        "permanent": false,
+        "_id": "65d741e5e74cb61869756fdf",
+        "type": "bonus",
+        "level": 0,
+        "name": "Charisme",
+        "avatar": "charisme",
+        "description": "T'es le roi du blabla mais moi tu me la fais pas. (+1 Charisme)",
+        "characterBonus": [
+          {
+            "carac": "caracs.charisme",
+            "bonus": 1,
+            "_id": "65d741e5e74cb61869756fe0"
+          },
+          {
+            "carac": "caracs.charismeMax",
+            "bonus": 1,
+            "_id": "65d741e5e74cb61869756fe1"
+          }
+        ],
+        "__v": 0,
+        "miniAvatar": "mini/charisme"
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "bonus": 0, "poids": 0.2, "usure": 10, "usureMax": 10 },
+      "_id": "694072bf5c51f861589e5358",
+      "type": "rp",
+      "name": "Peluche licorne",
+      "avatar": "/items/rp/Peluchelicorne.webp",
+      "miniAvatar": "/items/rp/mini/Peluchelicorne.webp",
+      "description": "Pour un monde meilleur, sans les méchants vilains pas beaux",
+      "quantite": 1,
+      "lootable": 3,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.1, "usure": 5, "bonus": 10, "usureMax": 5 },
+      "_id": "694bf02f1dd5121f5631b624",
+      "type": "boisson",
+      "foodType": "special",
+      "name": "Infusion de père Noël",
+      "avatar": "/items/boisson/InfusiondepereNoel.webp",
+      "miniAvatar": "/items/boisson/mini/InfusiondepereNoel.webp",
+      "description": "Un mélange à base de morceaux de père Noël AOC.",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.2, "usure": 20, "bonus": 0, "usureMax": 20 },
+      "_id": "694fac9c6c2350ce87f0e850",
+      "type": "rp",
+      "name": "One Piece : Tome 111",
+      "avatar": "/items/rp/OnePieceTome111.webp",
+      "miniAvatar": "/items/rp/mini/OnePieceTome111.webp",
+      "description": "Très difficile à trouver à la Fnac à Noel",
+      "quantite": 1,
+      "lootable": 3,
+      "craftable": false,
+      "repairItem": {
+        "caracs": { "poids": 0.1, "usure": 10, "usureMax": 10 },
+        "_id": "67d15292b80f4a01c8506e7a",
+        "type": "ressource",
+        "foodType": "prot",
+        "name": "Papier",
+        "avatar": "/items/ressources/Papier.webp",
+        "description": "Du papier, ça sert à quoi ?",
+        "quantite": 1,
+        "craftable": true,
+        "miniAvatar": "/items/ressources/mini/Papier.webp"
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.8, "usure": 30, "bonus": 0, "usureMax": 30 },
+      "_id": "694fad436c2350ce87f1398f",
+      "type": "rp",
+      "name": "Trophée Championnat de Kart du CE de la Cogip",
+      "avatar": "/items/rp/TropheeChampionnatdeKartduCEdelaCogip.webp",
+      "miniAvatar": "/items/rp/mini/TropheeChampionnatdeKartduCEdelaCogip.webp",
+      "description": "Il n'y a pas de petites victoires. ",
+      "quantite": 1,
+      "lootable": 2,
+      "craftable": false,
+      "repairItem": {
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "_id": "65d891e652c5407b4bd57720",
+        "type": "ressource",
+        "name": "Ferraille",
+        "avatar": "/items/ressources/Ferraille.webp",
+        "description": "Quelques bouts, entre autres, de métal.",
+        "quantite": 1,
+        "miniAvatar": "/items/ressources/mini/Ferraille.webp"
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.5, "usure": 10, "bonus": 0, "usureMax": 10 },
+      "craft": {
+        "bricolage": 5,
+        "craftList": [
+          [
+            {
+              "caracs": { "poids": 0.1, "usure": 15, "usureMax": 15 },
+              "_id": "66d1c2cd1797288d60feb76f",
+              "type": "rp",
+              "name": "Zippo Communiste",
+              "avatar": "/items/rp/ZippoCommuniste.webp",
+              "description": "Parce que les lendemains qui chantent seront chauds.",
+              "quantite": 1,
+              "miniAvatar": "/items/rp/mini/ZippoCommuniste.webp"
+            },
+            {
+              "caracs": { "poids": 0.2, "usure": 15, "usureMax": 15 },
+              "_id": "66e091e9d8b5d78955ba2e3d",
+              "type": "rp",
+              "name": "Zippo du baigneur heureux",
+              "avatar": "/items/rp/Zippodubaigneurheureux.webp",
+              "description": "Parce que le seul truc qui est plus chaud que toi c'est un coup de soleil entre les omoplates.",
+              "quantite": 1,
+              "miniAvatar": "/items/rp/mini/Zippodubaigneurheureux.webp"
+            },
+            {
+              "caracs": { "poids": 0.2, "usure": 15, "usureMax": 15 },
+              "_id": "66e0923dd8b5d78955bd8ad6",
+              "type": "rp",
+              "name": "Zippo du chasseur de tigre",
+              "avatar": "/items/rp/Zippoduchasseurdetigre.webp",
+              "description": "Parce que t'adores t'allumer un cigarillo après un safari.",
+              "quantite": 1,
+              "miniAvatar": "/items/rp/mini/Zippoduchasseurdetigre.webp"
+            },
+            {
+              "caracs": { "poids": 0.1, "usure": 15, "usureMax": 15 },
+              "_id": "66d1c2aa1797288d60fd48d6",
+              "type": "rp",
+              "name": "Zippo franchouillard",
+              "avatar": "/items/rp/Zippofranchouillard.webp",
+              "description": "Parce que t'es chaud bouillant pour ta patrie.",
+              "quantite": 1,
+              "miniAvatar": "/items/rp/mini/Zippofranchouillard.webp"
+            }
+          ]
+        ],
+        "PA": 5
+      },
+      "_id": "694fadf16c2350ce87f1ae6d",
+      "type": "perk",
+      "name": "Allume feu de compétition",
+      "avatar": "/items/perks/Allumefeudecompetition.webp",
+      "miniAvatar": "/items/perks/mini/Allumefeudecompetition.webp",
+      "description": "Avec ça, allumer un feu de camp prends une tout autre dimension",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": true,
+      "perk": {
+        "_id": "6922e9724eb8684d3358505b",
+        "type": "bonus",
+        "level": 6,
+        "name": "Bien couvert",
+        "avatar": "/perks/Biencouvert.webp",
+        "miniAvatar": "/perks/mini/Biencouvert.webp",
+        "description": "Tu sais utiliser ta garde robe pour te protéger du temps (+2 de résistance aux maladies)",
+        "characterBonus": [
+          {
+            "carac": "exp.perksBonus.diseaseResistance",
+            "bonus": 2,
+            "_id": "6922e9724eb8684d3358505c"
+          }
+        ],
+        "healItems": [],
+        "permanent": false,
+        "__v": 0
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.1, "usure": 5, "bonus": 0, "usureMax": 5 },
+      "_id": "69529b017abbfd3998b39e84",
+      "type": "armure",
+      "name": "Masque chirurgical",
+      "avatar": "/items/armures/Masquechirurgical.webp",
+      "miniAvatar": "/items/armures/mini/Masquechirurgical.webp",
+      "description": "Le gouvernement a dt que ça sert à rien mais qu'il FAUT le mettre.",
+      "quantite": 1,
+      "lootable": 1,
+      "craftable": false,
+      "perk": {
+        "_id": "6922ea394eb8684d33599c1c",
+        "type": "bonus",
+        "level": 2,
+        "name": "Couvert",
+        "avatar": "/perks/Couvert.webp",
+        "miniAvatar": "/perks/mini/Couvert.webp",
+        "description": "Tu sais que les intempéries, c'est pas bon pour ta santé (+1 résistance aux maladies)",
+        "characterBonus": [
+          {
+            "carac": "exp.perksBonus.diseaseResistance",
+            "bonus": 1,
+            "_id": "6922ea394eb8684d33599c1d"
+          }
+        ],
+        "healItems": [],
+        "permanent": false,
+        "__v": 0
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.1, "usure": 8, "bonus": 0, "usureMax": 8 },
+      "_id": "69529b737abbfd3998b4b922",
+      "type": "armure",
+      "name": "Masque FFP2",
+      "avatar": "/items/armures/MasqueFFP2.webp",
+      "miniAvatar": "/items/armures/mini/MasqueFFP2.webp",
+      "description": "Et on oublie pas de se laver les mains régulièrement.",
+      "quantite": 1,
+      "lootable": 2,
+      "craftable": false,
+      "perk": {
+        "_id": "6922e9724eb8684d3358505b",
+        "type": "bonus",
+        "level": 6,
+        "name": "Bien couvert",
+        "avatar": "/perks/Biencouvert.webp",
+        "miniAvatar": "/perks/mini/Biencouvert.webp",
+        "description": "Tu sais utiliser ta garde robe pour te protéger du temps (+2 de résistance aux maladies)",
+        "characterBonus": [
+          {
+            "carac": "exp.perksBonus.diseaseResistance",
+            "bonus": 2,
+            "_id": "6922e9724eb8684d3358505c"
+          }
+        ],
+        "healItems": [],
+        "permanent": false,
+        "__v": 0
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 0.5, "usure": 5, "bonus": 0, "usureMax": 5 },
+      "_id": "69529c447abbfd3998b69324",
+      "type": "armure",
+      "name": "Coupe-vent",
+      "avatar": "/items/armures/Coupevent.webp",
+      "miniAvatar": "/items/armures/mini/Coupevent.webp",
+      "description": "Du vert, du mauve et des phtalates : la classe années 90.",
+      "quantite": 1,
+      "lootable": 1,
+      "craftable": false,
+      "repairItem": {
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "_id": "658c2d2052e994b9bc4023dd",
+        "type": "ressource",
+        "name": "Peau",
+        "avatar": "/items/ressources/skin.webp",
+        "description": "Peau d'un animal mort, classe ...",
+        "quantite": 1,
+        "miniAvatar": "/items/ressources/mini/skin.webp"
+      },
+      "perk": {
+        "_id": "6922e9724eb8684d3358505b",
+        "type": "bonus",
+        "level": 6,
+        "name": "Bien couvert",
+        "avatar": "/perks/Biencouvert.webp",
+        "miniAvatar": "/perks/mini/Biencouvert.webp",
+        "description": "Tu sais utiliser ta garde robe pour te protéger du temps (+2 de résistance aux maladies)",
+        "characterBonus": [
+          {
+            "carac": "exp.perksBonus.diseaseResistance",
+            "bonus": 2,
+            "_id": "6922e9724eb8684d3358505c"
+          }
+        ],
+        "healItems": [],
+        "permanent": false,
+        "__v": 0
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 1, "usure": 8, "bonus": 0, "usureMax": 8 },
+      "_id": "69529d257abbfd3998b8a13b",
+      "type": "armure",
+      "name": "Poncho",
+      "avatar": "/items/armures/Poncho.webp",
+      "miniAvatar": "/items/armures/mini/Poncho.webp",
+      "description": "Rien de tel qu'un poncho cradingue pour se sentir chez soi dans un monde post-apocalyptique.",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": false,
+      "repairItem": {
+        "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+        "_id": "658c2d2052e994b9bc4023dd",
+        "type": "ressource",
+        "name": "Peau",
+        "avatar": "/items/ressources/skin.webp",
+        "description": "Peau d'un animal mort, classe ...",
+        "quantite": 1,
+        "miniAvatar": "/items/ressources/mini/skin.webp"
+      },
+      "perk": {
+        "_id": "6922e9724eb8684d3358505b",
+        "type": "bonus",
+        "level": 6,
+        "name": "Bien couvert",
+        "avatar": "/perks/Biencouvert.webp",
+        "miniAvatar": "/perks/mini/Biencouvert.webp",
+        "description": "Tu sais utiliser ta garde robe pour te protéger du temps (+2 de résistance aux maladies)",
+        "characterBonus": [
+          {
+            "carac": "exp.perksBonus.diseaseResistance",
+            "bonus": 2,
+            "_id": "6922e9724eb8684d3358505c"
+          }
+        ],
+        "healItems": [],
+        "permanent": false,
+        "__v": 0
+      },
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 1.5, "usure": 10, "bonus": 1, "usureMax": 10 },
+      "_id": "695678dbd16aeff1430e6f79",
+      "type": "nrt",
+      "foodType": "special",
+      "tileType": ["Mer"],
+      "saisons": ["Printemps", "Ete", "Automne", "Hiver"],
+      "name": "vieux filet de pêche troué",
+      "avatar": "/items/nrt/vieuxfiletdepechetroue.webp",
+      "miniAvatar": "/items/nrt/mini/vieuxfiletdepechetroue.webp",
+      "description": "Tu peux toujours tenter de rogner les cordes.",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": false,
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 1, "usure": 80, "bonus": 0, "usureMax": 80 },
+      "_id": "695679cdd16aeff143114347",
+      "type": "nrt",
+      "foodType": "chim",
+      "tileType": ["Mer"],
+      "saisons": ["Automne", "Hiver"],
+      "name": "Pollution plastique",
+      "avatar": "/items/nrt/Pollutionplastique.webp",
+      "miniAvatar": "/items/nrt/mini/Pollutionplastique.webp",
+      "description": "Pas si fantastique, le plastique. Ca nourrit pas son homme.",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": false,
+      "effects": [
+        {
+          "name": "perte de constitution (-3)",
+          "carac": "caracs.constitution",
+          "bonus": -3,
+          "description": "T'es con ou quoi ? (-3 constit)",
+          "forceEffect": true,
+          "_id": "695679cdd16aeff143114348"
+        }
+      ],
+      "__v": 0
+    },
+    {
+      "caracs": { "poids": 14, "usure": 20, "bonus": 5, "usureMax": 20 },
+      "requiredCaracs": { "force": 18 },
+      "craft": {
+        "bricolage": 19,
+        "craftList": [
+          [
+            {
+              "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+              "_id": "658c2d2052e994b9bc4023dd",
+              "type": "ressource",
+              "name": "Peau",
+              "avatar": "/items/ressources/skin.webp",
+              "description": "Peau d'un animal mort, classe ...",
+              "quantite": 5,
+              "miniAvatar": "/items/ressources/mini/skin.webp"
+            },
+            {
+              "caracs": { "poids": 0.5, "usure": 5, "usureMax": 5 },
+              "_id": "65d891e652c5407b4bd57720",
+              "type": "ressource",
+              "name": "Ferraille",
+              "avatar": "/items/ressources/Ferraille.webp",
+              "description": "Quelques bouts, entre autres, de métal.",
+              "quantite": 10,
+              "miniAvatar": "/items/ressources/mini/Ferraille.webp"
+            },
+            {
+              "caracs": { "poids": 1, "usure": 100, "usureMax": 100 },
+              "_id": "6914fa4d7abc9fbdb5f2cebe",
+              "type": "ressource",
+              "name": "Or",
+              "avatar": "/items/ressources/Or.webp",
+              "miniAvatar": "/items/ressources/mini/Or.webp",
+              "description": "T'aimes quand ça brille ? Tu vas être servi.",
+              "quantite": 4
+            }
+          ]
+        ],
+        "extensions": ["Atelier"],
+        "PA": 8
+      },
+      "_id": "69579b86d16aeff143a4ff06",
+      "type": "armure",
+      "name": "Armure Alpha",
+      "avatar": "/items/armures/ArmureAlpha.webp",
+      "miniAvatar": "/items/armures/mini/ArmureAlpha.webp",
+      "description": "L'alpha romeo de la baston, pour les durs, les vrais. ",
+      "quantite": 1,
+      "lootable": 0,
+      "craftable": true,
       "__v": 0
     }
   ]
