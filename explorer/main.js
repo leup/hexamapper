@@ -12,6 +12,11 @@ fetch("items.json")
 
     console.log("Items de type 'nrt' :", nrtItems);
 
+    // Extraire les types de nourriture uniques
+    const foodTypes = [
+      ...new Set(nrtItems.map((item) => item.foodType).filter(Boolean)),
+    ].sort();
+
     // Initialiser Tabulator
     new Tabulator("#table-nrt", {
       data: nrtItems,
@@ -70,7 +75,14 @@ fetch("items.json")
             values: ["Printemps", "Ete", "Automne", "Hiver"],
           },
         },
-        { title: "Type de nourriture", field: "foodType" },
+        {
+          title: "Type de nourriture",
+          field: "foodType",
+          headerFilter: "list",
+          headerFilterParams: {
+            values: foodTypes,
+          },
+        },
       ],
     });
   })
